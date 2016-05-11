@@ -1,0 +1,42 @@
+<!-- Clinical Signs And Laboratory Results -->
+<div class="row">
+    <div class="col-md-push-1 col-sm-12 col-md-10 ttiss-block">
+        <div class="ttiss-heading">
+            <h3 class="panel-title text-uppercase">
+                9. Comments - Completed By Canadian Blood Services (CBS)
+            </h3>
+        </div>
+        <div class="row ttiss-body">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="cbscom">Comments by CBS</label>
+                            <textarea class="form-control" data-bind="textInput: data.cbscom" id="cbscom"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group ">
+                            <label for="medname">CBS Medical Director</label>
+                            <input data-bind="textInput: data.medname" type="text" class="form-control" id="medname">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="medtel">Telephone</label>
+                            <input type="text" class="form-control" data-bind="textInput: data.medtel" id="medtel">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="datemed">Date:</label>
+                            <input type="text" class="form-control" data-bind="redcapDate: data.datemed" id="datemed">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,340 @@
+.uppercase {
+    text-transform: uppercase;
+}
+
+.div-horz {
+    border-top: 1px solid maroon;
+}
+.div-vert {
+    border-right:1px solid maroon;
+}
+
+.ttiss-heading {
+    color: #ffffff;
+    background: maroon;
+    padding:4px;
+    margin-left: -15px;
+    margin-right: -15px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px 5px 0 0;
+}
+
+.ttiss-block {
+    border: 1px solid maroon;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+    margin-bottom: 10px;
+}
+
+.ttiss-block:first-child {
+    /*margin-top:10px;*/
+}
+
+.ttiss-special{
+    background: white;
+    color: maroon;
+    border-bottom: 1px solid maroon;
+}
+/* https://blog.donnierayjones.com/2014/10/fix-bootstrap3-printing/ */
+@media print {
+    .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+        float: left;
+    }
+    .col-sm-12 {
+        width: 100%;
+    }
+    .col-sm-11 {
+        width: 91.66666667%;
+    }
+    .col-sm-10 {
+        width: 83.33333333%;
+    }
+    .col-sm-9 {
+        width: 75%;
+    }
+    .col-sm-8 {
+        width: 66.66666667%;
+    }
+    .col-sm-7 {
+        width: 58.33333333%;
+    }
+    .col-sm-6 {
+        width: 50%;
+    }
+    .col-sm-5 {
+        width: 41.66666667%;
+    }
+    .col-sm-4 {
+        width: 33.33333333%;
+    }
+    .col-sm-3 {
+        width: 25%;
+    }
+    .col-sm-2 {
+        width: 16.66666667%;
+    }
+    .col-sm-1 {
+        width: 8.33333333%;
+    }
+    .col-sm-pull-12 {
+        right: 100%;
+    }
+    .col-sm-pull-11 {
+        right: 91.66666667%;
+    }
+    .col-sm-pull-10 {
+        right: 83.33333333%;
+    }
+    .col-sm-pull-9 {
+        right: 75%;
+    }
+    .col-sm-pull-8 {
+        right: 66.66666667%;
+    }
+    .col-sm-pull-7 {
+        right: 58.33333333%;
+    }
+    .col-sm-pull-6 {
+        right: 50%;
+    }
+    .col-sm-pull-5 {
+        right: 41.66666667%;
+    }
+    .col-sm-pull-4 {
+        right: 33.33333333%;
+    }
+    .col-sm-pull-3 {
+        right: 25%;
+    }
+    .col-sm-pull-2 {
+        right: 16.66666667%;
+    }
+    .col-sm-pull-1 {
+        right: 8.33333333%;
+    }
+    .col-sm-pull-0 {
+        right: auto;
+    }
+    .col-sm-push-12 {
+        left: 100%;
+    }
+    .col-sm-push-11 {
+        left: 91.66666667%;
+    }
+    .col-sm-push-10 {
+        left: 83.33333333%;
+    }
+    .col-sm-push-9 {
+        left: 75%;
+    }
+    .col-sm-push-8 {
+        left: 66.66666667%;
+    }
+    .col-sm-push-7 {
+        left: 58.33333333%;
+    }
+    .col-sm-push-6 {
+        left: 50%;
+    }
+    .col-sm-push-5 {
+        left: 41.66666667%;
+    }
+    .col-sm-push-4 {
+        left: 33.33333333%;
+    }
+    .col-sm-push-3 {
+        left: 25%;
+    }
+    .col-sm-push-2 {
+        left: 16.66666667%;
+    }
+    .col-sm-push-1 {
+        left: 8.33333333%;
+    }
+    .col-sm-push-0 {
+        left: auto;
+    }
+    .col-sm-offset-12 {
+        margin-left: 100%;
+    }
+    .col-sm-offset-11 {
+        margin-left: 91.66666667%;
+    }
+    .col-sm-offset-10 {
+        margin-left: 83.33333333%;
+    }
+    .col-sm-offset-9 {
+        margin-left: 75%;
+    }
+    .col-sm-offset-8 {
+        margin-left: 66.66666667%;
+    }
+    .col-sm-offset-7 {
+        margin-left: 58.33333333%;
+    }
+    .col-sm-offset-6 {
+        margin-left: 50%;
+    }
+    .col-sm-offset-5 {
+        margin-left: 41.66666667%;
+    }
+    .col-sm-offset-4 {
+        margin-left: 33.33333333%;
+    }
+    .col-sm-offset-3 {
+        margin-left: 25%;
+    }
+    .col-sm-offset-2 {
+        margin-left: 16.66666667%;
+    }
+    .col-sm-offset-1 {
+        margin-left: 8.33333333%;
+    }
+    .col-sm-offset-0 {
+        margin-left: 0%;
+    }
+    .visible-xs {
+        display: none !important;
+    }
+    .hidden-xs {
+        display: block !important;
+    }
+    table.hidden-xs {
+        display: table;
+    }
+    tr.hidden-xs {
+        display: table-row !important;
+    }
+    th.hidden-xs,
+    td.hidden-xs {
+        display: table-cell !important;
+    }
+    .hidden-xs.hidden-print {
+        display: none !important;
+    }
+    .hidden-sm {
+        display: none !important;
+    }
+    .visible-sm {
+        display: block !important;
+    }
+    table.visible-sm {
+        display: table;
+    }
+    tr.visible-sm {
+        display: table-row !important;
+    }
+    th.visible-sm,
+    td.visible-sm {
+        display: table-cell !important;
+    }
+}
+
+.loader {
+    color:white;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #903;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+body {
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+}
+#case_id {
+    margin:0;
+}
+/* Used to line up the radio buttons when they overflow on smaller screens */
+.radio-inline+.radio-inline {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+#place_occurred_font {
+    font-size: 15px;
+}
+.clickable {
+    cursor: pointer;
+}
+label.has-error {
+    color: #a94442;
+}
+
+label {
+    text-transform: capitalize;
+}
+.subsection {
+    background-color: rgba(255, 0, 0, 0.41);
+    border-top: 1px solid #903;
+    border-bottom: 1px solid #903;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Roboto', sans-serif;
+}
+
+#showMenu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 10000;
+    background-color: rgba(153,0,51,.9);;
+    display: none;
+    color:white;
+}
+#messenger {
+    position: fixed;
+    top: 10px;
+    right: 50%;
+    width: 700px;
+    z-index: 1000;
+    margin-right: -350px;
+}
+
+.radio-inline, .checkbox-inline {
+    padding-left: 30px;
+}
+
+.saveButtonRow {
+    min-height: 30px;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default {
+    width: 100%;
+    border-radius: 0px;
+    background: maroon;
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-nav>li>a:hover {
+    border: 0px;
+}
+
+.div-vert-left {
+    border-left:1px solid maroon;
+}

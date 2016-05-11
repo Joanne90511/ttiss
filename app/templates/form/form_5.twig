@@ -1,0 +1,1128 @@
+<!--    Recipient Ident-->
+<div class="row">
+    <div class="col-md-push-1 col-sm-12 col-md-10 ttiss-block">
+        <div class="">
+            <div class="ttiss-heading">
+                <h3 class="panel-title text-uppercase">5. suspect blood products (blood components or plasma derivatives)</h3>
+            </div>
+            <div class="row ttiss-body">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>Component Type</label>
+                            <div data-bind="foreach: fields.component_type">
+                                <label class="radio-inline">
+                                    <input type="radio" id="component_type" data-bind="value:value,checked:$root.data.component_type"><span data-bind="text:label"></span>
+                                </label>
+                            </div>
+                            <small data-bind='redcapReset: data.component_type' class="text-muted clickable">Reset</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4>Product 1</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="prod_code_name1">Product Name</label>
+                                <select data-bind="
+                                                options: fields.prod_code_name1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_name1"
+                                        class="form-control" id="prod_code_name1">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" data-bind="visible: data.prod_code_name1() == '1'">
+                            <div class="form-group">
+                                <label for="prod_code_alb1">Product Specifics/Code</label>
+                                <select data-bind="
+                                                options: fields.prod_code_alb1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_alb1"
+                                        class="form-control" id="prod_code_alb1">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" data-bind="visible: data.prod_code_name1() == '2'">
+                            <div class="form-group">
+                                <label for="prod_code_buffy1">Product Specifics/Code</label>
+                                <select data-bind="
+                                                options: fields.prod_code_buffy1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_buffy1"
+                                        class="form-control" id="prod_code_buffy1">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" data-bind="visible: data.prod_code_name1() == '3'">
+                            <div class="form-group">
+                                <label for="prod_cod_coag1">Product Specifics/Code</label>
+                                <select data-bind="
+                                                options: fields.prod_cod_coag1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_cod_coag1"
+                                        class="form-control" id="prod_cod_coag1">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" data-bind="visible: data.prod_code_name1() == '4'">
+                            <div class="form-group">
+                                <label for="prod_code_cryo">Product Specifics/Code</label>
+                                <select data-bind="
+                                                options: fields.prod_code_cryo,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_cryo"
+                                        class="form-control" id="prod_code_cryo">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" data-bind="visible: data.prod_code_name1() == '5'">
+                            <div class="form-group">
+                                <label for="ivig_brand_1">Product Specifics/Code</label>
+                                <select data-bind="
+                                                options: fields.ivig_brand_1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.ivig_brand_1"
+                                        class="form-control" id="ivig_brand_1">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" data-bind="visible: data.prod_code_name1() == '6'">
+                            <div class="form-group">
+                                <label for="prod_code_immun1">Product Specifics/Code</label>
+                                <select data-bind="
+                                                options: fields.prod_code_immun1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_immun1"
+                                        class="form-control" id="prod_code_immun1">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" data-bind="visible: data.prod_code_name1() == '7'">
+                            <div class="form-group">
+                                <label for="prod_code_othplas1">Product Specifics/Code</label>
+                                <select data-bind="
+                                                options: fields.prod_code_othplas1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_othplas1"
+                                        class="form-control" id="prod_code_othplas1">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" data-bind="visible: data.prod_code_name1() == '8'">
+                            <div class="form-group">
+                                <label for="prod_code_plasma1">Product Specifics/Code</label>
+                                <select data-bind="
+                                                options: fields.prod_code_plasma1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_plasma1"
+                                        class="form-control" id="prod_code_plasma1">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" data-bind="visible: data.prod_code_name1() == '9'">
+                            <div class="form-group">
+                                <label for="prod_code_rbc1">Product Specifics/Code</label>
+                                <select data-bind="
+                                                options: fields.prod_code_rbc1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_rbc1"
+                                        class="form-control" id="prod_code_rbc1">
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="hosp_mod1">Hosp Mod</label>
+                                <select data-bind="
+                                                options: fields.hosp_mod1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.hosp_mod1"
+                                        class="form-control" id="hosp_mod1">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="supp_mod1">Supplier Mod</label>
+                                <select data-bind="
+                                                options: fields.supp_mod1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.supp_mod1"
+                                        class="form-control" id="supp_mod1">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="group_abo1">ABO Group</label>
+                                <select data-bind="
+                                                options: fields.group_abo1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.group_abo1"
+                                        class="form-control" id="group_abo1">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="group_rh1">Rh Group</label>
+                                <select data-bind="
+                                                options: fields.group_rh1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.group_rh1"
+                                        class="form-control" id="group_rh1">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="unitlot1">Unit/lot number of product #1</label>
+                                <input id="unitlot1" type="text" data-bind="textInput: data.unitlot1" class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="expiry_1">Expiry date</label>
+                                <input id="expiry_1" type="text" data-bind="redcapDate: data.expiry_1" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="amount1">Amount</label>
+                                <input id="amount1" type="text" data-bind="textInput: data.amount1" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="amount_unit1">Measure </label>
+                                <input id="amount_unit1" type="text" data-bind="textInput: data.amount_unit1" placeholder="eg. mL, mg" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="amount_frac1">Fraction</label>
+                                <select data-bind="
+                                                options: fields.amount_frac1,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.amount_frac1"
+                                        class="form-control" id="amount_frac1">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="trans_start_date1">Start Date</label>
+                                <input type="text" class="form-control" id="trans_start_date1" data-bind="redcapDate: data.trans_start_date1">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group"><label for="trans_start_time1">Start Time</label>
+                                <input id="trans_start_time1" data-bind="redcapTime: data.trans_start_time1" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group"><label for="trans_end_date1">End Date</label>
+                                <input id="trans_end_date1" data-bind="redcapDate: data.trans_end_date1" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group"><label for="trans_end_time1">End Time</label>
+                                <input id="trans_end_time1" data-bind="redcapTime: data.trans_end_time1" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="checkbox">
+                                <label for="suspect_pro2">
+                                    <input id="suspect_pro2" data-bind="redcapChecked: data.suspect_pro2" type="checkbox">
+                                    Suspect Blood Involved (second entry)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    SECOND PRODUCT-->
+                    <div data-bind="visible: data.suspect_pro2() == '1'">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h4>Product 2</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="prod_code_name2">Product Name</label>
+                                    <select data-bind="
+                                                options: fields.prod_code_name2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_name2"
+                                            class="form-control" id="prod_code_name2">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" data-bind="visible: data.prod_code_name2() == '1'">
+                                <div class="form-group">
+                                    <label for="prod_code_alb2">Product Specifics/Code</label>
+                                    <select data-bind="
+                                                options: fields.prod_code_alb2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_alb2"
+                                            class="form-control" id="prod_code_alb2">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" data-bind="visible: data.prod_code_name2() == '2'">
+                                <div class="form-group">
+                                    <label for="prod_code_buffy2">Product Specifics/Code</label>
+                                    <select data-bind="
+                                                options: fields.prod_code_buffy2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_buffy2"
+                                            class="form-control" id="prod_code_buffy2">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" data-bind="visible: data.prod_code_name2() == '3'">
+                                <div class="form-group">
+                                    <label for="prod_cod_coag2">Product Specifics/Code</label>
+                                    <select data-bind="
+                                                options: fields.prod_cod_coag2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_cod_coag2"
+                                            class="form-control" id="prod_cod_coag2">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" data-bind="visible: data.prod_code_name2() == '4'">
+                                <div class="form-group">
+                                    <label for="prod_code_cryo2">Product Specifics/Code</label>
+                                    <select data-bind="
+                                                options: fields.prod_code_cryo2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_cryo2"
+                                            class="form-control" id="prod_code_cryo2">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" data-bind="visible: data.prod_code_name2() == '5'">
+                                <div class="form-group">
+                                    <label for="ivig_brand_2">Product Specifics/Code</label>
+                                    <select data-bind="
+                                                options: fields.ivig_brand_2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.ivig_brand_2"
+                                            class="form-control" id="ivig_brand_2">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" data-bind="visible: data.prod_code_name2() == '6'">
+                                <div class="form-group">
+                                    <label for="prod_code_immun2">Product Specifics/Code</label>
+                                    <select data-bind="
+                                                options: fields.prod_code_immun2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_immun2"
+                                            class="form-control" id="prod_code_immun2">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" data-bind="visible: data.prod_code_name2() == '7'">
+                                <div class="form-group">
+                                    <label for="prod_code_othplas2">Product Specifics/Code</label>
+                                    <select data-bind="
+                                                options: fields.prod_code_othplas2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_othplas2"
+                                            class="form-control" id="prod_code_othplas2">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" data-bind="visible: data.prod_code_name2() == '8'">
+                                <div class="form-group">
+                                    <label for="prod_code_plasma2">Product Specifics/Code</label>
+                                    <select data-bind="
+                                                options: fields.prod_code_plasma2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_plasma2"
+                                            class="form-control" id="prod_code_plasma2">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" data-bind="visible: data.prod_code_name2() == '9'">
+                                <div class="form-group">
+                                    <label for="prod_code_rbc2">Product Specifics/Code</label>
+                                    <select data-bind="
+                                                options: fields.prod_code_rbc2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_rbc2"
+                                            class="form-control" id="prod_code_rbc2">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="hosp_mod2">Hosp Mod</label>
+                                    <select data-bind="
+                                                options: fields.hosp_mod2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.hosp_mod2"
+                                            class="form-control" id="hosp_mod2">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="supp_mod2">Supplier Mod</label>
+                                    <select data-bind="
+                                                options: fields.supp_mod2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.supp_mod2"
+                                            class="form-control" id="supp_mod2">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="group_abo2">ABO Group</label>
+                                    <select data-bind="
+                                                options: fields.group_abo2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.group_abo2"
+                                            class="form-control" id="group_abo2">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="group_rh2">Rh Group</label>
+                                    <select data-bind="
+                                                options: fields.group_rh2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.group_rh2"
+                                            class="form-control" id="group_rh2">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="unitlot2">Unit/lot number of product #2</label>
+                                    <input type="text" data-bind="textInput: data.unitlot2" id="unitlot2" class="form-control">
+
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="expiry_2">Expiry date</label>
+                                    <input type="text" data-bind="redcapDate: data.expiry_2" id="expiry_2" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="amount2">Amount</label>
+                                    <input type="text" data-bind="textInput: data.amount2" id="amount2" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="amount_unit2">Measure</label>
+                                    <input type="text" data-bind="textInput: data.amount_unit2" placeholder="eg. mL, mg" id="amount_unit2" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="amount_frac2">Fraction</label>
+                                    <select data-bind="
+                                                options: fields.amount_frac2,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.amount_frac2"
+                                            class="form-control" id="amount_frac2">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="trans_start_date2">Start Date</label>
+                                    <input type="text" class="form-control" id="trans_start_date2" data-bind="redcapDate: data.trans_start_date2">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group"><label for="trans_start_time2">Start Time</label>
+                                    <input id="trans_start_time2" data-bind="redcapTime: data.trans_start_time2" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group"><label for="trans_end_date2">End Date</label>
+                                    <input id="trans_end_date2" data-bind="redcapDate: data.trans_end_date2" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group"><label for="trans_end_time2">End Time</label>
+                                    <input id="trans_end_time2" data-bind="redcapTime: data.trans_end_time2" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label for="suspect_pro3"><input id="suspect_pro3" data-bind="redcapChecked: data.suspect_pro3" type="checkbox">Suspect
+                                        Blood Involved (Third entry)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.suspect_pro3() == '1'">
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4>Product 3</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="prod_code_name3">Product Name</label>
+                                        <select data-bind="
+                                                options: fields.prod_code_name3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_name3"
+                                                class="form-control" id="prod_code_name3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" data-bind="visible: data.prod_code_name3() == '1'">
+                                    <div class="form-group">
+                                        <label for="prod_code_alb3">Product Specifics/Code</label>
+                                        <select data-bind="
+                                                options: fields.prod_code_alb3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_alb3"
+                                                class="form-control" id="prod_code_alb3">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" data-bind="visible: data.prod_code_name3() == '2'">
+                                    <div class="form-group">
+                                        <label for="prod_code_buffy3">Product Specifics/Code</label>
+                                        <select data-bind="
+                                                options: fields.prod_code_buffy3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_buffy3"
+                                                class="form-control" id="prod_code_buffy3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" data-bind="visible: data.prod_code_name3() == '3'">
+                                    <div class="form-group">
+                                        <label for="prod_cod_coag3">Product Specifics/Code</label>
+                                        <select data-bind="
+                                                options: fields.prod_cod_coag3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_cod_coag3"
+                                                class="form-control" id="prod_cod_coag3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" data-bind="visible: data.prod_code_name3() == '4'">
+                                    <div class="form-group">
+                                        <label for="prod_code_cryo3">Product Specifics/Code</label>
+                                        <select data-bind="
+                                                options: fields.prod_code_cryo3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_cryo3"
+                                                class="form-control" id="prod_code_cryo3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" data-bind="visible: data.prod_code_name3() == '5'">
+                                    <div class="form-group">
+                                        <label for="ivig_brand_3">Product Specifics/Code</label>
+                                        <select data-bind="
+                                                options: fields.ivig_brand_3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.ivig_brand_3"
+                                                class="form-control" id="ivig_brand_3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" data-bind="visible: data.prod_code_name3() == '6'">
+                                    <div class="form-group">
+                                        <label for="prod_code_immun3">Product Specifics/Code</label>
+                                        <select data-bind="
+                                                options: fields.prod_code_immun3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_immun3"
+                                                class="form-control" id="prod_code_immun3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" data-bind="visible: data.prod_code_name3() == '7'">
+                                    <div class="form-group">
+                                        <label for="prod_code_othplas3">Product Specifics/Code</label>
+                                        <select data-bind="
+                                                options: fields.prod_code_othplas3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_othplas3"
+                                                class="form-control" id="prod_code_othplas3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" data-bind="visible: data.prod_code_name3() == '8'">
+                                    <div class="form-group">
+                                        <label for="prod_code_plasma3">Product Specifics/Code</label>
+                                        <select data-bind="
+                                                options: fields.prod_code_plasma3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_plasma3"
+                                                class="form-control" id="prod_code_plasma3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" data-bind="visible: data.prod_code_name3() == '9'">
+                                    <div class="form-group">
+                                        <label for="prod_code_rbc3">Product Specifics/Code</label>
+                                        <select data-bind="
+                                                options: fields.prod_code_rbc3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_rbc3"
+                                                class="form-control" id="prod_code_rbc3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="hosp_mod3">Hosp Mod</label>
+                                        <select data-bind="
+                                                options: fields.hosp_mod3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.hosp_mod3"
+                                                class="form-control" id="hosp_mod3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="supp_mod3">Supplier Mod</label>
+                                        <select data-bind="
+                                                options: fields.supp_mod3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.supp_mod3"
+                                                class="form-control" id="supp_mod3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="group_abo3">ABO Group</label>
+                                        <select data-bind="
+                                                options: fields.group_abo3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.group_abo3"
+                                                class="form-control" id="group_abo3">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="group_rh3">Rh Group</label>
+                                        <select data-bind="
+                                                options: fields.group_rh3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.group_rh3"
+                                                class="form-control" id="group_rh3">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="unitlot3">Unit/lot number of product #3</label>
+                                        <input type="text" data-bind="textInput: data.unitlot3" id="unitlot3" class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="expiry_3">Expiry date</label>
+                                        <input type="text" data-bind="redcapDate: data.expiry_3" id="expiry_3" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="amount3">Amount</label>
+                                        <input type="text" data-bind="textInput: data.amount3" id="amount3" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="amount_unit3">Measure</label>
+                                        <input type="text" data-bind="textInput: data.amount_unit3" placeholder="eg. mL, mg" id="amount_unit3" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="amount_frac3">Fraction</label>
+                                        <select data-bind="
+                                                options: fields.amount_frac3,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.amount_frac3"
+                                                class="form-control" id="amount_frac3">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="trans_start_date3">Start Date</label>
+                                        <input type="text" class="form-control" id="trans_start_date3" data-bind="redcapDate: data.trans_start_date3">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group"><label for="trans_start_time3">Start Time</label>
+                                        <input id="trans_start_time3" data-bind="redcapTime: data.trans_start_time3" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group"><label for="trans_end_date3">End Date</label>
+                                        <input id="trans_end_date3" data-bind="redcapDate: data.trans_end_date3" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group"><label for="trans_end_time3">End Time</label>
+                                        <input id="trans_end_time3" data-bind="redcapTime: data.trans_end_time3" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="suspect_pro4"><input id="suspect_pro4" data-bind="redcapChecked: data.suspect_pro4" type="checkbox">Suspect
+                                            Blood Involved (Fourth Entry)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-bind="visible: data.suspect_pro4() == '1'">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4>Product 4</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="prod_code_name4">Product Name</label>
+                                            <select data-bind="
+                                                options: fields.prod_code_name4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_name4"
+                                                    class="form-control" id="prod_code_name4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" data-bind="visible: data.prod_code_name4() == '1'">
+                                        <div class="form-group">
+                                            <label for="prod_code_alb4">Product Specifics/Code</label>
+                                            <select data-bind="
+                                                options: fields.prod_code_alb4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_alb4"
+                                                    class="form-control" id="prod_code_alb4">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" data-bind="visible: data.prod_code_name4() == '2'">
+                                        <div class="form-group">
+                                            <label for="prod_code_buffy4">Product Specifics/Code</label>
+                                            <select data-bind="
+                                                options: fields.prod_code_buffy4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_buffy4"
+                                                    class="form-control" id="prod_code_buffy4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" data-bind="visible: data.prod_code_name4() == '3'">
+                                        <div class="form-group">
+                                            <label for="prod_cod_coag4">Product Specifics/Code</label>
+                                            <select data-bind="
+                                                options: fields.prod_cod_coag4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_cod_coag4"
+                                                    class="form-control" id="prod_cod_coag4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" data-bind="visible: data.prod_code_name4() == '4'">
+                                        <div class="form-group">
+                                            <label for="prod_code_cryo4">Product Specifics/Code</label>
+                                            <select data-bind="
+                                                options: fields.prod_code_cryo4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_cryo4"
+                                                    class="form-control" id="prod_code_cryo4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" data-bind="visible: data.prod_code_name4() == '5'">
+                                        <div class="form-group">
+                                            <label for="ivig_brand_4">Product Specifics/Code</label>
+                                            <select data-bind="
+                                                options: fields.ivig_brand_4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.ivig_brand_4"
+                                                    class="form-control" id="ivig_brand_4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" data-bind="visible: data.prod_code_name4() == '6'">
+                                        <div class="form-group">
+                                            <label for="prod_code_immun4">Product Specifics/Code</label>
+                                            <select data-bind="
+                                                options: fields.prod_code_immun4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_immun4"
+                                                    class="form-control" id="prod_code_immun4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" data-bind="visible: data.prod_code_name4() == '7'">
+                                        <div class="form-group">
+                                            <label for="prod_code_othplas4">Product Specifics/Code</label>
+                                            <select data-bind="
+                                                options: fields.prod_code_othplas4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_othplas4"
+                                                    class="form-control" id="prod_code_othplas4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" data-bind="visible: data.prod_code_name4() == '8'">
+                                        <div class="form-group">
+                                            <label for="prod_code_plasma4">Product Specifics/Code</label>
+                                            <select data-bind="
+                                                options: fields.prod_code_plasma4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_plasma4"
+                                                    class="form-control" id="prod_code_plasma4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" data-bind="visible: data.prod_code_name4() == '9'">
+                                        <div class="form-group">
+                                            <label for="prod_code_rbc4">Product Specifics/Code</label>
+                                            <select data-bind="
+                                                options: fields.prod_code_rbc4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.prod_code_rbc4"
+                                                    class="form-control" id="prod_code_rbc4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="hosp_mod4">Hosp Mod</label>
+                                            <select data-bind="
+                                                options: fields.hosp_mod4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.hosp_mod4"
+                                                    class="form-control" id="hosp_mod4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="supp_mod4">Supplier Mod</label>
+                                            <select data-bind="
+                                                options: fields.supp_mod4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.supp_mod4"
+                                                    class="form-control" id="supp_mod4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="group_abo4">ABO Group</label>
+                                            <select data-bind="
+                                                options: fields.group_abo4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.group_abo4"
+                                                    class="form-control" id="group_abo4">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="group_rh4">Rh Group</label>
+                                            <select data-bind="
+                                                options: fields.group_rh4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.group_rh4"
+                                                    class="form-control" id="group_rh4">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="unitlot4">Unit/lot number of product #4</label>
+                                            <input type="text" data-bind="textInput: data.unitlot4" id="unitlot4" class="form-control">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="expiry_4">Expiry date</label>
+                                            <input type="text" data-bind="redcapDate: data.expiry_date4" id="expiry_4" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="amount4">Amount</label>
+                                            <input type="text" data-bind="textInput: data.amount4" id="amount4" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="amount_unit4">Measure</label>
+                                            <input type="text" data-bind="textInput: data.amount_unit4" placeholder="eg. mL, mg" id="amount_unit4" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="amount_frac4">Fraction</label>
+                                            <select data-bind="
+                                                options: fields.amount_frac4,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.amount_frac4"
+                                                    class="form-control" id="amount_frac4">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="trans_start_date4">Start Date</label>
+                                            <input type="text" class="form-control" id="trans_start_date4" data-bind="redcapDate: data.trans_start_date4">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group"><label for="trans_start_time4">Start Time</label>
+                                            <input id="trans_start_time4" data-bind="redcapTime: data.trans_start_time4" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group"><label for="trans_end_date4">End Date</label>
+                                            <input id="trans_end_date4" data-bind="redcapDate: data.trans_end_date4" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group"><label for="trans_end_time4">End Time</label>
+                                            <input id="trans_end_time4" data-bind="redcapTime: data.trans_end_time4" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="comments">Comments</label>
+                                <textarea data-bind="textInput: data.comments" name="comments" id="comments" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

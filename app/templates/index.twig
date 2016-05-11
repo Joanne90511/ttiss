@@ -1,0 +1,44 @@
+{% extends 'skeleton.twig' %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-sm-12 text-center" style="margin-bottom: 50px">
+            <a href="/new" class="btn btn-success btn-lg">Create New Record</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-push-3">
+            <form id="loadcaseid">
+                <div class="form-group">
+                    <label for="old">Revise Previous Entry</label>
+                    <select id="old" class="form-control">
+                        <option value="none">--- Select a Previous Entry ---</option>
+                        {% for option in options %}
+                        <option value="{{ option.case_id }}">
+                            {{ option.case_id }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <a class="btn btn-default" href="#"><span class="glyphicon glyphicon glyphicon-pencil"></span> Edit
+                    Entry
+                </a>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#loadcaseid a').on('click', function () {
+                var val = $('#loadcaseid select').val();
+                if (val !== 'none') {
+                    window.location = '/case/' + val;
+                }
+            })
+        });
+    </script>
+{% endblock %}

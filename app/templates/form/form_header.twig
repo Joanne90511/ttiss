@@ -1,0 +1,38 @@
+<!--    Top of Form-->
+<div class="row">
+    <div class="col-md-push-1 col-sm-12 col-md-10">
+        <div class="row">
+            <div class="col-sm-12">
+                <p id="case_id">Case ID: <span data-bind="text: data.case_id"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--    Facility Identification-->
+<div class="row">
+    <div class="col-md-push-1 col-sm-12 col-md-10 ttiss-block">
+        <div class="">
+            <div class="ttiss-heading ttiss-special">
+                <h3 class="panel-title text-uppercase">Facility
+                    Identification</h3>
+            </div>
+            <div class="row ttiss-body">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="facilityid_name_facility">Name of
+                            Facility</label>
+                        <input data-bind="redcapAuto: {label: fields.facilityid_name_facility, value: data.facilityid_name_facility}, redcapRequired: data.facilityid_name_facility"
+                               name="facilityid_name_facility"
+                               class="form-control" />
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="refno">Reference Number</label>
+                        <input type="text" data-bind="textInput: data.refno" id="refno" name="refno" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

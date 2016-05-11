@@ -1,0 +1,63 @@
+<!-- Clinical Signs And Laboratory Results -->
+<div class="row">
+    <div class="col-md-push-1 col-sm-12 col-md-10 ttiss-block">
+        <div class="ttiss-heading">
+            <h3 class="panel-title text-uppercase">
+                8. Comments
+            </h3>
+        </div>
+        <div class="row ttiss-body">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="final_comments">Comments</label>
+                            <textarea class="form-control" data-bind="textInput: data.final_comments" id="final_comments"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group ">
+                            <label for="report_lastname">Name of Reporting Physician or Designate</label>
+                            <select data-bind="
+                                                options: fields.report_lastname,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.report_lastname"
+                                    class="form-control" id="report_lastname">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="curr_date">Current Date:</label>
+                                <input type="text" class="form-control" data-bind="redcapDate: data.curr_date" id="curr_date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-bind="visible: data.report_lastname() == '99'" class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="other_name">Name of Other Reporting Person</label>
+                            <input type="text" class="form-control" data-bind="textInput: data.other_name" id="other_name">
+                        </div>
+                    </div>
+                </div>
+                <div data-bind="visible: data.report_lastname() == '4'" class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="report_phone">Number of Other Reporting Person</label>
+                            <input type="text" class="form-control" data-bind="textInput: data.report_phone" id="report_phone">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

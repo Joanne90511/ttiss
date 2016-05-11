@@ -1,0 +1,319 @@
+<!-- Clinical Signs And Laboratory Results -->
+<div class="row">
+    <div class="col-md-push-1 col-sm-12 col-md-10 ttiss-block">
+        <div class="ttiss-heading">
+            <h3 class="panel-title text-uppercase">
+                7. Results of investigation & conclusion
+            </h3>
+        </div>
+        <div class="row ttiss-body">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group ">
+                                    <label for="trans_react">Type of Reaction</label>
+                                    <select data-bind="
+                                                options: fields.trans_react,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.trans_react,
+                                                redcapRequired: data.trans_react"
+                                            class="form-control" id="trans_react">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div data-bind="visible: data.trans_react() == '5' || data.trans_react() == '6'" class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="hemo_cause">Hemolytic reaction - cause</label>
+                                            <textarea class="form-control" data-bind="textInput: data.hemo_cause" id="hemo_cause"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-bind="visible: data.trans_react() == '7'" class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="del_sero_trans_spec">Delayed Serological Transfusion -
+                                                Specify</label>
+                                            <textarea class="form-control" data-bind="textInput: data.del_sero_trans_spec" id="del_sero_trans_spec"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div data-bind="visible: data.trans_react() == '3' || data.trans_react() == '4' || data.trans_react() == '5' || data.trans_react() == '6' || data.trans_react() == '7'" class="row">
+                            <div class="col-sm-12">
+                                <label>Was this the result of an incompatible transfusion?</label>
+                                <div data-bind="foreach: fields.incomp">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="incomp" data-bind="value:value,checked:$root.data.incomp"><span data-bind="text:label"></span>
+                                    </label>
+                                </div>
+                                <small data-bind='redcapReset: data.incomp' class="text-muted clickable">Reset</small>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.incomp() == '1'" class="row">
+                            <div class="col-sm-12">
+                                <label>Incompatible Transfusion</label>
+                                <div data-bind="foreach: fields.unint_intent">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="unint_intent" data-bind="value:value,checked:$root.data.unint_intent"><span data-bind="text:label"></span>
+                                    </label>
+                                </div>
+                                <small data-bind='redcapReset: data.unint_intent' class="text-muted clickable">Reset</small>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.incomp() == '1'" class="row">
+                            <div class="col-sm-12">
+                                <label>Incompatible Transfusion</label>
+                                <div data-bind="foreach: fields.incomp_transsys">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="incomp_transsys" data-bind="value:value,checked:$root.data.incomp_transsys"><span data-bind="text:label"></span>
+                                    </label>
+                                </div>
+                                <small data-bind='redcapReset: data.incomp_transsys' class="text-muted clickable">Reset</small>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.incomp() == '1'" class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="abo_sys_spec">Incompatible transfusion - description</label>
+                                    <textarea class="form-control" data-bind="textInput: data.abo_sys_spec" id="abo_sys_spec"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.trans_react() == '10'" class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="infec_type_spec">Other infection - description</label>
+                                    <textarea class="form-control" data-bind="textInput: data.infec_type_spec" id="infec_type_spec"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.trans_react() == '8' || data.trans_react() == '9' || data.trans_react() == '10'" class="row">
+                            <div class="col-sm-12">
+                                <label>Donor - Infected, Uninfected or Unknown</label>
+                                <div data-bind="foreach: fields.donor">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="donor" data-bind="value:value,checked:$root.data.donor"><span data-bind="text:label"></span>
+                                    </label>
+                                </div>
+                                <small data-bind='redcapReset: data.donor' class="text-muted clickable">Reset</small>
+                            </div>
+                        </div>
+                        <div data-bind="visible: (data.trans_react() == '8' || data.trans_react() == '9' || data.trans_react() == '10') && data.donor() == '1'" class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="donor_infec_type_spec">Donor - Infected - description</label>
+                                    <textarea class="form-control" data-bind="textInput: data.donor_infec_type_spec" id="donor_infec_type_spec"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.trans_react() == '13'" class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="trali_recover">TRALI - time to recovery</label>
+                                    <input type="text" class="form-control" data-bind="textInput: data.trali_recover" id="trali_recover">
+                                </div>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.trans_react() == '14'" class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="poss_trali_recover">Possible TRALI - time to recovery</label>
+                                    <input type="text" class="form-control" data-bind="textInput: data.poss_trali_recover" id="poss_trali_recover">
+                                </div>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.trans_react() == '14'" class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="poss_trali_risk">Possible TRALI - risk factors</label>
+                                    <input type="text" class="form-control" data-bind="textInput: data.poss_trali_risk" id="poss_trali_risk">
+                                </div>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.trans_react() == '15'" class="row">
+                            <div class="col-sm-12">
+                                <label>Hypotensive reaction - ACE inhibitors</label>
+                                <div data-bind="foreach: fields.ace_inhibit">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="ace_inhibit" data-bind="value:value,checked:$root.data.ace_inhibit"><span data-bind="text:label"></span>
+                                    </label>
+                                </div>
+                                <small data-bind='redcapReset: data.ace_inhibit' class="text-muted clickable">Reset</small>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.trans_react() == '88' || data.trans_react() == '99'" class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="other_res_spec">Other/Unknown results of Investigation -
+                                        description</label>
+                                    <textarea class="form-control" data-bind="textInput: data.other_res_spec" id="other_res_spec"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Relationship of adverse event to transfusion</label>
+                        <div data-bind="foreach: fields.relation_adverse, redcapRequired: data.relation_adverse">
+                            <label class="radio-inline">
+                                <input type="radio" id="relation_adverse" data-bind="value:value,checked:$root.data.relation_adverse"><span data-bind="text:label"></span>
+                            </label>
+                        </div>
+                        <small data-bind='redcapReset: data.relation_adverse' class="text-muted clickable">Reset</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Severity of adverse event
+                            <small>(If Grade 4, Select Grade 3)</small>
+                        </label>
+                        <div data-bind="foreach: fields.severity_adverse, redcapRequired: data.severity_adverse">
+                            <label class="radio-inline">
+                                <input type="radio" id="severity_adverse" data-bind="value:value,checked:$root.data.severity_adverse"><span data-bind="text:label"></span>
+                            </label>
+                        </div>
+                        <small data-bind='redcapReset: data.severity_adverse' class="text-muted clickable">Reset</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Outcome of adverse event</label>
+                        <div data-bind="foreach: fields.outcome_adverse, redcapRequired: data.outcome_adverse">
+                            <label class="radio-inline">
+                                <input type="radio" id="outcome_adverse" data-bind="value:value,checked:$root.data.outcome_adverse"><span data-bind="text:label"></span>
+                            </label>
+                        </div>
+                        <small data-bind='redcapReset: data.outcome_adverse' class="text-muted clickable">Reset</small>
+                    </div>
+                </div>
+                <div class="row" data-bind="visible: data.outcome_adverse() == '3'">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="describe_death">Circumstances of death - description</label>
+                            <textarea class="form-control" data-bind="textInput: data.describe_death" id="describe_death"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-bind="visible: data.outcome_adverse() == '3'">
+                    <div class="col-sm-12">
+                        <label>Relationship of transfusion to recipient's death</label>
+                        <div data-bind="foreach: fields.relation_death">
+                            <label class="radio-inline">
+                                <input type="radio" id="relation_death" data-bind="value:value,checked:$root.data.relation_death"><span data-bind="text:label"></span>
+                            </label>
+                        </div>
+                        <small data-bind='redcapReset: data.relation_death' class="text-muted clickable">Reset</small>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-sm-6 div-horz">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label for="action_taken___0">
+                                        <input id="action_taken___0" type="checkbox" data-bind="redcapChecked: data.action_taken___0"><span data-bind="text: fields.action_taken___0()[0].label"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label for="action_taken___1">
+                                        <input id="action_taken___1" type="checkbox" data-bind="redcapChecked: data.action_taken___1"><span data-bind="text: fields.action_taken___1()[0].label"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label for="action_taken___2">
+                                        <input id="action_taken___2" type="checkbox" data-bind="redcapChecked: data.action_taken___2"><span data-bind="text: fields.action_taken___2()[0].label"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label for="action_taken___3">
+                                        <input id="action_taken___3" type="checkbox" data-bind="redcapChecked: data.action_taken___3"><span data-bind="text: fields.action_taken___3()[0].label"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label for="action_taken___4">
+                                        <input id="action_taken___4" type="checkbox" data-bind="redcapChecked: data.action_taken___4"><span data-bind="text: fields.action_taken___4()[0].label"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 div-horz">
+                        <div class="row" data-bind="visible: data.action_taken___1() == '1' || data.action_taken___2() == '1' || data.action_taken___3() == '1' || data.action_taken___4() == '1'">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="proc_desc">Describe Action Taken/Follow up</label>
+                                    <textarea class="form-control" data-bind="textInput: data.proc_desc" id="proc_desc"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" data-bind="visible: data.action_taken___4() == '1'">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="person_contacted">Name of person contacted</label>
+                                    <input type="text" class="form-control" data-bind="textInput: data.person_contacted" id="person_contacted">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" data-bind="visible: data.action_taken___4() == '1'">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="date_contacted">Date Contacted</label>
+                                    <input type="text" class="form-control" data-bind="textInput: data.date_contacted" id="date_contacted">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Status of investigation</label>
+                        <div data-bind="foreach: fields.invest_status">
+                            <label class="radio-inline">
+                                <input type="radio" id="invest_status" data-bind="value:value,checked:$root.data.invest_status"><span data-bind="text:label"></span>
+                            </label>
+                            <br/>
+                        </div>
+                        <small data-bind='redcapReset: data.invest_status' class="text-muted clickable">Reset</small>
+                    </div>
+                    <div class="col-sm-6" data-bind="visible: data.invest_status() == '99'">
+                        <div class="form-group">
+                            <label for="cannot_reason">Cannot be Concluded REASON</label>
+                            <textarea class="form-control" data-bind="textInput: data.cannot_reason" id="cannot_reason"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

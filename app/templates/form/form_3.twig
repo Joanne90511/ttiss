@@ -1,0 +1,215 @@
+<!--    Date, time and place-->
+<div class="row">
+    <div class="col-md-push-1 col-sm-12 col-md-10 ttiss-block">
+        <div class="">
+            <div class="ttiss-heading">
+                <h3 class="panel-title text-uppercase">3. Date, time and place of incident / Adverse Reaction</h3>
+            </div>
+            <div class="row ttiss-body">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="date_occurred">Date occurred:</label>
+                                <input class="form-control" type="text" id="date_occurred" data-bind="redcapDate: data.date_occurred    ">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="time_occurred">Time occurred:</label>
+                                <input class="form-control" type="text" id="time_occurred" data-bind="redcapTime: data.time_occurred">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="date_reported">Date reported:</label>
+                                <input class="form-control" type="text" id="date_reported" data-bind="redcapDate: data.date_reported">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="time_reported">Time reported:</label>
+                                <input class="form-control" type="text" id="time_reported" data-bind="redcapTime: data.time_reported">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row subsection">
+                        <div class="col-md-12">3a. Incident Information</div>
+                    </div>
+                    <div class="row" style="position: relative; overflow:hidden;">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="incident_type___1">
+                                            <input type="checkbox" id="incident_type___1" data-bind="redcapChecked: data.incident_type___1"><span data-bind="html: fields.incident_type___1()[0].label"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="incident_type___2">
+                                            <input type="checkbox" id="incident_type___2" data-bind="redcapChecked: data.incident_type___2"><span data-bind="html: fields.incident_type___2()[0].label"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="incident_type___3">
+                                            <input type="checkbox" id="incident_type___3" data-bind="redcapChecked: data.incident_type___3"><span data-bind="html: fields.incident_type___3()[0].label"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="incident_type___4">
+                                            <input type="checkbox" id="incident_type___4" data-bind="redcapChecked: data.incident_type___4"><span data-bind="html: fields.incident_type___4()[0].label"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div data-bind="visible: data.incident_type___1() == '1' || data.incident_type___2() == '1' || data.incident_type___3() == '1' || data.incident_type___4() == '1'" class="col-sm-6" style="height:100%; position: absolute; right:0; top:0;">
+                            <div class="form-group" style="height:100%;">
+                                <label for="incident_type_spec">Specify</label>
+                                <textarea style="height:80%;" data-bind="textInput data.incident_type_spec" id="incident_type_spec" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 div-vert-left">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>Place occurred</label>
+                            <div id="place_occurred_font" data-bind="foreach: fields.access_location, redcapRequired: data.access_location">
+                                <label class="radio-inline">
+                                    <input type="radio" data-bind="value:value,checked:$root.data.access_location"><span data-bind="text:label"></span>
+                                </label>
+                            </div>
+                            <small data-bind='redcapReset: data.access_location' class="text-muted clickable">Reset
+                            </small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="location_details">Location details</label>
+                                <input type="text" class="form-control" id="location_details" data-bind="textInput data.location_details">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row subsection">
+                        <div class="col-sm-12">
+                            3b. Premedication and Anesthesia
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>Premedication</label>
+                            <div data-bind="foreach: fields.premed_yes">
+                                <label class="radio-inline">
+                                    <input type="radio" id="premed_yes" data-bind="value:value,checked:$root.data.premed_yes"><span data-bind="text:label"></span>
+                                </label>
+                            </div>
+                            <small data-bind='redcapReset: data.premed_yes' class="text-muted clickable">Reset</small>
+                        </div>
+                    </div>
+                    <div class="row" data-bind="visible: data.premed_yes() == '1'">
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="premed1___1"><input type="checkbox" id="premed1___1" data-bind="redcapChecked: data.premed1___1"><span data-bind="html:fields.premed1___1()[0].label"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="premed1___2"><input type="checkbox" id="premed1___2" data-bind="redcapChecked: data.premed1___2"><span data-bind="html:fields.premed1___2()[0].label"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="premed1___3"><input type="checkbox" id="premed1___3" data-bind="redcapChecked: data.premed1___3"><span data-bind="html:fields.premed1___3()[0].label"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="premed1___4"><input type="checkbox" id="premed1___4" data-bind="redcapChecked: data.premed1___4"><span data-bind="html:fields.premed1___4()[0].label"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="premed1___5"><input type="checkbox" id="premed1___5" data-bind="redcapChecked: data.premed1___5"><span data-bind="html:fields.premed1___5()[0].label"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label for="premed1___6"><input type="checkbox" id="premed1___6" data-bind="redcapChecked: data.premed1___6"><span data-bind="html:fields.premed1___6()[0].label"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" data-bind="visible: data.premed_yes() == '1'">
+                        <div class="col-sm-12">
+
+                            <div class="form-group">
+                                <textarea class="form-control" data-bind="textInputdata.otherdrugs_comment"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>Transfused Under Anesthesia</label>
+                            <div data-bind="foreach: fields.anes_trans">
+                                <label class="radio-inline">
+                                    <input type="radio" data-bind="value:value,checked:$root.data.anes_trans"><span data-bind="text:label"></span>
+                                </label>
+                            </div>
+                            <small data-bind='redcapReset: data.anes_trans' class="text-muted clickable">Reset</small>
+                        </div>
+                    </div>
+                    <div class="row subsection">
+                        <div class="col-sm-12">
+                            3c. Report of Possible Transfusion Related Blood Borne Infection
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div data-bind="foreach: fields.blood_infec">
+                                <label class="radio-inline">
+                                    <input type="radio" data-bind="value:value,checked:$root.data.blood_infec"><span data-bind="text:label"></span>
+                                </label>
+                            </div>
+                            <small data-bind='redcapReset: data.blood_infec' class="text-muted clickable">Reset</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

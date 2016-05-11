@@ -1,0 +1,76 @@
+{% extends 'skeleton.twig' %}
+
+{% block belowbody %}
+    <div class="loader">
+        <div class="center text-center">
+            <i class="fa fa-spinner fa-spin fa-5x "></i>
+            <h6>Loading</h6>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <form class="from">
+        <input id="record" type="hidden" value="{{ record | default('new') }}">
+        {% include 'form/form_header.twig' %}
+        {% include 'form/form_1.twig' %}
+        {% include 'form/form_2.twig' %}
+        <div class="row saveButtonRow">
+            <div class="col-sm-6 text-right">
+                <h4>Would you like to save?</h4>
+            </div>
+            <div class="col-sm-6">
+                <button class='btn btn-primary' data-bind="click: save">Save</button>
+                <small data-bind="html: saveStatusMessage, css: { 'text-success': saveStatus() === true, 'text-danger': saveStatus() === false }"></small>
+            </div>
+        </div>
+        {% include 'form/form_3.twig' %}
+        {% include 'form/form_4.twig' %}
+        <div class="row saveButtonRow">
+            <div class="col-sm-6 text-right">
+                <h4>Would you like to save?</h4>
+            </div>
+            <div class="col-sm-6">
+                <button class='btn btn-primary' data-bind="click: save">Save</button>
+                <small data-bind="html: saveStatusMessage, css: { 'text-success': saveStatus() === true, 'text-danger': saveStatus() === false }"></small>
+            </div>
+        </div>
+        {% include 'form/form_5.twig' %}
+        {% include 'form/form_6.twig' %}
+        <div class="row saveButtonRow">
+            <div class="col-sm-6 text-right">
+                <h4>Would you like to save?</h4>
+            </div>
+            <div class="col-sm-6">
+                <button class='btn btn-primary' data-bind="click: save">Save</button>
+                <small data-bind="html: saveStatusMessage, css: { 'text-success': saveStatus() === true, 'text-danger': saveStatus() === false }"></small>
+            </div>
+        </div>
+        {% include 'form/form_7.twig' %}
+        {% include 'form/form_8.twig' %}
+        {% include 'form/form_9.twig' %}
+        <div class="row saveButtonRow">
+            <div class="col-sm-4">
+                <button class='btn btn-primary' data-bind="click: save">Save</button>
+                <small data-bind="html: saveStatusMessage, css: { 'text-success': saveStatus() === true, 'text-danger': saveStatus() === false }"></small>
+            </div>
+            <div class="col-sm-4">
+                <button class='btn btn-primary' data-bind="click: saveAndExit">Save and Exit</button>
+            </div>
+            <div class="col-sm-4">
+                <div data-bind="visible: data.case_id()">
+                    <a data-bind="click: output" class="btn btn-warning">Save and Print</a>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block js %}
+    <script src="/js/knockout-3.4.0.js"></script>
+    <script src="/js/knockout.mapping-latest.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/REDCapBindings.js"></script>
+    <script src="/js/app.js"></script>
+{% endblock %}
+

@@ -1,0 +1,895 @@
+<!-- Clinical Signs And Laboratory Results -->
+<div class="row">
+    <div class="col-md-push-1 col-sm-12 col-md-10 ttiss-block">
+        <div class="ttiss-heading">
+            <h3 class="panel-title text-uppercase"> 4. Clinical Signs And
+                Laboratory Results </h3>
+        </div>
+        <div class="row ttiss-body">
+            <div class="col-sm-12">
+                <div class="row subsection">
+                    <div class="col-sm-12">
+                        4a. Clinical Signs and Symptoms
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>Changes in Vital Signs</label>
+                                <div data-bind="foreach: fields.clinical_signs">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="clinical_signs" data-bind="value:value,checked:$root.data.clinical_signs"><span data-bind="text:label"></span>
+                                    </label>
+                                </div>
+                                <small data-bind='redcapReset: data.clinical_signs' class="text-muted clickable">Reset
+                                </small>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.clinical_signs() == '1'" class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label for="no_sign___1"><input type="checkbox" id="no_sign___1" data-bind="redcapChecked: data.no_sign___1"><span data-bind="html:fields.no_sign___1()[0].label"></span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" data-bind="visible: data.no_sign___1() == '1'">
+                            <div class="form-group-sm col-sm-6">
+                                <input type="text" class="form-control" placeholder="Before" data-bind="textInput:data.temp_before">
+                            </div>
+                            <div class="form-group-sm col-sm-6">
+                                <input type="text" class="form-control" placeholder="After" data-bind="textInput:data.temp_after">
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.clinical_signs() == '1'" class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label for="no_sign___2"><input type="checkbox" id="no_sign___2" data-bind="redcapChecked: data.no_sign___2"><span data-bind="html:fields.no_sign___2()[0].label"></span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.no_sign___2() === '1'" class="row">
+                            <div class="form-group-sm col-sm-6">
+                                <input type="text" placeholder="Before" class="form-control" data-bind="textInput:data.pulse_before">
+                            </div>
+                            <div class=" form-group-sm col-sm-6">
+                                <input type="text" placeholder="After" class="form-control" data-bind="textInput:data.pulse_after">
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.clinical_signs() == '1'" class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label for="no_sign___3"><input type="checkbox" id="no_sign___3" data-bind="redcapChecked: data.no_sign___3"><span data-bind="html:fields.no_sign___3()[0].label"></span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" data-bind="visible: data.no_sign___3() === '1'">
+                            <div class="form-group-sm col-sm-6">
+                                <input type="text" class="form-control" placeholder="Before" data-bind="textInput:data.resp_before">
+                            </div>
+                            <div class="form-group-sm col-sm-6">
+                                <input type="text" class="form-control" placeholder="After" data-bind="textInput:data.resp_after">
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.clinical_signs() == '1'" class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label for="no_sign___4"><input type="checkbox" id="no_sign___4" data-bind="redcapChecked: data.no_sign___4"><span data-bind="html:fields.no_sign___4()[0].label"></span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" data-bind="visible: data.no_sign___4() === '1'">
+                            <div class="form-group-sm col-sm-6">
+                                <input type="text" class="form-control" placeholder="Before" data-bind="textInput:data.blood_pres_before">
+                            </div>
+                            <div class="form-group-sm col-sm-6">
+                                <input type="text" class="form-control" placeholder="After" data-bind="textInput:data.blood_pres_after">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>Other Clinical Symptoms</label>
+                                <div data-bind="foreach: fields.other_signs">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="other_signs" data-bind="value:value,checked:$root.data.other_signs"><span data-bind="text:label"></span>
+                                    </label>
+                                </div>
+                                <small data-bind='redcapReset: data.other_signs' class="text-muted clickable">Reset
+                                </small>
+                            </div>
+                        </div>
+                        <div data-bind="visible: data.other_signs() == '1'">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___1"><input type="checkbox" id="other_no_sign2_834___1" data-bind="redcapChecked: data.other_no_sign2_834___1"><span data-bind="html:fields.other_no_sign2_834___1()[0].label"></span></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___2"><input type="checkbox" id="other_no_sign2_834___2" data-bind="redcapChecked: data.other_no_sign2_834___2"><span data-bind="html:fields.other_no_sign2_834___2()[0].label"></span></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___3"><input type="checkbox" id="other_no_sign2_834___3" data-bind="redcapChecked: data.other_no_sign2_834___3"><span data-bind="html:fields.other_no_sign2_834___3()[0].label"></span></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___4"><input type="checkbox" id="other_no_sign2_834___4" data-bind="redcapChecked: data.other_no_sign2_834___4"><span data-bind="html:fields.other_no_sign2_834___4()[0].label"></span></label>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___5"><input type="checkbox" id="other_no_sign2_834___5" data-bind="redcapChecked: data.other_no_sign2_834___5"><span data-bind="html:fields.other_no_sign2_834___5()[0].label"></span></label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row" data-bind="visible: data.other_no_sign2_834___5() == '1'">
+                                <div class="col-sm-2">0<sub>2</sub></div>
+                                <div class="col-sm-10">
+                                    <div class="form-group-sm">
+                                        <input type="text" class="form-control" data-bind="textInput: data.hypo_sat">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___6"><input type="checkbox" id="other_no_sign2_834___6" data-bind="redcapChecked: data.other_no_sign2_834___6"><span data-bind="html:fields.other_no_sign2_834___6()[0].label"></span></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div data-bind="visible: data.other_signs() == '1'">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___7"><input type="checkbox" id="other_no_sign2_834___7" data-bind="redcapChecked: data.other_no_sign2_834___7"><span data-bind="html:fields.other_no_sign2_834___7()[0].label"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" data-bind="visible: data.other_no_sign2_834___7() == '1'">
+                                <div class="col-sm-12">
+                                    <div class="form-group-sm">
+                                        <input type="text" placeholder="Please Specify" class="form-control" data-bind="textInput: data.pain_spec">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___8"><input type="checkbox" id="other_no_sign2_834___8" data-bind="redcapChecked: data.other_no_sign2_834___8"><span data-bind="html:fields.other_no_sign2_834___8()[0].label"></span></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___9"><input type="checkbox" id="other_no_sign2_834___9" data-bind="redcapChecked: data.other_no_sign2_834___9"><span data-bind="html:fields.other_no_sign2_834___9()[0].label"></span></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___10"><input type="checkbox" id="other_no_sign2_834___10" data-bind="redcapChecked: data.other_no_sign2_834___10"><span data-bind="html:fields.other_no_sign2_834___10()[0].label"></span></label>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___11"><input type="checkbox" id="other_no_sign2_834___11" data-bind="redcapChecked: data.other_no_sign2_834___11"><span data-bind="html:fields.other_no_sign2_834___11()[0].label"></span></label>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___12"><input type="checkbox" id="other_no_sign2_834___12" data-bind="redcapChecked: data.other_no_sign2_834___12"><span data-bind="html:fields.other_no_sign2_834___12()[0].label"></span></label>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="checkbox">
+                                        <label for="other_no_sign2_834___13"><input type="checkbox" id="other_no_sign2_834___13" data-bind="redcapChecked: data.other_no_sign2_834___13"><span data-bind="html:fields.other_no_sign2_834___13()[0].label"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-bind="visible: data.other_no_sign2_834___13() == '1'" class="row">
+                    <div class="col-sm-8 col-sm-push-4">
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Please Specify" data-bind="textInput: data.symp_other_spec"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row div-horz">
+                    <div class="col-sm-12">
+                        <h4 class="">
+                            Clinical information for TRALI
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="checkbox">
+                            <label><input type="checkbox" data-bind="redcapChecked: data.xray_info" class="">Chest X-ray
+                                Results</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" data-bind="redcapChecked: data.bilat_infilit" class="">Bilateral
+                                        Infiltrates
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" data-bind="redcapChecked: data.other" class="">Other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group-sm">
+                            <label>Describe</label>
+                            <input type="text" data-bind="textInput: data.xray_other" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="checkbox">
+                            <label for="circul_overload">
+                                <input type="checkbox" id="circul_overload" data-bind="redcapChecked: data.circul_overload" class="">Evidence
+                                of Circulatory Overload
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div data-bind='visible: data.circul_overload() == "1"' class="form-group-sm">
+                            <textarea data-bind='textInput: data.circul_overload_spec' class="form-control" placeholder="Explain"></textarea>
+                            <!--                        <label for="">Explain</label><input type="text" data-bind='textInput: data.circul_overload_spec' class="form-control">-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row subsection">
+                    <div class="col-sm-12">
+                        4b. Abnormal Tests/Laboratory Results
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        Abnormal Test Results
+                        <div data-bind="foreach: fields.abnorm_test1">
+                            <label class="radio-inline">
+                                <input type="radio" id="abnorm_test1" data-bind="value:value,checked:$root.data.abnorm_test1"><span data-bind="text:label"></span>
+                            </label>
+                        </div>
+                        <small data-bind='redcapReset: data.abnorm_test1' class="text-muted clickable">Reset
+                        </small>
+                    </div>
+                </div>
+                <div data-bind="visible: data.abnorm_test1() == '1'" class="row">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th rowspan="2">Name of Test</th>
+                            <th rowspan="2">Date Specimen Taken</th>
+                            <th colspan="4">Results</th>
+                        </tr>
+                        <tr>
+                            <th>Positive</th>
+                            <th>Negative</th>
+                            <th>Elevated</th>
+                            <th>Decreased</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___1">
+                                        <input id="name_abnorm_test___1" data-bind='redcapChecked: data.name_abnorm_test___1' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___1()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_anti_" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_antibody_, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_antibody_, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_antibody_, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_antibody_, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___2">
+                                        <input id="name_abnorm_test___2" data-bind='redcapChecked: data.name_abnorm_test___2' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___2()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_bilirubin" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bilirubin, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bilirubin, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bilirubin, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bilirubin, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___3">
+                                        <input id="name_abnorm_test___3" data-bind='redcapChecked: data.name_abnorm_test___3' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___3()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_bnp" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bnp, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bnp, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bnp, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bnp, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___4">
+                                        <input id="name_abnorm_test___4" data-bind='redcapChecked: data.name_abnorm_test___4' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___4()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_bun" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bun, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bun, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bun, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bun, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___5">
+                                        <input id="name_abnorm_test___5" data-bind='redcapChecked: data.name_abnorm_test___5' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___5()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_cbc" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_cbc, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_cbc, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_cbc, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_cbc, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___6">
+                                        <input id="name_abnorm_test___6" data-bind='redcapChecked: data.name_abnorm_test___6' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___6()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_dat" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_dat, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_dat, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_dat, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_dat, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___7">
+                                        <input id="name_abnorm_test___7" data-bind='redcapChecked: data.name_abnorm_test___7' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___7()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_eluate" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_eluate, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_eluate, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_eluate, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_eluate, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___8">
+                                        <input id="name_abnorm_test___8" data-bind='redcapChecked: data.name_abnorm_test___8' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___8()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_inr" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___9">
+                                        <input id="name_abnorm_test___9" data-bind='redcapChecked: data.name_abnorm_test___9' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___9()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_iga" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_iga, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_iga, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_iga, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_iga, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___10">
+                                        <input id="name_abnorm_test___10" data-bind='redcapChecked: data.name_abnorm_test___10' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___10()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_hapto" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hapto, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hapto, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hapto, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hapto, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___11">
+                                        <input id="name_abnorm_test___11" data-bind='redcapChecked: data.name_abnorm_test___11' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___11()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_hemo" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hemo, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hemo, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hemo, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hemo, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___12">
+                                        <input id="name_abnorm_test___12" data-bind='redcapChecked: data.name_abnorm_test___12' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___12()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_ldh" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_ldh, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_ldh, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_ldh, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_ldh, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___13">
+                                        <input id="name_abnorm_test___13" data-bind='redcapChecked: data.name_abnorm_test___13' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___13()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.smear_date" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_sphere, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_sphere, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_sphere, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_sphere, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___14">
+                                        <input id="name_abnorm_test___14" data-bind='redcapChecked: data.name_abnorm_test___14' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___14()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_troponin" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_troponin, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_troponin, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_troponin, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_troponin, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___15">
+                                        <input id="name_abnorm_test___15" data-bind='redcapChecked: data.name_abnorm_test___15' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___15()[0].label"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_wbc" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_wbc, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_wbc, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_wbc, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_wbc, val: 3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label for="name_abnorm_test___16">
+                                        <input id="name_abnorm_test___16" data-bind='redcapChecked: data.name_abnorm_test___16' type="checkbox">
+                                        <span data-bind="text: fields.name_abnorm_test___16()[0].label"></span>
+                                    </label>
+                                    <div class="form-group"><label for="abnorm_comment"></label>
+                                        <input id="abnorm_comment" data-bind="textInput:data.abnorm_comment" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="date_anti_" data-bind="redcapDate:data.date_other" type="text" class="form-control">
+                                </div>
+                            </td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_other, val: 1"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_other, val: 0"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_other, val: 2"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_other, val: 3"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-bind="visible: data.abnorm_test1() == '1'" class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="abnorm_comment">Comments</label>
+                            <textarea id="abnorm_comment" class="form-control" data-bind="textInput: data.abnorm_comment"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!--            END ABNORMAL TEST -->
+                <div class="row">
+                    <div class="col-sm-12"><h4>
+                            Blood Culture Performed
+                        </h4></div>
+                </div>
+                <div class="row" data-bind="visible:data.blood_culpro() == 1 || data.blood_culrec() == 1">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <td width="15%">Blood Culture Results</td>
+                            <td>Date</td>
+                            <td>Time</td>
+                            <td># Positive</td>
+                            <td># Negative</td>
+                            <td>Organisms Identified</td>
+                            <td>Lot No.</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-bind="visible:data.blood_culrec() == 1">
+                            <td>
+                                <div class="checkbox">
+                                    <label for="blood_culrec">
+                                        <input id="blood_culrec" type="checkbox" data-bind="redcapChecked: data.blood_culrec">
+                                        On Recipient
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="reci_date" class="form-control" data-bind="redcapDate: data.reci_date" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="reci_time" class="form-control" data-bind="redcapTime: data.reci_time" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="reci_pos_num" class="form-control" data-bind="textInput:data.reci_pos_num" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="reci_neg_num" class="form-control" data-bind="textInput:data.reci_neg_num" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <select data-bind="
+                                                options: fields.reci_spec,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.reci_spec"
+                                            class="form-control" id="reci_spec">
+                                    </select>
+                                </div>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr data-bind="visible: data.reci_spec() == '20'">
+                            <td colspan="4" style="vertical-align: middle" class="text-right">Explain:</td>
+                            <td colspan="3">
+                                <div class="form-group">
+                                    <textarea data-bind="textInput:data.other_recip_spec" id="other_recip_spec" class="form-control"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-bind="visible:data.blood_culpro() == 1">
+                            <td>
+                                <div class="checkbox">
+                                    <label for="blood_culpro">
+                                        <input id="blood_culpro" type="checkbox" data-bind="redcapChecked: data.blood_culpro">
+                                        On the Product
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="reci_date" class="form-control" data-bind="redcapDate:data.prod_date" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="prod_time" class="form-control" data-bind="redcapTime: data.prod_time" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="prod_pos_num" class="form-control" data-bind="textInput:data.prod_pos_num" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="prod_neg_num" class="form-control" data-bind="textInput:data.prod_neg_num" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="prod_spec" class="form-control" data-bind="textInput:data.prod_spec" type="text">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input id="prod_unitlot" class="form-control" data-bind="textInput:data.prod_unitlot" type="text">
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row" data-bind="visible:data.blood_culrec() == 0">
+                    <div class="col-sm-12">
+                        <div class="checkbox">
+                            <label for="blood_culrec">
+                                <input id="blood_culrec" type="checkbox" data-bind="redcapChecked: data.blood_culrec">
+                                On Recipient
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-bind="visible:data.blood_culpro() == 0">
+                    <div class="col-sm-12">
+                        <div class="checkbox">
+                            <label for="blood_culpro">
+                                <input id="blood_culpro" type="checkbox" data-bind="redcapChecked: data.blood_culpro">
+                                On the Product
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="row div-horz">
+                    <div class="col-sm-2">
+                        <div class="checkbox">
+                            <label for="blood_culrec">
+                                <input id="blood_culrec" type="checkbox" data-bind="redcapChecked: data.blood_culrec">
+                                On Recipient
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culrec() == 1" class="col-sm-2">
+                        <div class="form-group">
+                            <label for="reci_date">Date</label>
+                            <input id="reci_date" class="form-control" data-bind="redcapDate: data.reci_date" type="text">
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culrec() == 1" class="col-sm-1">
+                        <div class="form-group">
+                            <label for="reci_time">Time</label>
+                            <input id="reci_time" class="form-control" data-bind="redcapTime: data.reci_time" type="text">
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culrec() == 1" class="col-sm-1">
+                        <div class="form-group">
+                            <label for="reci_pos_num"># Pos</label>
+                            <input id="reci_pos_num" class="form-control" data-bind="value:data.reci_pos_num" type="text">
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culrec() == 1" class="col-sm-1">
+                        <div class="form-group">
+                            <label for="reci_neg_num"># Neg</label>
+                            <input id="reci_neg_num" class="form-control" data-bind="value:data.reci_neg_num" type="text">
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culrec() == 1" class="col-sm-5">
+                        <div class="form-group">
+                            <label for="reci_spec">Organisms Identified</label>
+                            <select data-bind="
+                                                options: fields.reci_spec,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.reci_spec"
+                                    class="form-control" id="reci_spec">
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div data-bind="visible:data.reci_spec() == '20' && data.blood_culrec() == '1'" class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="other_recip_spec">Explain</label>
+                        <textarea data-bind="value:data.other_recip_spec" id="other_recip_spec" class="form-control">
+
+                        </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="checkbox">
+                            <label for="blood_culpro">
+                                <input id="blood_culpro" type="checkbox" data-bind="redcapChecked: data.blood_culpro">
+                                On the Product
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culpro() == 1" class="col-sm-2">
+                        <div class="form-group">
+                            <label for="reci_date">Date</label>
+                            <input id="reci_date" class="form-control" data-bind="redcapDate:data.prod_date" type="text">
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culpro() == 1" class="col-sm-1">
+                        <div class="form-group">
+                            <label for="prod_time">Time</label>
+                            <input id="prod_time" class="form-control" data-bind="redcapTime: data.prod_time" type="text">
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culpro() == 1" class="col-sm-1">
+                        <div class="form-group">
+                            <label for="prod_pos_num"># Pos</label>
+                            <input id="prod_pos_num" class="form-control" data-bind="value:data.prod_pos_num" type="text">
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culpro() == 1" class="col-sm-1">
+                        <div class="form-group">
+                            <label for="prod_neg_num"># Neg</label>
+                            <input id="prod_neg_num" class="form-control" data-bind="value:data.prod_neg_num" type="text">
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culpro() == 1" class="col-sm-3">
+                        <div class="form-group">
+                            <label for="prod_spec">Organisms Identified</label>
+                            <input id="prod_spec" class="form-control" data-bind="value:data.prod_spec" type="text">
+                        </div>
+                    </div>
+                    <div data-bind="visible: data.blood_culpro() == 1" class="col-sm-2">
+                        <div class="form-group">
+                            <label for="prod_unitlot">Lot No.</label>
+                            <input id="prod_unitlot" class="form-control" data-bind="value:data.prod_unitlot" type="text">
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+
+        </div>
+    </div>
+</div>

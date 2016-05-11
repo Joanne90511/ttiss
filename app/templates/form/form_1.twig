@@ -1,0 +1,82 @@
+<!--    Recipient Ident-->
+<div class="row">
+    <div class="col-md-push-1 col-sm-12 col-md-10 ttiss-block">
+        <div class="">
+            <div class="ttiss-heading">
+                <h3 class="panel-title text-uppercase">1. Recipient
+                    Identification</h3>
+            </div>
+            <div class="row ttiss-body">
+                <div class="col-sm-6 div-vert">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="last_name">Last Name</label>
+                                <input placeholder="Last Name" type="text" class="form-control" id="last_name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="first_name">First Name</label>
+                                <input type="text" class="form-control" id="first_name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row div-horz">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="healthnum">Health Number</label>
+                                <input type="text" class="form-control" id="healthnum">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="hospnum">Hospital Number</label>
+                                <input type="text" class="form-control" id="hospnum">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row ">
+                        <div class="col-sm-6">
+                            <div class="form-group ">
+                                <label for="dob">Birth Month</label>
+                                <select data-bind="
+                                                options: fields.monthbirth,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.monthbirth"
+                                        class="form-control" id="monthbirth">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group ">
+                                <label for="dob">Birth Year</label>
+                                <input type="text" data-bind="textInput: data.dobnoday, redcapRequired: data.dobnoday" class="form-control" id="dob">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group ">
+                                <label for="sex">Sex</label>
+                                <select data-bind="
+                                                options: fields.sex,
+                                                optionsText: 'label',
+                                                optionsValue: 'value',
+                                                optionsCaption: '---',
+                                                value: data.sex,
+                                                redcapRequired: data.sex"
+                                        class="form-control" id="sex">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
