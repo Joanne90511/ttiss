@@ -58,6 +58,11 @@ $container['db'] = function ($c)
     return new mysqli($settings['db']['host'], $settings['db']['user'], $settings['db']['password'], $settings['db']['database']);
 };
 
+$container['pdf'] = function ($c)
+{
+    return new mPDF('', '', 0, '', 15, 15, 32, 16, 9, 9);
+};
+
 // -----------------------------------------------------------------------------
 // Error Handles
 // -----------------------------------------------------------------------------
@@ -127,4 +132,21 @@ $container[App\Action\RecordGet::class] = function ($c)
 $container[App\Action\FieldsGet::class] = function ($c)
 {
     return new App\Action\FieldsGet($c->get('view'),$c->get('logger'), $c->get('api'));
+};
+
+$container[App\Action\RecordPost::class] = function ($c)
+{
+    return new App\Action\RecordPost($c->get('logger'), $c->get('api'));
+};
+
+$container[App\Action\OutputGet::class] = function ($c)
+{
+    return new App\Action\OutputGet($c->get('logger'), $c->get('api'), $c->get('pdf'));
+};
+
+$container[App\Action\CaseGet::class] = function ($c)
+{
+    $settings = $c->get('settings');
+
+    return new App\Action\CaseGet($c->get('view'), $c->get('logger'), $settings['api']['project_id']);
 };
