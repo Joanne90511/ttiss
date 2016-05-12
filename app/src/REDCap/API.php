@@ -1,21 +1,22 @@
 <?php
+
 namespace App\REDCap;
+
+use GuzzleHttp\Client;
 
 class API {
 
-    /** @var  string $api_token Key used for API calls */
-    private $api_token;
-
-    /** @var string $url URL used for API calls */
-    private $url = "http://redcap.local/api/";
-
     /** @var array $default Default Values for the API Call */
-    private $default = array('returnFormat' => 'json', 'format' => 'json',);
+    private $default = ['returnFormat' => 'json', 'format' => 'json',];
+
+    private $client;
 
     public function __construct($url, $api_token = NULL)
     {
-        $this->url       = $url;
-        $this->api_token = $api_token;
+        $this->default['token'] = $api_token;
+        $this->client           = new Client([
+                                                 'base_uri' => $url,
+                                             ]);
     }
 
     /**
@@ -40,43 +41,16 @@ class API {
      *
      * @return mixed
      */
-    private function call($data, $decode = true)
+    private function call($data)
     {
 
-        $data['token'] = $this->api_token;
-        $ch            = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->url);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data, '', '&'));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Set to TRUE for production use
-        curl_setopt($ch, CURLOPT_VERBOSE, 0);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-        curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1);
-        $output = curl_exec($ch);
-        if ($decode)
-        {
-            return $this->decode($output);
-        } else
-        {
-            return $output;
-        }
-    }
+        //Make Request. URI is already set
+        $output = $this->client->post('', ['form_params' => $data])
+                               ->getBody()
+                               ->getContents();
 
-    /**
-     * Internally breaks up return string into another format
-     * Currently only JSON
-     *
-     * @param $data
-     *
-     * @return mixed
-     */
-    private function decode($data)
-    {
-        //Do all data cleaning
-        return json_decode($data);
+        //Always dealing with JSON
+        return json_decode($output);
     }
 
     /**
@@ -89,7 +63,7 @@ class API {
     {
         $data            = $this->default;
         $data['content'] = 'record';
-        $data['fields']  = array("case_id", "phac_number");
+        $data['fields']  = array("case_id");
 
         return $this->call($data);
     }
@@ -113,7 +87,7 @@ class API {
      */
     public function setAPIToken($api_token)
     {
-        $this->api_token = $api_token;
+        $this->default['token'] = $api_token;
 
         return $this;
     }
@@ -176,7 +150,7 @@ class API {
 
     }
 
-    public function saveRecord(REDCapRecord $record)
+    public function saveRecord(Record $record)
     {
         $data                      = $this->default;
         $data['content']           = 'record';

@@ -1,0 +1,44 @@
+<p style="font-size: 12px; line-height: 12px; margin: 0; padding: 0">Case ID: <span class="underlined"><?= print_field('case_id', $fields, $record); ?></span></p>
+<div class="panel">
+    <div class="header">
+        1. RECIPIENT IDENTIFICATION
+    </div>
+    <div class="body">
+        <table class="table" style="text-align: left;">
+            <tbody>
+            <tr>
+                <td width="40%">
+                    <table class="table">
+                        <thead></thead>
+                        <tbody>
+                        <tr>
+                            <td width="50%" class="no-border title main"><?= print_field('last_name', $fields, $record); ?></td>
+                            <td width="50%" class="no-border title sub"><?= print_field('first_name', $fields, $record); ?></td>
+                        </tr>
+                        <tr>
+                            <td width="50%" class="no-border title main"><?= print_field('health_card_number', $fields, $record); ?></td>
+                            <td width="50%" class="no-border title sub"><?= print_field('hospital_card_number', $fields, $record); ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td class="no-border">
+                    <table>
+                        <thead></thead>
+                        <tbody>
+                        <tr>
+                            <td width="25%" class="no-border">Birth Year:</td>
+                            <td width="25%" class="no-border"><?= print_field('dobnoday', $fields, $record); ?> </td>
+                            <td width="25%" class="no-border">Birth Month:</td>
+                            <td width="25%" class="no-border"><?= print_field('monthbirth', $fields, $record); ?> </td>
+                            <td width="25%" class="no-border">Sex:</td>
+                            <td width="25%" class="no-border"><?= print_field('sex', $fields, $record); ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

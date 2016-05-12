@@ -1,0 +1,1247 @@
+<?php
+/** @var $record REDCapRecord */
+/** @var $fields array */
+function print_field($name, $fields, \App\REDCap\Record $record)
+{
+
+    if (strpos($name, '___') > -1)
+    {
+        return array_values($fields[$name])[0];
+    } else if (isset($fields[$name]) && isset($fields[$name][$record->get($name)]))
+    {
+        return $fields[$name][$record->get($name)];
+    } else if ($record->get($name))
+    {
+        return $record->get($name);
+    }
+    
+    return "";
+    
+}
+
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record <?=$record->get('case_id'); ?></title>
+    <style>
+        .text-right {
+            text-align: right;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-left {
+            text-align: left;
+        }
+        
+        .panel .header {
+            color: white;
+            background-color: #990033;
+            font-size: 16px;
+            padding-left: 10px;
+        }
+        
+        .panel .striped {
+            color: #990033;
+            background: #ffffff;
+            font-size: 16px;
+            padding-left: 10px;
+            border-bottom: 1px solid #990033;
+        }
+        
+        .panel {
+            border: 1px solid #990033;
+            width: 900px;
+            border-radius: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px;
+            
+        }
+        
+        .panel .body {
+        }
+        
+        .table {
+            text-align: left;
+            width: 100%;
+        }
+        
+        .bordered td {
+            border: 1px solid #903;
+        }
+        
+        .table td.no-border {
+            /*border-right: 0px solid #903;*/
+        }
+        
+        .table.bordered td {
+            border: 1px solid #903;
+        }
+        
+        .table th {
+            border: 1px solid #903;
+        }
+        
+        .table {
+            border-collapse: collapse;
+        }
+        
+        .panel {
+            page-break-inside: avoid;
+        }
+
+        tr.lightred td {
+            background: #ff9ba1;
+            border: 1px solid #990033;
+            font-weight: bold;
+        }
+
+        tr.lightred th {
+            background-color: #ff9ba1;
+        }
+
+        td {
+            padding: 0;
+
+        }
+        table table td, table.only td {
+            padding-left: 8px;
+        }
+
+        th {
+            padding: 0;
+        }
+    
+    </style>
+</head>
+<body>
+<!-- 0.0 -->
+<div class="panel">
+    <div class="header striped">
+        FACILITY IDENTIFICATION
+    </div>
+    <div class="body">
+        <table class="table only">
+            <tbody>
+            <tr>
+                <td width="50%"><?= print_field('facilityid_name_facility', $fields, $record); ?></td>
+                <td width="25%">City:</td>
+                <td width="25%" class="no-border">Province:</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 2. -->
+<div class="panel">
+    <div class="header">
+        2. CLINICAL HISTORY
+    </div>
+    <div class="body">
+        <table class="table">
+            <tbody>
+            <tr>
+                <td width="50%">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td class="no-border title main">Blood Group:</td>
+                            <td class="no-border title sub">ABO:</td>
+                            <td class="no-border"><?= print_field('blood_group_abc', $fields, $record); ?></td>
+                            <td class="no-border title sub">Rh:</td>
+                            <td class="no-border"><?= print_field('blood_group_rh', $fields, $record); ?></td>
+                        </tr>
+                        <?php if ($record->get('sex') == '2'): ?>
+                            <tr>
+                                <td class="no-border">Pregnancies/Miscarriages:</td>
+                                <td class="no-border"><?= print_field('preg_miscarrig', $fields, $record); ?></td>
+                            </tr>
+                        <? endif; ?>
+                        <tr>
+                            <td class="no-border">Transfusions</td>
+                            <td class="no-border"><?= print_field('trans', $fields, $record); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="no-border">Immune-Compromised:</td>
+                            <td class="no-border"><?= print_field('immunecompr', $fields, $record); ?></td>
+                        </tr>
+                        <?php if ($record->get('immunecompr') == '1'): ?>
+                            <tr>
+                                <td class="no-border">Describe:</td>
+                                <td class="no-border"><?= print_field('immunecompr_desc', $fields, $record); ?></td>
+                            </tr>
+                        <?php endif; ?>
+                        </tbody>
+                    </table>
+                </td>
+                <td class="no-border">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td class="no-border"> Patient Diagnoses:</td>
+                            <td class="no-border"><?= print_field('patient_diagnosis', $fields, $record); ?></td>
+                        </tr>
+                        <tr>
+                            <?php if ($record->get('other_history') == '1'): ?>
+                                <td class="no-border">Other Clinical History:</td>
+                                <td class="no-border"><?= print_field('other_history_spec', $fields, $record); ?></td>
+                            <?php else: ?>
+                                <td class="no-border">Other Clinical History:</td>
+                                <td class="no-border"></td>
+                            <?php endif; ?>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 3. -->
+<div class="panel">
+    <div class="header">
+        3. DATE, TIME AND PLACE OF INCIDENT / ADVERSE REACTION
+    </div>
+    <div class="body">
+        <table class="table">
+            <tbody>
+            <tr>
+                <td width="50%" valign="top">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td class="no-border">Date and time occurred:</td>
+                            <td class="no-border"><?= print_field('date_occurred', $fields, $record); ?>
+                                &nbsp;<?= print_field('time_occurred', $fields, $record); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="no-border">Date and time reported:</td>
+                            <td class="no-border"><?= print_field('date_reported', $fields, $record); ?>
+                                &nbsp;<?= print_field('time_reported', $fields, $record); ?></td>
+                        </tr>
+                        <tr class="lightred">
+                            <td class="no-border" colspan="2">3a. Incident Report</td>
+                        </tr>
+                        <?php if ($record->get('incident_type___1') == '1'): ?>
+                            <tr>
+                                <td class="no-border">Patient Identification Incident</td>
+                                <td class="no-border"><?= print_field('incident_type_spec', $fields, $record); ?></td>
+                            </tr>
+                        <?php endif; ?>
+                        <?php if ($record->get('incident_type___2') == '1'): ?>
+                            <tr>
+                                <td class="no-border">Product Related Incident</td>
+                                <td class="no-border"><?= print_field('incident_type_spec', $fields, $record); ?></td>
+                            </tr>
+                        <?php endif; ?>
+                        <?php if ($record->get('incident_type___3') == '1'): ?>
+                            <tr>
+                                <td class="no-border">Equipment Related Incident</td>
+                                <td class="no-border"><?= print_field('incident_type_spec', $fields, $record); ?></td>
+                            </tr>
+                        <?php endif; ?>
+                        <?php if ($record->get('incident_type___4') == '1'): ?>
+                            <tr>
+                                <td class="no-border">Other Incident</td>
+                                <td class="no-border"><?= print_field('incident_type_spec', $fields, $record); ?></td>
+                            </tr>
+                        <?php endif; ?>
+                        </tbody>
+                    </table>
+                </td>
+                <td width="50%" class="no-border">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td class="no-border">
+                                Place Occurred:
+                            </td>
+                            <td class="no-border">
+                                <?= print_field('access_location', $fields, $record); ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="no-border">Location Details:</td>
+                            <td class="no-border"><?= print_field('location_details', $fields, $record); ?></td>
+                        </tr>
+                        <tr class="lightred">
+                            <td colspan="2" class="no-border">3b. Premedication And Anesthesia</td>
+                        </tr>
+                        <tr>
+                            <td width="50%" class="no-border">Premedication:</td>
+                            <td width="50%" class="no-border"><?= print_field('premed_yes', $fields, $record); ?></td>
+                        </tr>
+                        <?php if ($record->get('premed_yes') == '1'): ?>
+                            <tr>
+                                <td width="50%" class="no-border">Specify</td>
+                                <td width="50%" class="no-border"><?= print_field('otherdrugs_comment', $fields, $record); ?></td>
+                            </tr>
+                        <?php endif; ?>
+                        <tr>
+                            <td width="50%" class="no-border">Anesthsia:</td>
+                            <td width="50%" class="no-border"><?= print_field('anes_trans', $fields, $record); ?></td>
+                        </tr>
+                        <tr class="lightred">
+                            <td width="50%" colspan="2" class="no-border">3c. Possible Transfusion Related
+                                Blood Borne
+                                Infection
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="no-border"><?= print_field('blood_infec', $fields, $record); ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 4. -->
+<div class="panel">
+    <div class="header">
+        4. CLINICAL SIGNS AND LABORATORY RESULTS
+    </div>
+    <div class="body">
+        <table class="table">
+            <thead>
+            <tr class="lightred">
+                <th colspan="2" class="text-left">4a. Clinical Signs and Symptoms</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td valign="top" width="50%">
+                    <table class="table">
+                        <?php if ($record->get('clinical_signs')): ?>
+                            <thead>
+                            <tr>
+                                <th>Clinical Symptom</th>
+                                <th>Before</th>
+                                <th>After</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php if ($record->get('no_sign___1')): ?>
+                                <tr>
+                                    <td class="no-border">
+                                        Temperature
+                                    </td>
+                                    <td class="no-border">
+                                        <?= print_field('temp_before', $fields, $record); ?>
+                                    </td>
+                                    <td><?= print_field('temp_after', $fields, $record); ?></td>
+                                </tr>
+                            <?php endif; ?>
+                            <?php if ($record->get('no_sign___2')): ?>
+                                <tr>
+                                    <td class="no-border">
+                                        Pulse
+                                    </td>
+                                    <td class="no-border">
+                                        <?= print_field('pulse_before', $fields, $record); ?>
+                                    </td>
+                                    <td><?= print_field('pulse_after', $fields, $record); ?></td>
+                                </tr>
+                            <?php endif; ?>
+                            <?php if ($record->get('no_sign___3')): ?>
+                                <tr>
+                                    <td class="no-border">
+                                        Respiration
+                                    </td>
+                                    <td class="no-border">
+                                        <?= print_field('resp_before', $fields, $record); ?>
+                                    </td>
+                                    <td><?= print_field('resp_after', $fields, $record); ?></td>
+                                </tr>
+                            <?php endif; ?>
+                            <?php if ($record->get('no_sign___4')): ?>
+                                <tr>
+                                    <td class="no-border">
+                                        Blood Pressure
+                                    </td>
+                                    <td class="no-border">
+                                        <?= print_field('blood_pres_before', $fields, $record); ?>
+                                    </td>
+                                    <td><?= print_field('blood_pres_after', $fields, $record); ?></td>
+                                </tr>
+                            <?php endif; ?>
+                            </tbody>
+                        <?php else: ?>
+                            <tbody>
+                            <tr>
+                                <td>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        <?php endif; ?>
+                    </table>
+
+
+                </td>
+                <td valign="top" width="50%" class="no-border">
+                    <?php if ($record->get('other_signs')): ?>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Symptom</th>
+                            <th>Observation</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        if ($record->get('other_signs'))
+                        {
+                            $field_labels = [
+                                'other_no_sign2_834___1',
+                                'other_no_sign2_834___2',
+                                'other_no_sign2_834___3',
+                                'other_no_sign2_834___4',
+                                'other_no_sign2_834___5',
+                                'other_no_sign2_834___6',
+                                'other_no_sign2_834___7',
+                                'other_no_sign2_834___8',
+                                'other_no_sign2_834___9',
+                                'other_no_sign2_834___10',
+                                'other_no_sign2_834___11',
+                                'other_no_sign2_834___12',
+                                'other_no_sign2_834___13',
+                            ];
+                            foreach ($field_labels as $index => $label)
+                            {
+                                if ($record->get($label) == true)
+                                {
+                                    echo "<tr>";
+                                    echo "<td>" . print_field($label, $fields, $record) . "</td>";
+                                    switch ($label)
+                                    {
+                                        case 'other_no_sign2_834___5':
+                                            echo "<td>" . print_field("hypo_sat", $fields, $record) . "</td>";
+                                            break;
+                                        case 'other_no_sign2_834___7':
+                                            echo "<td>" . print_field("pain_spec", $fields, $record) . "</td>";
+                                            break;
+                                        case 'other_no_sign2_834___13':
+                                            echo "<td>" . print_field("symp_other_spec", $fields, $record) . "</td>";
+                                            break;
+                                        default:
+                                            echo "<td></td>";
+                                    }
+                                    echo "</tr>";
+                                }
+
+                            }
+                            ?>
+                            </tr>
+
+                            <?php
+
+                        } else
+                        {
+                            ?>
+                            <tr>
+                                <td colspan="2"></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                    <?php endif; ?>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table only">
+            <thead>
+            <tr>
+                <th class="text-left" colspan="5">Clinical Information for TRALI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <?php if ($record->get('xray_info') == '1'): ?>
+                    <td class="no-border">Abnormal Chest X-ray Results:</td>
+                    <?php if ($record->get('bilat_infilt') == '1'): ?>
+                        <td class="no-border">Bilateral Infiltrates</td>
+                    <?php else: ?>
+                        <td class="no-border">No Bilateral Infiltrates</td>
+                    <?php endif; ?>
+                    <td class="no-border">Other:</td>
+                    <td class="no-border"><?= print_field("xray_other", $fields, $record); ?></td>
+                <?php else: ?>
+                    <td colspan="4" class="no-border text-left"></td>
+                <?php endif; ?>
+            </tr>
+            <tr>
+                <td class="no-border text-left" width="35%">Evidence of Circulatory Overload:</td>
+                <td class="no-border"><?= $record->get('circul_overload') == '1' ? 'Yes' : 'No'; ?></td>
+                <?php if($record->get('circul_overload')):?>
+                <td class="no-border">Explain:</td>
+                <td class="no-border"><?= print_field("corcul_overload_spec", $fields, $record); ?></td>
+                <?php endif; ?>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table bordered only">
+            <thead>
+            <tr class="lightred">
+                <th colspan="3" class="text-left">4b. Abnormal Tests/Laboratory Results</th>
+            </tr>
+            <tr>
+                <th>Name of Laboratory Tests:</th>
+                <th>Date Specimen Taken:</th>
+                <th>
+                    Results
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            $field_labels = [
+                1  => 'name_abnorm_test___1',
+                2  => 'name_abnorm_test___2',
+                3  => 'name_abnorm_test___3',
+                4  => 'name_abnorm_test___4',
+                5  => 'name_abnorm_test___5',
+                6  => 'name_abnorm_test___6',
+                7  => 'name_abnorm_test___7',
+                8  => 'name_abnorm_test___8',
+                9  => 'name_abnorm_test___9',
+                10 => 'name_abnorm_test___10',
+                11 => 'name_abnorm_test___11',
+                12 => 'name_abnorm_test___12',
+                13 => 'name_abnorm_test___13',
+                14 => 'name_abnorm_test___14',
+                15 => 'name_abnorm_test___15',
+                16 => 'name_abnorm_test___16',
+            ];
+
+            foreach ($field_labels as $index => $label):
+                if ($record->get($label) == '1'):
+                    ?>
+                    <tr>
+                        <td>
+                            <?= $index != 16 ? print_field($label, $fields, $record) : print_field('other_specify_test', $fields, $record); ?>
+                        </td>
+                        <td>
+                            <?php
+                            switch ($index)
+                            {
+                                case 1:
+                                    echo print_field('date_anti_', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_antibody_', $fields, $record);
+                                    break;
+                                case 2:
+                                    echo print_field('date_bilirubin', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_bilirubin', $fields, $record);
+                                    break;
+                                case 3:
+                                    echo print_field('date_bnp', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_bnp', $fields, $record);
+                                    break;
+                                case 4:
+                                    echo print_field('date_bun', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_bun', $fields, $record);
+                                    break;
+                                case 5:
+                                    echo print_field('date_cbc', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_cbc', $fields, $record);
+                                    break;
+                                case 6:
+                                    echo print_field('date_dat', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_dat', $fields, $record);
+                                    break;
+                                case 7:
+                                    echo print_field('date_eluate', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_eluate', $fields, $record);
+                                    break;
+                                case 8:
+                                    echo print_field('date_inr', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_inr', $fields, $record);
+                                    break;
+                                case 9:
+                                    echo print_field('date_iga', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_iga', $fields, $record);
+                                    break;
+                                case 10:
+                                    echo print_field('date_hapto', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_hapto', $fields, $record);
+                                    break;
+                                case 11:
+                                    echo print_field('date_hemo', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_hemo', $fields, $record);
+                                    break;
+                                case 12:
+                                    echo print_field('date_ldh', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_ldh', $fields, $record);
+                                    break;
+                                case 13:
+                                    echo print_field('smear_date', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_sphere', $fields, $record);
+                                    break;
+                                case 14:
+                                    echo print_field('date_troponin', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_troponin', $fields, $record);
+                                    break;
+                                case 15:
+                                    echo print_field('date_wbc', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_wbc', $fields, $record);
+                                    break;
+                                case 16:
+                                    echo print_field('date_other', $fields, $record);
+                                    echo "</td><td>";
+                                    echo print_field('result_other', $fields, $record);
+                                    break;
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <table class="table bordered">
+            <thead>
+            <tr>
+                <th>Blood Culture Results:</th>
+                <th>Date/Time Specimen Taken</th>
+                <th>
+                    # Pos
+                </th>
+                <th># Neg</th>
+                <th>
+                    Organisms Identified
+                </th>
+                <th>
+                    Unit No.
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if ($record->get('blood_culrec') == '1'): ?>
+                <tr>
+                    <td>
+                        Recipient
+                    </td>
+                    <td>
+                        <?= print_field('reci_date', $fields, $record); ?>
+                        &nbsp; <?= print_field('reci_time', $fields, $record); ?>
+                    </td>
+                    <td>
+                        <?= print_field('reci_pos_num', $fields, $record); ?>
+                    </td>
+                    <td>
+                        <?= print_field('reci_neg_num', $fields, $record); ?>
+                    </td>
+                    <td>
+                        <?= $record->get('reci_spec') != '20' ? print_field('reci_spec', $fields, $record) : print_field('other_recip_spec', $fields, $record); ?>
+                    </td>
+                    <td>
+                        N/A
+                    </td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($record->get('blood_culpro') == '1'): ?>
+                <tr>
+                    <td>
+                        Product
+                    </td>
+                    <td>
+                        <?= print_field('prod_date', $fields, $record); ?>
+                        &nbsp; <?= print_field('prod_time', $fields, $record); ?>
+                    </td>
+                    <td>
+                        <?= print_field('prod_pos_num', $fields, $record); ?>
+                    </td>
+                    <td>
+                        <?= print_field('prod_neg_num', $fields, $record); ?>
+                    </td>
+                    <td>
+                        <?= print_field('prod_spec', $fields, $record); ?>
+                    </td>
+                    <td>
+                        <?= print_field('prod_unitlot', $fields, $record); ?>
+                    </td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($record->get('blood_culpro') != '1' && $record->get('blood_culrec') != 1): ?>
+                <tr>
+                    <td colspan="6">
+
+                    </td>
+                </tr>
+            <?php endif; ?>
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 5. -->
+<div class="panel">
+    <div class="header">
+        5. SUSPECT BLOOD, BLOOD COMPONENTS, OR BLOOD PRODUCTS
+    </div>
+    <div class="body">
+        <table class="table bordered">
+            <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Hospital:</th>
+                <th>Supplier:</th>
+                <th>ABO</th>
+                <th>Rh</th>
+                <th>Unit no</th>
+                <th>Expiry Date</th>
+                <th>Amount</th>
+                <th>Unit of Measure</th>
+                <th>Fraction</th>
+                <th>Date Started</th>
+                <th>Date Finished</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><?= print_field('prod_code_name1', $fields, $record); ?>
+                    <br>
+                    <?php
+                    switch ($record->get('prod_code_name1'))
+                    {
+                        case '1':
+                            echo print_field('prod_code_alb1', $fields, $record);
+                            break;
+                        case '2':
+                            echo print_field('prod_code_buffy1', $fields, $record);
+                            break;
+                        case '3':
+                            echo print_field('prod_cod_coag1', $fields, $record);
+                            break;
+                        case '4':
+                            echo print_field('prod_code_cryo', $fields, $record);
+                            break;
+                        case '5':
+                            echo print_field('ivig_brand_1', $fields, $record);
+                            break;
+                        case '6':
+                            echo print_field('prod_code_immun1', $fields, $record);
+                            break;
+                        case '7':
+                            echo print_field('prod_code_othplas1', $fields, $record);
+                            break;
+                        case '8':
+                            echo print_field('prod_code_plasma1', $fields, $record);
+                            break;
+                        case '9':
+                            echo print_field('prod_code_rbc1', $fields, $record);
+                            break;
+                    }
+                    ?>
+                </td>
+                <td><?= print_field('hosp_mod1', $fields, $record); ?></td>
+                <td><?= print_field('supp_mod1', $fields, $record); ?></td>
+                <td><?= print_field('group_abo1', $fields, $record); ?></td>
+                <td><?= print_field('group_rh1', $fields, $record); ?></td>
+                <td><?= print_field('unitlot1', $fields, $record); ?></td>
+                <td><?= print_field('expiry_1', $fields, $record); ?></td>
+                <td><?= print_field('amount1', $fields, $record); ?></td>
+                <td><?= print_field('amount_unit1', $fields, $record); ?></td>
+                <td><?= print_field('amount_frac1', $fields, $record); ?></td>
+                <td><?= print_field('trans_start_date1', $fields, $record); ?>
+                    &nbsp;<?= print_field('trans_start_time1', $fields, $record); ?></td>
+                <td><?= print_field('trans_end_date1', $fields, $record); ?>
+                    &nbsp;<?= print_field('trans_end_time1', $fields, $record); ?></td>
+            </tr>
+            <?php if ($record->get('suspect_pro2')): ?>
+                <tr>
+                    <td><?= print_field('prod_code_name2', $fields, $record); ?>
+                        <br>
+                        <?php
+                        switch ($record->get('prod_code_name2'))
+                        {
+                            case '1':
+                                echo print_field('prod_code_alb2', $fields, $record);
+                                break;
+                            case '2':
+                                echo print_field('prod_code_buffy2', $fields, $record);
+                                break;
+                            case '3':
+                                echo print_field('prod_cod_coag2', $fields, $record);
+                                break;
+                            case '4':
+                                echo print_field('prod_code_cryo2', $fields, $record);
+                                break;
+                            case '5':
+                                echo print_field('ivig_brand_2', $fields, $record);
+                                break;
+                            case '6':
+                                echo print_field('prod_code_immun2', $fields, $record);
+                                break;
+                            case '7':
+                                echo print_field('prod_code_othplas2', $fields, $record);
+                                break;
+                            case '8':
+                                echo print_field('prod_code_plasma2', $fields, $record);
+                                break;
+                            case '9':
+                                echo print_field('prod_code_rbc2', $fields, $record);
+                                break;
+                        }
+                        ?>
+                    </td>
+                    <td><?= print_field('hosp_mod2', $fields, $record); ?></td>
+                    <td><?= print_field('supp_mod2', $fields, $record); ?></td>
+                    <td><?= print_field('group_abo2', $fields, $record); ?></td>
+                    <td><?= print_field('group_rh2', $fields, $record); ?></td>
+                    <td><?= print_field('unitlot2', $fields, $record); ?></td>
+                    <td><?= print_field('expiry_2', $fields, $record); ?></td>
+                    <td><?= print_field('amount2', $fields, $record); ?></td>
+                    <td><?= print_field('amount_unit2', $fields, $record); ?></td>
+                    <td><?= print_field('amount_frac2', $fields, $record); ?></td>
+                    <td><?= print_field('trans_start_date2', $fields, $record); ?>
+                        &nbsp;<?= print_field('trans_start_time2', $fields, $record); ?></td>
+                    <td><?= print_field('trans_end_date2', $fields, $record); ?>
+                        &nbsp;<?= print_field('trans_end_time2', $fields, $record); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($record->get('suspect_pro3')): ?>
+                <tr>
+                    <td><?= print_field('prod_code_name3', $fields, $record); ?>
+                        <br>
+                        <?php
+                        switch ($record->get('prod_code_name3'))
+                        {
+                            case '1':
+                                echo print_field('prod_code_alb3', $fields, $record);
+                                break;
+                            case '2':
+                                echo print_field('prod_code_buffy3', $fields, $record);
+                                break;
+                            case '3':
+                                echo print_field('prod_cod_coag3', $fields, $record);
+                                break;
+                            case '4':
+                                echo print_field('prod_code_cryo3', $fields, $record);
+                                break;
+                            case '5':
+                                echo print_field('ivig_brand_3', $fields, $record);
+                                break;
+                            case '6':
+                                echo print_field('prod_code_immun3', $fields, $record);
+                                break;
+                            case '7':
+                                echo print_field('prod_code_othplas3', $fields, $record);
+                                break;
+                            case '8':
+                                echo print_field('prod_code_plasma3', $fields, $record);
+                                break;
+                            case '9':
+                                echo print_field('prod_code_rbc3', $fields, $record);
+                                break;
+                        }
+                        ?>
+                    </td>
+                    <td><?= print_field('hosp_mod3', $fields, $record); ?></td>
+                    <td><?= print_field('supp_mod3', $fields, $record); ?></td>
+                    <td><?= print_field('group_abo3', $fields, $record); ?></td>
+                    <td><?= print_field('group_rh3', $fields, $record); ?></td>
+                    <td><?= print_field('unitlot3', $fields, $record); ?></td>
+                    <td><?= print_field('expiry_3', $fields, $record); ?></td>
+                    <td><?= print_field('amount3', $fields, $record); ?></td>
+                    <td><?= print_field('amount_unit3', $fields, $record); ?></td>
+                    <td><?= print_field('amount_frac3', $fields, $record); ?></td>
+                    <td><?= print_field('trans_start_date3', $fields, $record); ?>
+                        &nbsp;<?= print_field('trans_start_time3', $fields, $record); ?></td>
+                    <td><?= print_field('trans_end_date3', $fields, $record); ?>
+                        &nbsp;<?= print_field('trans_end_time3', $fields, $record); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($record->get('suspect_pro4')): ?>
+                <tr>
+                    <td><?= print_field('prod_code_name4', $fields, $record); ?>
+                        <br>
+                        <?php
+                        switch ($record->get('prod_code_name4'))
+                        {
+                            case '1':
+                                echo print_field('prod_code_alb4', $fields, $record);
+                                break;
+                            case '2':
+                                echo print_field('prod_code_buffy4', $fields, $record);
+                                break;
+                            case '3':
+                                echo print_field('prod_cod_coag4', $fields, $record);
+                                break;
+                            case '4':
+                                echo print_field('prod_code_cryo4', $fields, $record);
+                                break;
+                            case '5':
+                                echo print_field('ivig_brand_4', $fields, $record);
+                                break;
+                            case '6':
+                                echo print_field('prod_code_immun4', $fields, $record);
+                                break;
+                            case '7':
+                                echo print_field('prod_code_othplas4', $fields, $record);
+                                break;
+                            case '8':
+                                echo print_field('prod_code_plasma4', $fields, $record);
+                                break;
+                            case '9':
+                                echo print_field('prod_code_rbc4', $fields, $record);
+                                break;
+                        }
+                        ?>
+                    </td>
+                    <td><?= print_field('hosp_mod4', $fields, $record); ?></td>
+                    <td><?= print_field('supp_mod4', $fields, $record); ?></td>
+                    <td><?= print_field('group_abo4', $fields, $record); ?></td>
+                    <td><?= print_field('group_rh4', $fields, $record); ?></td>
+                    <td><?= print_field('unitlot4', $fields, $record); ?></td>
+                    <td><?= print_field('expiry_4', $fields, $record); ?></td>
+                    <td><?= print_field('amount4', $fields, $record); ?></td>
+                    <td><?= print_field('amount_unit4', $fields, $record); ?></td>
+                    <td><?= print_field('amount_frac4', $fields, $record); ?></td>
+                    <td><?= print_field('trans_start_date4', $fields, $record); ?>
+                        &nbsp;<?= print_field('trans_start_time4', $fields, $record); ?></td>
+                    <td><?= print_field('trans_end_date4', $fields, $record); ?>
+                        &nbsp;<?= print_field('trans_end_time4', $fields, $record); ?></td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 6. -->
+<div class="panel">
+    <div class="header">
+        6. MEASURES TAKEN
+    </div>
+    <div class="body">
+        <table class="table only">
+            <tbody>
+            <tr>
+                <?php
+                if (!$record->get('no_measures___0'))
+                {
+                $field_labels = [
+                    'no_measures___1',
+                    'no_measures___2',
+                    'no_measures___3',
+                    'no_measures___4',
+                    'no_measures___5',
+                    'no_measures___6',
+                    'no_measures___7',
+                    'no_measures___8',
+                    'no_measures___9',
+                    'no_measures___10',
+                    'no_measures___11',
+                    'no_measures___12',
+                    'no_measures___13',
+                    'no_measures___14',
+                    'no_measures___15',
+                    'no_measures___16',
+                ];
+                foreach ($field_labels as $index => $label)
+                {
+
+                    if ($record->get($label) == '1')
+                    {
+                        switch ($label)
+                        {
+                            case 'no_measures___7';
+                                echo "<td>Effective: " . print_field('diure_effect', $fields, $record) . '</td>';
+                                break;
+                            case 'no_measures___11';
+                                echo "<td> Duration: " . print_field('mech_vent_dur', $fields, $record) . '</td>';
+                                break;
+                            case 'no_measures___16';
+                                echo "<td>Description: " . print_field('other_mesu_spec', $fields, $record) . '</td>';
+                                break;
+
+                            default:
+                                echo '<td></td>>';
+                        }
+                        echo "<td>" . print_field($label, $fields, $record) . "</td>";
+                    }
+
+                    
+                }
+                ?>
+            </tr>
+            
+            <?php
+                
+            } else
+            {
+                ?>
+                <tr>
+                    <td></td>
+                </tr>
+                <?php
+            }
+            ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 7. -->
+<div class="panel">
+    <div class="header">
+        7. RESULTS OF INVESTIGATION & CONCLUSION
+    </div>
+    <div class="body">
+        <table class="table only">
+            <tbody>
+            <tr>
+                <td width="25%">Type of Reaction:</td>
+                <td width="25%"><?= print_field('trans_react', $fields, $record); ?></td>
+                <td colspan="2">More Information</td>
+            </tr>
+            <?php if ($record->get('trans_react') == '3')
+            { ?>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Incompatible Transfusion</td>
+                    <td><?= print_field('unint_intent', $fields, $record); ?></td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Incompatible transfusion System</td>
+                    <td><?= print_field('incomp_transsys', $fields, $record); ?></td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Incompatible transfusion - description</td>
+                    <td><?= print_field('abo_sys_spec', $fields, $record); ?></td>
+                </tr>
+            <?php } elseif (in_array($record->get('trans_react'), ['5', '6']))
+            { ?>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Hemolytic reaction cause</td>
+                    <td><?= print_field('hemo_cause', $fields, $record); ?></td>
+                </tr>
+            <?php } elseif ($record->get('trans_react') == '7')
+            { ?>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Delayed Serological Transfusion - Specify</td>
+                    <td><?= print_field('del_sero_trans_spec', $fields, $record); ?></td>
+                </tr>
+            <?php } elseif ($record->get('trans_react') == '10')
+            { ?>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Infection Type</td>
+                    <td><?= print_field('infec_type_spec', $fields, $record); ?></td>
+                </tr>
+            <?php } elseif ($record->get('trans_react') == '13')
+            { ?>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>TRALI - time to recovery</td>
+                    <td><?= print_field('trali_recover', $fields, $record); ?></td>
+                </tr>
+            <?php } elseif ($record->get('trans_react') == '14')
+            { ?>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Possible TRALI - time to recovery</td>
+                    <td><?= print_field('poss_trali_recover', $fields, $record); ?></td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Possible TRALI - risk factors</td>
+                    <td><?= print_field('poss_trali_risk', $fields, $record); ?></td>
+                </tr>
+            <?php } elseif ($record->get('trans_react') == '15')
+            { ?>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Hypotensive reaction - ACE inhibitors</td>
+                    <td><?= print_field('ace_inhibit', $fields, $record); ?></td>
+                </tr>
+            <?php } elseif ($record->get('trans_react') == '21')
+            { ?>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Other Results</td>
+                    <td><?= print_field('other_choices', $fields, $record); ?></td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Other results of Investigation - description</td>
+                    <td><?= print_field('other_res_spec', $fields, $record); ?></td>
+                </tr>
+            <?php } else
+            { ?>
+                <tr>
+                    <td colspan="4"> No More Information</td>
+                </tr>
+            <?php } ?>
+            <?php if (in_array($record->get('trans_react'), ['8', '9', '10'])): ?>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Donor - Infected, Uninfected or Unknown</td>
+                    <td><?= print_field('donor', $fields, $record); ?></td>
+                </tr>
+                <?php if ($record->get('donor') == '1'): ?>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>Donor - Infected - description</td>
+                        <td><?= print_field('donor_infec_type_spec', $fields, $record); ?></td>
+                    </tr>
+                <?php endif; ?>
+            <?php endif; ?>
+            </tbody>
+        </table>
+        <table class="table bordered only">
+            <tbody>
+            <tr>
+                <td width="25%">Relationship of Adverse Event to Transfusion:</td>
+                <td width="25%"><?= print_field('relation_adverse', $fields, $record); ?></td>
+                <td width="25%">Severity of Adverse Event:</td>
+                <td width="25%"><?= print_field('severity_adverse', $fields, $record); ?></td>
+            </tr>
+            <tr>
+                <td>Outcome of Adverse Event:</td>
+                <td><?= print_field('outcome_adverse', $fields, $record); ?></td>
+                <!--            If Death -->
+                <?php if ($record->get('outcome_adverse') == '3'): ?>
+                    <td>Relationship of transfusion to recipient's death</td>
+                    <td><?= print_field('relation_death', $fields, $record); ?></td>
+                <?php endif; ?>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table bordered only">
+            <tbody>
+            <!--            END if-->
+            <?php if ($record->get('action_taken___1') == '1'): ?>
+                <tr>
+                    <td width="30%">Hospital Procedure Involved:</td>
+                    <td width="35%"><?= print_field('proc_desc', $fields, $record); ?></td>
+                    <td width="35%"><?= print_field('proc_action', $fields, $record); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($record->get('action_taken___2') == '1'): ?>
+                <tr>
+                    <td width="30%">Equipment/Supplies Involved:</td>
+                    <td><?= print_field('equipsupp_desc', $fields, $record); ?></td>
+                    <td><?= print_field('equipsupp_action', $fields, $record); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($record->get('action_taken___3') == '1'): ?>
+                <tr>
+                    <td width="30%">Medical Follow up Performed:</td>
+                    <td colspan="2"><?= print_field('tent_prev_measures', $fields, $record); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($record->get('action_taken___4') == '1'): ?>
+                <tr>
+                    <td>Supplier/Manufacturer Notified:</td>
+                    <td width="30%">Supplier Contacted on <?= print_field('date_contacted', $fields, $record); ?></td>
+                    <td colspan="2">Contact Name: <?= print_field('person_contacted', $fields, $record); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($record->get('action_taken___0') == '1'): ?>
+                <tr>
+                    <td colspan="3">No Action Taken</td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+        <table class="table bordered only">
+            <tbody>
+            <tr>
+                <?php
+                $wid = $record->get('invest_status') == '99' ? '25' : '50';
+                ?>
+                <td width="<?= $wid ?>%">Status of Investigation:</td>
+                <td width="<?= $wid ?>%"><?= print_field('invest_status', $fields, $record); ?></td>
+                <?php if ($wid == '25'): ?>
+                    <td width="25%">Reason:</td>
+                    <td width="25%"><?= print_field('cannot_reason', $fields, $record); ?></td>
+                <?php endif; ?>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="panel">
+    <div class="header">
+        8. COMMENTS
+    </div>
+    <div class="body">
+        <table class="table only">
+            <tbody>
+            <tr>
+                <td colspan="4" class="text-left" style="border-bottom: 1px solid #903; height: 100px;"><?= print_field('final_comments', $fields, $record); ?></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #903; height: 30px;">
+                <td width="40%">Reporting Physician or Designate:</td>
+                <td width="20%"><?= $record->get('report_lastname') != '99' ? print_field('report_lastname', $fields, $record) : print_field('other_name', $fields, $record); ?></td>
+                <td width="20%">Signature:</td>
+                <td width="40%"></td>
+            </tr>
+            <tr>
+                <td width="40%" class="text-left">Phone Number:</td>
+                <td width="30%"><?= $record->get('report_lastname') == '4' ? print_field('report_phone', $fields, $record) : ''; ?></td>
+                <td width="20%" class="text-left">Date & Time:</td>
+                <td width="30%"><?= print_field('curr_date', $fields, $record); ?></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="panel">
+    <div class="header">
+        9. COMMENTS - COMPLETED BY CANADIAN BLOOD SERVICES (CBS)
+    </div>
+    <div class="body">
+        <table class="table only">
+            <tbody>
+            <tr>
+                <td colspan="4" class="text-left" style="border-bottom: 1px solid #903; height: 100px;"><?= print_field('cbscom', $fields, $record); ?></td>
+            </tr>
+            <tr class="text-left" style="border-bottom: 1px solid #903; height: 30px;">
+                <td width="20%">CBS Medical Director:</td>
+                <td><?= print_field('medname', $fields, $record); ?></td>
+                <td width="30%">Signature:</td>
+            </tr>
+            <tr class="text-left" style="height: 30px;">
+                <td width="40%">Phone: <?= print_field('medtel', $fields, $record); ?></td>
+                <td width="10%">Ext: <?= print_field('med_ext', $fields, $record); ?></td>
+                <td width="50%" colspan="2">Date: <?= print_field('datemed', $fields, $record); ?></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

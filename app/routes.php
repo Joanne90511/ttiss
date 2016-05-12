@@ -24,3 +24,15 @@ $app->get('/record/{record}', App\Action\RecordGet::class)
 $app->get('/fields', App\Action\FieldsGet::class)
     ->setName('fieldsHandler')
     ->add($authorize);
+
+$app->post('/record', App\Action\RecordPost::class)
+    ->setName('recordSaveHandler')
+    ->add($authorize);
+
+$app->get('/output[/{case_id}[/{test}]]', App\Action\OutputGet::class)
+    ->setName('OutputHandler')
+    ->add($authorize);
+
+$app->get("/case/{case_id}", App\Action\CaseGet::class)
+    ->setName('caseHandler')
+    ->add($authorize);

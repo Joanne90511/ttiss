@@ -83,6 +83,7 @@ class Record {
      *
      * @return string
      */
+    //TODO Determine if arrayed is needed. So far all calls are arrayed
     public function toJSON($arrayed = false)
     {
         if ($arrayed)

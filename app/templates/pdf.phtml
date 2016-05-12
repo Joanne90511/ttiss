@@ -1,0 +1,407 @@
+<html>
+<head>
+    <title>Tester</title>
+</head>
+<style>
+    /*  SECTIONS  */
+    .section {
+        clear: both;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    /*  COLUMN SETUP  */
+    .col {
+        display: block;
+        float: left;
+        border: 1px solid blue;
+        margin: 0% 0 0% 0%;
+    }
+
+    .col:first-child {
+        margin-left: 0;
+    }
+
+    /*  GROUPING  */
+    .group:before,
+    .group:after {
+        content: "";
+        display: table;
+    }
+
+    .group:after {
+        clear: both;
+    }
+
+    .group {
+        zoom: 1; /* For IE 6/7 */
+    }
+
+    /*  GRID OF TWELVE  */
+    .span12 {
+        width: 100%;
+    }
+
+    .span11 {
+        width: 91%;
+    }
+
+    .span10 {
+        width: 83%;
+    }
+
+    .span9 {
+        width: 74%;
+    }
+
+    .span8 {
+        width: 66%;
+    }
+
+    .span7 {
+        width: 58%;
+    }
+
+    .span6 {
+        width: 49.4%;
+    }
+
+    .span5 {
+        width: 41%;
+    }
+
+    .span4 {
+        width: 33%;
+    }
+
+    .span3 {
+        width: 24%;
+    }
+
+    .span2 {
+        width: 16%;
+    }
+
+    .span1 {
+        width: 7.5%;
+    }
+</style>
+<style>
+    .text-right {
+        text-align: right;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .panel .header {
+        color: white;
+        background-color: #990033;
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
+    .panel .striped {
+        color: #990033;
+        font-size: 16px;
+        /*padding-left: 10px;*/
+        border-bottom: 1px solid #990033;
+    }
+
+    .panel {
+        border: 1px solid #990033;
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .panel .body {
+    }
+
+</style>
+<body>
+<div class="container-fluid">
+    <div class="panel">
+        <div class="striped">
+            FACILITY IDENTIFICATION
+        </div>
+        <div class="body">
+            <div class="section group">
+                <div class="col span6">Facility: </div>
+                <div class="col span2">City: Hamilton</div>
+                <div class="col span4 text-right">Province: Ontario</div>
+            </div>
+        </div>
+    </div>
+    <!--    1. -->
+    <div class="panel">
+        <div class="header">
+            1. RECIPIENT IDENTIFICATION
+        </div>
+        <div class="body">
+            <div class="section group">
+                <div class="col span6">
+                    <div class="section group">
+                        <div class="col span12">
+                            Last Name, First Name
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span6">
+                            Health Card Number
+                        </div>
+                        <div class="col span6">
+                            Hospital CArd Number
+                        </div>
+                    </div>
+                </div>
+                <div class="col span5">Date Of Birth Sex: Male</div>
+            </div>
+        </div>
+    </div>
+    <!--    2. -->
+    <div class="panel">
+        <div class="header">
+            2. CLINICAL HISTORY
+        </div>
+        <div class="body">
+            <div class="section group">
+                <div class="col span6">
+                    <div class="section group">
+                        <div class="col span6">
+                            Blood Group: ABO: A
+                        </div>
+                        <div class="col span6">
+                            Rh: Pos
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            Pregnancies
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            Tranfusions
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            Immuncompromise
+                        </div>
+                    </div>
+                </div>
+                <div class="col span6">
+                    <div class="section group">
+                        <div class="col span12">Patient Diagnosis:</div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            Other History
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">Location Information</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    3. -->
+    <div class="panel">
+        <div class="header">
+            3. DATE, TIME, AND PLACE OF INCIDENT / ADVERSE REACTION
+        </div>
+        <div class="body">
+            <div class="section group">
+                <div class="col span6">
+                    <div class="section group">
+                        <div class="col span12">
+                            Date Time OCcurred
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            Date Time Reported
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            3a. Incident Information
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span6">
+                            Patient Identification Incident
+                        </div>
+                        <div class="col span6">
+                            Specify
+                        </div>
+                    </div>
+                </div>
+                <div class="col span6">
+                    <div class="section group">
+                        <div class="col span12">
+                            Place Occurred
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            Premedication
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            Specify
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            Under Anethesis
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            3c. Report of Possible TRansfusion Related Blood Borne Infection
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            Answer
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    4. -->
+    <div class="panel">
+        <div class="header">
+            4. CLINICAL SIGNS AND LABORATORY RESULTS
+        </div>
+        <div class="body">
+            <div class="section group">
+                <div class="col span12">
+                    <div class="section group">
+                        <div class="col span4">1</div>
+                        <div class="col span4">2</div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">TRALI INFO</div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">4b. Abnormal Tests/Laboratory Results</div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span6">
+                            Name of Test
+                        </div>
+                        <div class="col span3">
+                            Date Taken
+                        </div>
+                        <div class="col span3">
+                            Results
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            Blood Culture Results
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span12">
+                            <div class="col span2">
+                                Recipient:
+                            </div>
+                            <div class="col span5">
+                                Date Time Num Pos:
+                            </div>
+                            <div class="col span5">
+                                If Positive, Unit No
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--    5. -->
+    <div class="panel">
+        <div class="header">
+            5. SUSPECT BLOOD, BLOOD COMPONENTS, OR BLOOD PRODUCTS
+        </div>
+        <div class="body">
+            <div class="section group">
+                <div class="col span12">
+                    TAble
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--    6. -->
+    <div class="panel">
+        <div class="header">
+            6. MEASURES TAKEN
+        </div>
+        <div class="body">
+            <div class="section group">
+                <div class="col span12">
+                    TAble
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--    7. -->
+    <div class="panel">
+        <div class="header">
+            7. RESULTS OF INVESTIGATION & CONCLUSION
+        </div>
+        <div class="body">
+            <div class="section group">
+                <div class="col span12">
+                    TAble
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--    8. -->
+    <div class="panel">
+        <div class="header">
+            8. COMMENTS
+        </div>
+        <div class="body">
+            <div class="section group">
+                <div class="col span12">
+                    TAble
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--    9. -->
+    <div class="panel">
+        <div class="header">
+            9. COMMENTS - COMPLETED BY CANADIAN BLOOD SERVICES (CBS)
+        </div>
+        <div class="body">
+            <div class="section group">
+                <div class="col span12">
+                    Table
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
