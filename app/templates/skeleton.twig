@@ -15,7 +15,6 @@
 
     <!--  Font Awesome Glyphs  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!--    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>-->
     <link href='https://fonts.googleapis.com/css?family=Raleway|Open+Sans|Lato|Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/jquery-ui.min.css">
     <link rel="stylesheet" href="/css/jquery-ui.structure.min.css">
@@ -46,22 +45,20 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                {#<?php if (!empty($_SESSION['username'])): ?>
+                {% if auth == true %}
                 <li><a href="/new">New Entry</a></li>
                 <li><a href="/">Previous Entries</a></li>
-                <?php endif; ?>#}
+                {% endif %}
                 <li><a target="_blank" href="http://redcap.local">REDCap</a></li>
-
-
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <ul class="nav navbar-nav navbar-right">
-                    {#<?php if (!empty($_SESSION['username'])): ?>#}
+                    {% if auth == true %}
                     <li role="separator" class="divider"></li>
                     <li><a href="/logout">Logout</a></li>
-                    {#<?php else: ?>#}
+                    {% else %}
                     <li><a href="/login">Login</a></li>
-                    {#<?php endif; ?>#}
+                    {% endif %}
                 </ul>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -82,12 +79,5 @@
 <script src="/js/bootstrap.min.js"></script>
 {% block js %}  {% endblock %}
 <script src="/js/site.js"></script>
-{#<?php if (isset($form) && $form == true): ?>
-<script src="/js/knockout-3.4.0.js"></script>
-<script src="/js/knockout.mapping-latest.js"></script>
-<script src="/js/jquery-ui.min.js"></script>
-<script src="/js/REDCapBindings.js"></script>
-<script src="/js/app.js"></script>
-<?php endif; ?>#}
 </body >
 </html >

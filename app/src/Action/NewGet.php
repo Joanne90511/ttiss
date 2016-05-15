@@ -14,7 +14,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
 
-class NewGet {
+class NewGet extends BaseAction {
 
     private $view;
     private $logger;
@@ -25,14 +25,16 @@ class NewGet {
         $this->view       = $view;
         $this->logger     = $logger;
         $this->project_id = $project_id;
+
+        parent::__construct();
     }
 
     public function __invoke(Request $request, Response $response, $args)
     {
 
-        $this->view->render($response, 'form.twig', [
-            'project' => $this->project_id
-        ]);
+        $this->data['project'] = $this->project_id;
+
+        $this->view->render($response, 'form.twig', $this->data);
 
         return $response;
     }
