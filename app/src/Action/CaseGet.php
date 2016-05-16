@@ -14,7 +14,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
 
-class CaseGet {
+class CaseGet extends BaseAction {
 
     private $view;
     private $logger;
@@ -25,16 +25,18 @@ class CaseGet {
         $this->view       = $view;
         $this->logger     = $logger;
         $this->project_id = $project_id;
+
+        parent::__construct();
     }
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        return $this->view->render($response, "form.twig",
-                                   array(
-                                       "project" => $this->project_id,
-                                       "record"  => $args['case_id'],
-                                       "form"    => true,
-                                   )
-        );
+        $this->data = array_merge($this->data, array(
+            "project" => $this->project_id,
+            "record"  => $args['case_id'],
+            "form"    => true,
+        ));
+
+        return $this->view->render($response, "form.twig", $this->data);
     }
 }

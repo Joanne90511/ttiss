@@ -321,15 +321,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: white;
 }
 
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: white;
-    font-weight: bold;
-    background-color: black;
-}
-
-.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
-    color: white;
-    font-weight: bold;
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    background-color: #fff;
+    color: maroon;
 }
 
 .navbar-nav>li>a:hover {
@@ -338,8 +332,4 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .div-vert-left {
     border-left:1px solid maroon;
-}
-
-.navbar-nav>li>a {
-
 }

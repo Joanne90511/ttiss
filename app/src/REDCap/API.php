@@ -63,7 +63,7 @@ class API {
     {
         $data            = $this->default;
         $data['content'] = 'record';
-        $data['fields']  = array("case_id");
+        $data['fields']  = array("case_id", 'ctaerfcanadian_transfusion_reaction_adverse_event_complete');
 
         return $this->call($data);
     }
@@ -120,7 +120,8 @@ class API {
     public function newRecord()
     {
         $fields = $this->getMetadata();
-        $data   = array();
+        //TODO Move variable out of API
+        $data   = array("ctaerfcanadian_transfusion_reaction_adverse_event_complete" => 1);
         foreach ($fields as $field)
         {
             if ($field->field_type == "checkbox")
