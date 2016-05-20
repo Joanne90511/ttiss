@@ -81,7 +81,7 @@
                         <div data-bind="visible: data.incident_type___1() == '1' || data.incident_type___2() == '1' || data.incident_type___3() == '1' || data.incident_type___4() == '1'" class="col-sm-6" style="height:100%; position: absolute; right:0; top:0;">
                             <div class="form-group" style="height:100%;">
                                 <label for="incident_type_spec">Specify</label>
-                                <textarea style="height:80%;" data-bind="textInput data.incident_type_spec" id="incident_type_spec" class="form-control"></textarea>
+                                <textarea style="height:80%;" data-bind="textInput: data.incident_type_spec" id="incident_type_spec" class="form-control"></textarea>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="location_details">Location details</label>
-                                <input type="text" class="form-control" id="location_details" data-bind="textInput data.location_details">
+                                <input type="text" class="form-control" id="location_details" data-bind="textInput: data.location_details">
                             </div>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                         <div class="col-sm-12">
 
                             <div class="form-group">
-                                <textarea class="form-control" data-bind="textInputdata.otherdrugs_comment"></textarea>
+                                <textarea class="form-control" data-bind="textInput: data.otherdrugs_comment"></textarea>
                             </div>
                         </div>
                     </div>

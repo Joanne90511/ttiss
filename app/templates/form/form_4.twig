@@ -252,17 +252,23 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="checkbox">
-                            <label><input type="checkbox" data-bind="redcapChecked: data.xray_info" class="">Chest X-ray
-                                Results</label>
+                        <div class="">
+                            <label>Abnormal Chest X-ray</label>
+                            <div data-bind="foreach: fields.xray_info">
+                                <label class="radio-inline">
+                                    <input type="radio" id="xray_info" data-bind="value:value,checked:$root.data.xray_info"><span data-bind="text:label"></span>
+                                </label>
+                            </div>
+                            <small data-bind='redcapReset: data.xray_info' class="text-muted clickable">Reset
+                            </small>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div data-bind="visible: data.xray_info() == '1'" class="col-sm-4">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" data-bind="redcapChecked: data.bilat_infilit" class="">Bilateral
+                                        <input type="checkbox" data-bind="redcapChecked: data.bilat_infilt___1" class="">Bilateral
                                         Infiltrates
                                     </label>
                                 </div>
@@ -272,13 +278,13 @@
                             <div class="col-sm-12">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" data-bind="redcapChecked: data.other" class="">Other
+                                        <input type="checkbox" data-bind="redcapChecked: data.bilat_infilt___2" class="">Other
                                     </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div data-bind="visible: data.xray_info() == '1'" class="col-sm-4">
                         <div class="form-group-sm">
                             <label>Describe</label>
                             <input type="text" data-bind="textInput: data.xray_other" class="form-control">
@@ -287,12 +293,15 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="checkbox">
-                            <label for="circul_overload">
-                                <input type="checkbox" id="circul_overload" data-bind="redcapChecked: data.circul_overload" class="">Evidence
-                                of Circulatory Overload
+                        <label>Evidence
+                            of Circulatory Overload</label>
+                        <div data-bind="foreach: fields.circul_overload">
+                            <label class="radio-inline">
+                                <input type="radio" id="circul_overload" data-bind="value:value,checked:$root.data.circul_overload"><span data-bind="text:label"></span>
                             </label>
                         </div>
+                        <small data-bind='redcapReset: data.circul_overload' class="text-muted clickable">Reset
+                        </small>
                     </div>
                     <div class="col-sm-8">
                         <div data-bind='visible: data.circul_overload() == "1"' class="form-group-sm">
@@ -627,7 +636,7 @@
                                         <span data-bind="text: fields.name_abnorm_test___16()[0].label"></span>
                                     </label>
                                     <div class="form-group"><label for="abnorm_comment"></label>
-                                        <input id="abnorm_comment" data-bind="textInput:data.abnorm_comment" type="text" class="form-control">
+                                        <input id="abnorm_comment" data-bind="textInput:data.other_specify_test" type="text" class="form-control">
                                     </div>
                                 </div>
                             </td>

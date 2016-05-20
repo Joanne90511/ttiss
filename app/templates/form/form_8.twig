@@ -18,16 +18,10 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="form-group ">
+                        <div class="form-group">
                             <label for="report_lastname">Name of Reporting Physician or Designate</label>
-                            <select data-bind="
-                                                options: fields.report_lastname,
-                                                optionsText: 'label',
-                                                optionsValue: 'value',
-                                                optionsCaption: '---',
-                                                value: data.report_lastname"
-                                    class="form-control" id="report_lastname">
-                            </select>
+                            <input type="text" class="form-control" data-bind="textInput: data.report_lastname" id="report_lastname">
+
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -40,14 +34,14 @@
                     </div>
                 </div>
 
-                <div data-bind="visible: data.report_lastname() == '99'" class="row">
+                {#<div data-bind="visible: data.report_lastname() == '99'" class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="other_name">Name of Other Reporting Person</label>
                             <input type="text" class="form-control" data-bind="textInput: data.other_name" id="other_name">
                         </div>
                     </div>
-                </div>
+                </div>#}
                 <div data-bind="visible: data.report_lastname() == '4'" class="row">
                     <div class="col-sm-6">
                         <div class="form-group">

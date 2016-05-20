@@ -333,3 +333,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .div-vert-left {
     border-left:1px solid maroon;
 }
+.navbar-nav>li>a {
+    border: 0;
+}
