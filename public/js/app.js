@@ -15,7 +15,7 @@ function AppViewModel() {
     self.saveStatusMessage = ko.observable('Has Not Been Saved');
     self.saveStatus = ko.observable();
 
-    self.save = function () {
+    self.save = function (callback) {
         self.saveStatusMessage('Saving...')
         $.ajax({
             type: "POST",
@@ -38,6 +38,11 @@ function AppViewModel() {
                 self.saveStatusMessage(datetime);
             }, 2000);
             self.data.case_id(data.id);
+            var getType = {};
+            if(getType.toString.call(callback) === '[object Function]')
+            {
+                callback();
+            }
         }).fail(function (data, status) {
             self.saveStatus(false);
             // TODO display failure to user with possible resolutions
@@ -47,13 +52,14 @@ function AppViewModel() {
     };
 
     self.output = function(){
+        self.save();
         var params = [];
 
         params.push(encodeURIComponent('first_name') + '=' + encodeURIComponent($('#first_name').val()));
         params.push(encodeURIComponent('last_name') + '=' + encodeURIComponent($('#last_name').val()));
         params.push(encodeURIComponent('health_card_number') + '=' + encodeURIComponent($('#healthnum').val()));
         params.push(encodeURIComponent('hospital_card_number') + '=' + encodeURIComponent($('#hospnum').val()));
-        console.log(params.join('&'));
+        self.ignore = true;
 
         window.location.replace("/output/" + self.data.case_id() + '?' + params.join('&'));
     };
@@ -65,6 +71,14 @@ function AppViewModel() {
         self.ignore = true;
         window.location.replace('/');
     };
+
+    self.test = function()
+    {
+        alert('First');
+        vm.save(function(){
+            alert('Inside After');
+        })
+    }
 
 
 }

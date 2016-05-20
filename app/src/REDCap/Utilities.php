@@ -44,33 +44,15 @@ class Utilities {
     static function renderTemplateToString($template, $data)
     {
 
-        $printer = function($name, $fields, \App\REDCap\Record $record)
-        {
-
-            if (strpos($name, '___') > -1)
-            {
-                return array_values($fields[$name])[0];
-            } else if (isset($fields[$name]) && isset($fields[$name][$record->get($name)]))
-            {
-                return $fields[$name][$record->get($name)];
-            } else if ($record->get($name))
-            {
-                return $record->get($name);
-            }
-
-            return "";
-
-        };
-
         //    Taken from Slim\Views\PhpRenderer
         $render = function ($template, $data, $func = NULL)
         {
-//            var_dump($func);
             extract($data);
             include $template;
         };
+
         ob_start();
-        $render($template, ['record' => $data['record'], "fields" => $data['fields']], $printer);
+        $render($template, ['record' => $data['record'], "fields" => $data['fields']]);
 
         return ob_get_clean();
     }
