@@ -4,6 +4,7 @@ return [
         // Slim Settings
         'determineRouteBeforeAppMiddleware' => false,
         'displayErrorDetails' => false,
+        'base_url' => 'http://skely.local/form',
 
         // View settings
         'view' => [

@@ -15,7 +15,7 @@ $container['view'] = function ($c)
     $view     = new Slim\Views\Twig($settings['view']['template_path'], $settings['view']['twig']);
 
     // Add extensions
-    $view->addExtension(new Slim\Views\TwigExtension($c->get('router'), $c->get('request')->getUri()));
+    $view->addExtension(new Slim\Views\TwigExtension($c->get('router'), $settings['base_url']));
     $view->addExtension(new Twig_Extension_Debug());
 
     return $view;
