@@ -69,7 +69,7 @@ function AppViewModel() {
     self.saveAndExit = function () {
         self.save();
         self.ignore = true;
-        window.location.replace('/form');
+        window.location.replace('/form/');
     };
 
     self.test = function()
