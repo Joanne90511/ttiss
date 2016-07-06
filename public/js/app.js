@@ -59,6 +59,8 @@ function AppViewModel() {
         params.push(encodeURIComponent('last_name') + '=' + encodeURIComponent($('#last_name').val()));
         params.push(encodeURIComponent('health_card_number') + '=' + encodeURIComponent($('#healthnum').val()));
         params.push(encodeURIComponent('hospital_card_number') + '=' + encodeURIComponent($('#hospnum').val()));
+        params.push(encodeURIComponent('city') + '=' + encodeURIComponent($('#city').val()));
+        params.push(encodeURIComponent('province') + '=' + encodeURIComponent($('#province').val()));
         self.ignore = true;
 
         window.location.replace("/form/output/" + self.data.case_id() + '?' + params.join('&'));
@@ -103,6 +105,7 @@ $.getJSON("/form/record/" + case_id, function (data) {
         vm.fields['ctaerfcanadian_transfusion_reaction_adverse_event_complete'] = ko.observableArray();
         vm.fields['ctaerfcanadian_transfusion_reaction_adverse_event_complete'].push(new Option('Incomplete',1));
         vm.fields['ctaerfcanadian_transfusion_reaction_adverse_event_complete'].push(new Option('Complete',2))
+        vm.fields.blood_group_rh.reverse()
     }).done(function () {
         $(".loader h6").text("Applying Data Bindings");
         ko.applyBindings(vm);
@@ -113,6 +116,6 @@ $.getJSON("/form/record/" + case_id, function (data) {
 
 $(window).on('beforeunload', function () {
     if (vm.ignore == false) {
-        return 'Please any changes have been saved before leaving this page';
+        return 'Please save any changes have been saved before leaving this page';
     }
 });
