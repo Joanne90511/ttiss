@@ -103,6 +103,7 @@ $.getJSON("/form/record/" + case_id, function (data) {
         vm.fields['ctaerfcanadian_transfusion_reaction_adverse_event_complete'] = ko.observableArray();
         vm.fields['ctaerfcanadian_transfusion_reaction_adverse_event_complete'].push(new Option('Incomplete',1));
         vm.fields['ctaerfcanadian_transfusion_reaction_adverse_event_complete'].push(new Option('Complete',2))
+        vm.fields.blood_group_rh.reverse()
     }).done(function () {
         $(".loader h6").text("Applying Data Bindings");
         ko.applyBindings(vm);
