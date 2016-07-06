@@ -74,14 +74,14 @@ class LoginPost {
             $_SESSION['api_token'] = $api_token;
 
             //TODO URL needs to be dynamic
-            return $response->withStatus(302)->withHeader('Location', '/');
+            return $response->withStatus(302)->withHeader('Location', '/form');
         }
 
         $this->flash->addMessage('errors', 'Login not successful. Incorrect username and/or password');
         $this->logger->alert('Unsuccessful login for ' . $username);
 
         //TODO URL needs to be dynamic
-        return $response->withStatus(302)->withHeader('Location', '/login');
+        return $response->withStatus(302)->withHeader('Location', '/form/login');
 
     }
 }

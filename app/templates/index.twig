@@ -35,7 +35,7 @@
             $('#loadcaseid a').on('click', function () {
                 var val = $('#loadcaseid select').val();
                 if (val !== 'none') {
-                    window.location = '/case/' + val;
+                    window.location = '{{ base_url() }}/case/' + val;
                 }
             })
         });

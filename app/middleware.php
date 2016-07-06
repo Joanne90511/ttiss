@@ -9,7 +9,7 @@ $authorize = function (\Psr\Http\Message\RequestInterface $request, \Psr\Http\Me
     //TODO might also want to check if a token exists
     if (!isset($_SESSION['username']) || $_SESSION['username'] == "NULL")
     {
-        return $response->withRedirect("/login");
+        return $response->withRedirect("/form/login");
     }
     $res = $next($request, $response);
 

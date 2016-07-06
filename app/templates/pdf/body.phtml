@@ -165,7 +165,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                                 <td class="no-border">Pregnancies/Miscarriages:</td>
                                 <td colspan="4" class="no-border"><?= print_field('preg_miscarrig', $fields, $record); ?></td>
                             </tr>
-                        <? endif; ?>
+                        <?php endif; ?>
                         <tr>
                             <td class="no-border">Transfusions</td>
                             <td colspan="4" class="no-border"><?= print_field('trans', $fields, $record); ?></td>
