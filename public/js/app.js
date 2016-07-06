@@ -113,6 +113,6 @@ $.getJSON("/form/record/" + case_id, function (data) {
 
 $(window).on('beforeunload', function () {
     if (vm.ignore == false) {
-        return 'Please any changes have been saved before leaving this page';
+        return 'Please save any changes have been saved before leaving this page';
     }
 });
