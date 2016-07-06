@@ -59,6 +59,8 @@ function AppViewModel() {
         params.push(encodeURIComponent('last_name') + '=' + encodeURIComponent($('#last_name').val()));
         params.push(encodeURIComponent('health_card_number') + '=' + encodeURIComponent($('#healthnum').val()));
         params.push(encodeURIComponent('hospital_card_number') + '=' + encodeURIComponent($('#hospnum').val()));
+        params.push(encodeURIComponent('city') + '=' + encodeURIComponent($('#city').val()));
+        params.push(encodeURIComponent('province') + '=' + encodeURIComponent($('#province').val()));
         self.ignore = true;
 
         window.location.replace("/form/output/" + self.data.case_id() + '?' + params.join('&'));

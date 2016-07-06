@@ -134,8 +134,8 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <tbody>
             <tr>
                 <td width="50%"><?= print_field('facilityid_name_facility', $fields, $record); ?></td>
-                <td width="25%">City:</td>
-                <td width="25%" class="no-border">Province:</td>
+                <td width="25%">City:&nbsp;<?= print_field('city', $fields, $record); ?></td>
+                <td width="25%" class="no-border">Province:&nbsp;<?= print_field('province', $fields, $record); ?></td>
             </tr>
             </tbody>
         </table>

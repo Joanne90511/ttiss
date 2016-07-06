@@ -31,6 +31,8 @@ class OutputGet {
         $record->last_name            = $request->getQueryParam('last_name', 'Last Name:');
         $record->health_card_number   = $request->getQueryParam('health_card_number', 'Health Card Num:');
         $record->hospital_card_number = $request->getQueryParam('hospital_card_number', 'Hospital Card Num:');
+        $record->city   = $request->getQueryParam('city', '');
+        $record->province = $request->getQueryParam('province', '');
         $request->getQueryParam('first_name', 'Sucker');
         $fields = Utilities::format_fields($this->api->getMetadata());
 

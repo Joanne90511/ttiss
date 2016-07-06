@@ -17,18 +17,30 @@
                     Identification</h3>
             </div>
             <div class="row ttiss-body">
-                <div class="col-sm-8">
+                <div class="col-sm-4">
                     <div class="form-group">
-                        <label for="facilityid_name_facility">Name of
+                        <label class="uppercase" for="facilityid_name_facility">Name of
                             Facility</label>
                         <input data-bind="redcapAuto: {label: fields.facilityid_name_facility, value: data.facilityid_name_facility}, redcapRequired: data.facilityid_name_facility"
                                name="facilityid_name_facility"
                                class="form-control" />
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="refno">Reference Number</label>
+                        <label class="uppercase" for="city">City</label>
+                        <input type="text" id="city" name="city" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label class="uppercase" for="province">Province</label>
+                        <input type="text" id="province" name="province" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="uppercase" for="refno">Reference Number</label>
                         <input type="text" data-bind="textInput: data.refno" id="refno" name="refno" class="form-control">
                     </div>
                 </div>
