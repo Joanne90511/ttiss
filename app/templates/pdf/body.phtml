@@ -512,8 +512,12 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <tr>
                     <td class="no-border">Abnormal Chest X-ray: <?php if($record->get('xray_info')): ?>Yes <?php else: ?> No <?php endif; ?></td>
                 <?php if($record->get('xray_info')): ?>
-                    <?php if ($record->get('bilat_infilt___1') == '1'): ?>
-                        <td class="no-border">Bilateral Infiltrates</td>
+                    <?php if ($record->get('bilat_infilt___1') == '1' && $record->get('bilat_infilt___2') == '1'): ?>
+                        <td class="no-border">Bilateral Infiltrates <br> Bilateral Infiltrates - Other</td>
+                    <?php elseif($record->get('bilat_infilt___1') == '1'):?>
+                        <td class="no-border">Bilateral Infiltrates </td>
+                    <?php elseif($record->get('bilat_infilt___2') == '1'):?>
+                        <td class="no-border">Bilateral Infiltrates - Other</td>
                     <?php endif; ?>
                     <td class="no-border">Other:</td>
                     <td class="no-border"><?= print_field("xray_other", $fields, $record); ?></td>
