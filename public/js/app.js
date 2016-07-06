@@ -19,7 +19,7 @@ function AppViewModel() {
         self.saveStatusMessage('Saving...')
         $.ajax({
             type: "POST",
-            url: "/record",
+            url: "/form/record",
             data: ko.mapping.toJSON(self.data),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -61,7 +61,7 @@ function AppViewModel() {
         params.push(encodeURIComponent('hospital_card_number') + '=' + encodeURIComponent($('#hospnum').val()));
         self.ignore = true;
 
-        window.location.replace("/output/" + self.data.case_id() + '?' + params.join('&'));
+        window.location.replace("/form/output/" + self.data.case_id() + '?' + params.join('&'));
     };
 
     self.ignore = false;
@@ -69,7 +69,7 @@ function AppViewModel() {
     self.saveAndExit = function () {
         self.save();
         self.ignore = true;
-        window.location.replace('/');
+        window.location.replace('/form');
     };
 
     self.test = function()
@@ -86,12 +86,12 @@ function AppViewModel() {
 var vm = new AppViewModel();
 var case_id = $('#record').val();
 $(".loader h6").text("Getting Record");
-$.getJSON("/record/" + case_id, function (data) {
+$.getJSON("/form/record/" + case_id, function (data) {
     $(".loader h6").text("Mapping Data");
     vm.data = ko.mapping.fromJS(data);
 }).done(function () {
     $(".loader h6").text("Getting Display Information");
-    $.getJSON("/fields", function (data) {
+    $.getJSON("/form/fields", function (data) {
         var fields = {};
         $.each(data, function (i, val) {
             fields[i] = ko.observableArray();
