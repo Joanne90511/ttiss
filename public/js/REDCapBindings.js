@@ -341,7 +341,7 @@ ko.bindingHandlers.redcapTableCheckbox = {
 /*
 * DateTimePicker Functionality
 */
-ko.bindingHandlers.RedcapDatePicker = {
+ko.bindingHandlers.redcapDatePicker = {
     init: function (element, valueAccessor, allBindingsAccessor) {
         //initialize datepicker with some optional options
         $(element).datetimepicker({format: 'YYYY-MM-DD', showTodayButton: true});
