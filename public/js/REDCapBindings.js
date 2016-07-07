@@ -336,4 +336,37 @@ ko.bindingHandlers.redcapTableCheckbox = {
         //console.log(value);
         //console.log(allBindings.get('val'));
     }
-}
+};
+
+/*
+* DateTimePicker Functionality
+*/
+ko.bindingHandlers.redcapDatePicker = {
+    init: function (element, valueAccessor, allBindingsAccessor) {
+        //initialize datepicker with some optional options
+        $(element).datetimepicker({format: 'YYYY-MM-DD', showTodayButton: true});
+
+        //when a user changes the date, update the view model
+        ko.utils.registerEventHandler(element, "dp.change", function (event) {
+            var value = valueAccessor();
+            if (ko.isObservable(value)) {
+                if (event.date != null && !(event.date instanceof Date)) {
+                    // value(event.date.toDate());
+                    value(event.date.format('YYYY-MM-DD'));
+                } else {
+                    value(event.date);
+                }
+            }
+        });
+    },
+    update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+        var picker = $(element).data("DateTimePicker");
+        //when the view model is updated, update the widget
+        if (picker) {
+            var koDate = ko.utils.unwrapObservable(valueAccessor());
+
+            picker.date(moment(koDate));
+        }
+    }
+};
+
