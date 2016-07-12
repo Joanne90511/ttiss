@@ -24,12 +24,13 @@ function print_field($name, $fields, \App\REDCap\Record $record)
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Record <?=$record->get('case_id'); ?></title>
+    <title>Record <?= $record->get('case_id'); ?></title>
     <style>
-        body{
+        body {
             font-size: 12px;
             font-family: Tahoma;
         }
+
         .text-right {
             text-align: right;
         }
@@ -113,6 +114,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             padding: 0;
 
         }
+
         table table td, table.only td {
             padding-left: 8px;
         }
@@ -120,6 +122,23 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         th {
             padding: 0;
         }
+
+        td.no-border-bottom, th.no-border-bottom {
+            border-bottom: 0 !important;
+        }
+
+        td.no-border-top, th.no-border-top {
+            border-top: 0 !important;
+        }
+
+        td.no-border-left, th.no-border-left {
+            border-left: 0 !important;
+        }
+
+        td.no-border-right, th.no-border-right {
+            border-right: 0 !important;
+        }
+
     
     </style>
 </head>
@@ -134,8 +153,10 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <tbody>
             <tr>
                 <td width="50%"><?= print_field('facilityid_name_facility', $fields, $record); ?></td>
-                <td width="25%">City:&nbsp;<?= print_field('city', $fields, $record); ?></td>
-                <td width="25%" class="no-border">Province:&nbsp;<?= print_field('province', $fields, $record); ?></td>
+                <td width="25%">
+                    City:&nbsp;<?= print_field('city', $fields, $record); ?></td>
+                <td width="25%" class="no-border">
+                    Province:&nbsp;<?= print_field('province', $fields, $record); ?></td>
             </tr>
             </tbody>
         </table>
@@ -154,15 +175,23 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     <table class="table">
                         <tbody>
                         <tr>
-                            <td width="30%" class="no-border title main">Blood Group:</td>
-                            <td width="10%" class="no-border title sub">ABO:</td>
+                            <td width="30%" class="no-border title main">Blood
+                                Group:
+                            </td>
+                            <td width="10%" class="no-border title sub text-right">
+                                ABO:
+                            </td>
                             <td width="5%" class="no-border text-left"><?= print_field('blood_group_abc', $fields, $record); ?></td>
-                            <td width="10%" class="no-border title sub">Rh:</td>
+                            <td width="10%" class="no-border title sub text-right">
+                                Rh:
+                            </td>
                             <td width="40%" class="no-border text-left"><?= print_field('blood_group_rh', $fields, $record); ?></td>
                         </tr>
                         <?php if ($record->get('sex') == '2'): ?>
                             <tr>
-                                <td class="no-border">Pregnancies/Miscarriages:</td>
+                                <td class="no-border">
+                                    Pregnancies/Miscarriages:
+                                </td>
                                 <td colspan="4" class="no-border"><?= print_field('preg_miscarrig', $fields, $record); ?></td>
                             </tr>
                         <?php endif; ?>
@@ -192,10 +221,12 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         </tr>
                         <tr>
                             <?php if ($record->get('other_history') == '1'): ?>
-                                <td class="no-border">Other Clinical History:</td>
+                                <td class="no-border">Other Clinical History:
+                                </td>
                                 <td class="no-border"><?= print_field('other_history_spec', $fields, $record); ?></td>
                             <?php else: ?>
-                                <td class="no-border">Other Clinical History:</td>
+                                <td class="no-border">Other Clinical History:
+                                </td>
                                 <td class="no-border"></td>
                             <?php endif; ?>
                         </tr>
@@ -231,23 +262,30 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                                 &nbsp;<?= print_field('time_reported', $fields, $record); ?></td>
                         </tr>
                         <tr class="lightred">
-                            <td class="no-border" colspan="2">3a. Incident Report</td>
+                            <td class="no-border no-border-left" colspan="2">3a. Incident
+                                Report
+                            </td>
                         </tr>
                         <?php if ($record->get('incident_type___1') == '1'): ?>
                             <tr>
-                                <td class="no-border">Patient Identification Incident</td>
+                                <td class="no-border">Patient Identification
+                                    Incident
+                                </td>
                                 <td class="no-border"><?= print_field('incident_type_spec', $fields, $record); ?></td>
                             </tr>
                         <?php endif; ?>
                         <?php if ($record->get('incident_type___2') == '1'): ?>
                             <tr>
-                                <td class="no-border">Product Related Incident</td>
+                                <td class="no-border">Product Related Incident
+                                </td>
                                 <td class="no-border"><?= print_field('incident_type_spec', $fields, $record); ?></td>
                             </tr>
                         <?php endif; ?>
                         <?php if ($record->get('incident_type___3') == '1'): ?>
                             <tr>
-                                <td class="no-border">Equipment Related Incident</td>
+                                <td class="no-border">Equipment Related
+                                    Incident
+                                </td>
                                 <td class="no-border"><?= print_field('incident_type_spec', $fields, $record); ?></td>
                             </tr>
                         <?php endif; ?>
@@ -276,10 +314,13 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                             <td class="no-border"><?= print_field('location_details', $fields, $record); ?></td>
                         </tr>
                         <tr class="lightred">
-                            <td colspan="2" class="no-border">3b. Premedication And Anesthesia</td>
+                            <td colspan="2" class="no-border">3b. Premedication
+                                And Anesthesia
+                            </td>
                         </tr>
                         <tr>
-                            <td width="50%" class="no-border">Premedication:</td>
+                            <td width="50%" class="no-border">Premedication:
+                            </td>
                             <td width="50%" class="no-border"><?= print_field('premed_yes', $fields, $record); ?></td>
                         </tr>
                         <?php
@@ -316,7 +357,8 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                             <td width="50%" class="no-border"><?= print_field('anes_trans', $fields, $record); ?></td>
                         </tr>
                         <tr class="lightred">
-                            <td width="50%" colspan="2" class="no-border">3c. Possible Transfusion Related
+                            <td width="50%" colspan="2" class="no-border-bottom">3c.
+                                Possible Transfusion Related
                                 Blood Borne
                                 Infection
                             </td>
@@ -341,7 +383,9 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         <table class="table">
             <thead>
             <tr class="lightred">
-                <th colspan="2" class="text-left">4a. Clinical Signs and Symptoms</th>
+                <th colspan="2" class="text-left no-border-left no-border-right" style="padding-left: 10px;">
+                    4a. Clinical Signs and Symptoms
+                </th>
             </tr>
             </thead>
             <tbody>
@@ -365,7 +409,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         <?php if ($record->get('clinical_signs')): ?>
                             <thead>
                             <tr>
-                                <th>Clinical Symptom</th>
+                                <th class="no-border-left">Clinical Symptom</th>
                                 <th>Before</th>
                                 <th>After</th>
                             </tr>
@@ -431,72 +475,72 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 </td>
                 <td valign="top" width="50%" class="no-border">
                     <?php if ($record->get('other_signs')): ?>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Symptom</th>
-                            <th>Observation</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        if ($record->get('other_signs'))
-                        {
-                            $field_labels = [
-                                'other_no_sign2_834___1',
-                                'other_no_sign2_834___2',
-                                'other_no_sign2_834___3',
-                                'other_no_sign2_834___4',
-                                'other_no_sign2_834___5',
-                                'other_no_sign2_834___6',
-                                'other_no_sign2_834___7',
-                                'other_no_sign2_834___8',
-                                'other_no_sign2_834___9',
-                                'other_no_sign2_834___10',
-                                'other_no_sign2_834___11',
-                                'other_no_sign2_834___12',
-                                'other_no_sign2_834___13',
-                            ];
-                            foreach ($field_labels as $index => $label)
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Symptom</th>
+                                <th>Observation</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            if ($record->get('other_signs'))
                             {
-                                if ($record->get($label) == true)
+                                $field_labels = [
+                                    'other_no_sign2_834___1',
+                                    'other_no_sign2_834___2',
+                                    'other_no_sign2_834___3',
+                                    'other_no_sign2_834___4',
+                                    'other_no_sign2_834___5',
+                                    'other_no_sign2_834___6',
+                                    'other_no_sign2_834___7',
+                                    'other_no_sign2_834___8',
+                                    'other_no_sign2_834___9',
+                                    'other_no_sign2_834___10',
+                                    'other_no_sign2_834___11',
+                                    'other_no_sign2_834___12',
+                                    'other_no_sign2_834___13',
+                                ];
+                                foreach ($field_labels as $index => $label)
                                 {
-                                    echo "<tr>";
-                                    echo "<td>" . print_field($label, $fields, $record) . "</td>";
-                                    switch ($label)
+                                    if ($record->get($label) == true)
                                     {
-                                        case 'other_no_sign2_834___5':
-                                            echo "<td>" . print_field("hypo_sat", $fields, $record) . "</td>";
-                                            break;
-                                        case 'other_no_sign2_834___7':
-                                            echo "<td>" . print_field("pain_spec", $fields, $record) . "</td>";
-                                            break;
-                                        case 'other_no_sign2_834___13':
-                                            echo "<td>" . print_field("symp_other_spec", $fields, $record) . "</td>";
-                                            break;
-                                        default:
-                                            echo "<td></td>";
+                                        echo "<tr>";
+                                        echo "<td>" . print_field($label, $fields, $record) . "</td>";
+                                        switch ($label)
+                                        {
+                                            case 'other_no_sign2_834___5':
+                                                echo "<td>" . print_field("hypo_sat", $fields, $record) . "</td>";
+                                                break;
+                                            case 'other_no_sign2_834___7':
+                                                echo "<td>" . print_field("pain_spec", $fields, $record) . "</td>";
+                                                break;
+                                            case 'other_no_sign2_834___13':
+                                                echo "<td>" . print_field("symp_other_spec", $fields, $record) . "</td>";
+                                                break;
+                                            default:
+                                                echo "<td></td>";
+                                        }
+                                        echo "</tr>";
                                     }
-                                    echo "</tr>";
-                                }
 
+                                }
+                                ?>
+                                </tr>
+
+                                <?php
+
+                            } else
+                            {
+                                ?>
+                                <tr>
+                                    <td colspan="2"></td>
+                                </tr>
+                                <?php
                             }
                             ?>
-                            </tr>
-
-                            <?php
-
-                        } else
-                        {
-                            ?>
-                            <tr>
-                                <td colspan="2"></td>
-                            </tr>
-                            <?php
-                        }
-                        ?>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
                     <?php endif; ?>
                 </td>
             </tr>
@@ -505,18 +549,22 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         <table class="table only">
             <thead>
             <tr>
-                <th class="text-left" colspan="5">Clinical Information for TRALI</th>
+                <th class="text-left no-border-left no-border-right" colspan="5" style="padding-left: 10px;">
+                    Clinical Information for TRALI
+                </th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                    <td class="no-border">Abnormal Chest X-ray: <?php if($record->get('xray_info')): ?>Yes <?php else: ?> No <?php endif; ?></td>
-                <?php if($record->get('xray_info')): ?>
+                <td class="no-border">Abnormal Chest
+                    X-ray: <?php if ($record->get('xray_info')): ?>Yes <?php else: ?> No <?php endif; ?></td>
+                <?php if ($record->get('xray_info')): ?>
                     <?php if ($record->get('bilat_infilt___1') == '1' && $record->get('bilat_infilt___2') == '1'): ?>
-                        <td class="no-border">Bilateral Infiltrates <br>Other</td>
-                    <?php elseif($record->get('bilat_infilt___1') == '1'):?>
-                        <td class="no-border">Bilateral Infiltrates </td>
-                    <?php elseif($record->get('bilat_infilt___2') == '1'):?>
+                        <td class="no-border">Bilateral Infiltrates <br>Other
+                        </td>
+                    <?php elseif ($record->get('bilat_infilt___1') == '1'): ?>
+                        <td class="no-border">Bilateral Infiltrates</td>
+                    <?php elseif ($record->get('bilat_infilt___2') == '1'): ?>
                         <td class="no-border">Other</td>
                     <?php endif; ?>
                     <td class="no-border">Other:</td>
@@ -524,10 +572,11 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 <?php endif; ?>
             </tr>
             <tr>
-                <td class="no-border">Evidence of Circulatory Overload: <?php if($record->get('circul_overload')): ?>Yes <?php else: ?> No <?php endif; ?></td>
-                <?php if($record->get('circul_overload')):?>
-                <td class="no-border">Explain:</td>
-                <td colspan="2" class="no-border"><?= print_field("corcul_overload_spec", $fields, $record); ?></td>
+                <td class="no-border">Evidence of Circulatory
+                    Overload: <?php if ($record->get('circul_overload')): ?>Yes <?php else: ?> No <?php endif; ?></td>
+                <?php if ($record->get('circul_overload')): ?>
+                    <td class="no-border">Explain:</td>
+                    <td colspan="2" class="no-border"><?= print_field("corcul_overload_spec", $fields, $record); ?></td>
                 <?php endif; ?>
             </tr>
             </tbody>
@@ -535,12 +584,14 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         <table class="table bordered only">
             <thead>
             <tr class="lightred">
-                <th colspan="3" class="text-left">4b. Abnormal Tests/Laboratory Results</th>
+                <th colspan="3" class="text-left no-border-left no-border-right" style="padding-left: 10px;">
+                    4b. Abnormal Tests/Laboratory Results
+                </th>
             </tr>
             <tr>
-                <th>Name of Laboratory Tests:</th>
+                <th class="no-border-left">Name of Laboratory Tests:</th>
                 <th>Date Specimen Taken:</th>
-                <th>
+                <th class="no-border-right">
                     Results
                 </th>
             </tr>
@@ -548,15 +599,15 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <tbody>
             <?php
             $field_labels = [
-                1  => 'name_abnorm_test___1',
-                2  => 'name_abnorm_test___2',
-                3  => 'name_abnorm_test___3',
-                4  => 'name_abnorm_test___4',
-                5  => 'name_abnorm_test___5',
-                6  => 'name_abnorm_test___6',
-                7  => 'name_abnorm_test___7',
-                8  => 'name_abnorm_test___8',
-                9  => 'name_abnorm_test___9',
+                1 => 'name_abnorm_test___1',
+                2 => 'name_abnorm_test___2',
+                3 => 'name_abnorm_test___3',
+                4 => 'name_abnorm_test___4',
+                5 => 'name_abnorm_test___5',
+                6 => 'name_abnorm_test___6',
+                7 => 'name_abnorm_test___7',
+                8 => 'name_abnorm_test___8',
+                9 => 'name_abnorm_test___9',
                 10 => 'name_abnorm_test___10',
                 11 => 'name_abnorm_test___11',
                 12 => 'name_abnorm_test___12',
@@ -666,72 +717,86 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             </tbody>
         </table>
         <table class="table bordered">
+            <?php if ($record->get('blood_culpro') != '1' && $record->get('blood_culrec') != '1')
+            {
+                $class = 'no-border-bottom';
+            } else
+            {
+                $class = '';
+            }; ?>
             <thead>
             <tr>
-                <th>Blood Culture Results:</th>
-                <th>Date/Time Specimen Taken</th>
-                <th>
+                <th class="no-border-left <?= $class; ?>">Blood Culture Results:</th>
+                <th class="<?= $class; ?>">Date/Time Specimen Taken</th>
+                <th class="<?= $class; ?>">
                     # Pos
                 </th>
-                <th># Neg</th>
-                <th>
+                <th class="<?= $class; ?>"># Neg</th>
+                <th class="<?= $class; ?>">
                     Organisms Identified
                 </th>
-                <th>
+                <th class="no-border-right <?= $class; ?>">
                     Unit No.
                 </th>
             </tr>
             </thead>
             <tbody>
             <?php if ($record->get('blood_culrec') == '1'): ?>
+                <?php if ($record->get('blood_culpro') == '1')
+                {
+                    $class = '';
+                } else
+                {
+                    $class = 'no-border-bottom';
+                }; ?>
                 <tr class="text-center">
-                    <td>
+                    <td class="no-border-left <?= $class; ?>">
                         Recipient
                     </td>
-                    <td>
+                    <td class="<?= $class; ?>">
                         <?= print_field('reci_date', $fields, $record); ?>
                         &nbsp; <?= print_field('reci_time', $fields, $record); ?>
                     </td>
-                    <td class="text-center">
+                    <td class="text-center <?= $class; ?>">
                         <?= print_field('reci_pos_num', $fields, $record); ?>
                     </td>
-                    <td class="text-center">
+                    <td class="text-center <?= $class; ?>">
                         <?= print_field('reci_neg_num', $fields, $record); ?>
                     </td>
-                    <td>
+                    <td class="<?= $class; ?>">
                         <?= $record->get('reci_spec') != '20' ? print_field('reci_spec', $fields, $record) : print_field('other_recip_spec', $fields, $record); ?>
                     </td>
-                    <td>
+                    <td class="no-border-right <?= $class; ?>">
                         N/A
                     </td>
                 </tr>
             <?php endif; ?>
             <?php if ($record->get('blood_culpro') == '1'): ?>
                 <tr class="text-center">
-                    <td>
+                    <td class="no-border-left no-border-bottom">
                         Product
                     </td>
-                    <td>
+                    <td class="no-border-bottom">
                         <?= print_field('prod_date', $fields, $record); ?>
                         &nbsp; <?= print_field('prod_time', $fields, $record); ?>
                     </td>
-                    <td class="text-center">
+                    <td class="text-center no-border-bottom">
                         <?= print_field('prod_pos_num', $fields, $record); ?>
                     </td>
-                    <td class="text-center">
+                    <td class="text-center no-border-bottom">
                         <?= print_field('prod_neg_num', $fields, $record); ?>
                     </td>
-                    <td>
+                    <td class="no-border-bottom">
                         <?= print_field('prod_spec', $fields, $record); ?>
                     </td>
-                    <td>
+                    <td class="no-border-right no-border-bottom">
                         <?= print_field('prod_unitlot', $fields, $record); ?>
                     </td>
                 </tr>
             <?php endif; ?>
             <?php if ($record->get('blood_culpro') != '1' && $record->get('blood_culrec') != 1): ?>
-                <tr>
-                    <td colspan="6">
+                <tr class="no-border-right">
+                    <td style="border: 0;" class="no-border-bottom" colspan="6">
 
                     </td>
                 </tr>
@@ -748,25 +813,25 @@ function print_field($name, $fields, \App\REDCap\Record $record)
     </div>
     <div class="body">
         <table class="table bordered">
-            <thead>
+            <thead class="text-center">
             <tr>
-                <th>Product Name</th>
-                <th>Hospital:</th>
-                <th>Supplier:</th>
+                <th class="no-border-left">Product Name</th>
+                <th>Hospital Mod:</th>
+                <th>Supplier Mod:</th>
                 <th>ABO</th>
                 <th>Rh</th>
                 <th>Unit no</th>
                 <th>Expiry Date</th>
-                <th>Amount</th>
-                <th>Unit of Measure</th>
+                <th>Amount/Unit</th>
                 <th>Fraction</th>
                 <th>Date Started</th>
-                <th>Date Finished</th>
+                <th class="no-border-right">Date Finished</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
+            <?php if (!$record->get('suspect_pro2')){$class='no-border-bottom';}else{$class='';}?>
             <tr>
-                <td><?= print_field('prod_code_name1', $fields, $record); ?>
+                <td class="no-border-left text-left <?= $class ?>" ><?= print_field('prod_code_name1', $fields, $record); ?>
                     <br>
                     <?php
                     switch ($record->get('prod_code_name1'))
@@ -801,23 +866,25 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     }
                     ?>
                 </td>
-                <td><?= print_field('hosp_mod1', $fields, $record); ?></td>
-                <td><?= print_field('supp_mod1', $fields, $record); ?></td>
-                <td><?= print_field('group_abo1', $fields, $record); ?></td>
-                <td><?= print_field('group_rh1', $fields, $record); ?></td>
-                <td><?= print_field('unitlot1', $fields, $record); ?></td>
-                <td><?= print_field('expiry_1', $fields, $record); ?></td>
-                <td><?= print_field('amount1', $fields, $record); ?></td>
-                <td><?= print_field('amount_unit1', $fields, $record); ?></td>
-                <td><?= print_field('amount_frac1', $fields, $record); ?></td>
-                <td><?= print_field('trans_start_date1', $fields, $record); ?>
+                <td class="<?= $class ?>"><?= print_field('hosp_mod1', $fields, $record); ?></td>
+                <td class="<?= $class ?>"><?= print_field('supp_mod1', $fields, $record); ?></td>
+                <td class="<?= $class ?>"><?= print_field('group_abo1', $fields, $record); ?></td>
+                <td class="<?= $class ?>"><?= print_field('group_rh1', $fields, $record); ?></td>
+                <td class="<?= $class ?>"><?= print_field('unitlot1', $fields, $record); ?></td>
+                <td class="<?= $class ?>"><?= print_field('expiry_1', $fields, $record); ?></td>
+                <td class="<?= $class ?>"><?= print_field('amount1', $fields, $record); ?>
+                    <br><?= print_field('amount_unit1', $fields, $record); ?>
+                </td>
+                <td class="<?= $class ?>"><?= print_field('amount_frac1', $fields, $record); ?></td>
+                <td class="<?= $class ?>"><?= print_field('trans_start_date1', $fields, $record); ?>
                     &nbsp;<?= print_field('trans_start_time1', $fields, $record); ?></td>
-                <td><?= print_field('trans_end_date1', $fields, $record); ?>
+                <td class="no-border-right <?= $class ?>"><?= print_field('trans_end_date1', $fields, $record); ?>
                     &nbsp;<?= print_field('trans_end_time1', $fields, $record); ?></td>
             </tr>
             <?php if ($record->get('suspect_pro2')): ?>
+                <?php if (!$record->get('suspect_pro3')){$class='no-border-bottom';}else{$class='';}?>
                 <tr>
-                    <td><?= print_field('prod_code_name2', $fields, $record); ?>
+                    <td class="no-border-left text-left <?= $class ?>"><?= print_field('prod_code_name2', $fields, $record); ?>
                         <br>
                         <?php
                         switch ($record->get('prod_code_name2'))
@@ -852,24 +919,26 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         }
                         ?>
                     </td>
-                    <td><?= print_field('hosp_mod2', $fields, $record); ?></td>
-                    <td><?= print_field('supp_mod2', $fields, $record); ?></td>
-                    <td><?= print_field('group_abo2', $fields, $record); ?></td>
-                    <td><?= print_field('group_rh2', $fields, $record); ?></td>
-                    <td><?= print_field('unitlot2', $fields, $record); ?></td>
-                    <td><?= print_field('expiry_2', $fields, $record); ?></td>
-                    <td><?= print_field('amount2', $fields, $record); ?></td>
-                    <td><?= print_field('amount_unit2', $fields, $record); ?></td>
-                    <td><?= print_field('amount_frac2', $fields, $record); ?></td>
-                    <td><?= print_field('trans_start_date2', $fields, $record); ?>
+                    <td class="<?= $class ?>"><?= print_field('hosp_mod2', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('supp_mod2', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('group_abo2', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('group_rh2', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('unitlot2', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('expiry_2', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('amount2', $fields, $record); ?>
+                        <br><?= print_field('amount_unit2', $fields, $record); ?>
+                    </td>
+                    <td class="<?= $class ?>"><?= print_field('amount_frac2', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('trans_start_date2', $fields, $record); ?>
                         &nbsp;<?= print_field('trans_start_time2', $fields, $record); ?></td>
-                    <td><?= print_field('trans_end_date2', $fields, $record); ?>
+                    <td class="no-border-right <?= $class ?>"><?= print_field('trans_end_date2', $fields, $record); ?>
                         &nbsp;<?= print_field('trans_end_time2', $fields, $record); ?></td>
                 </tr>
             <?php endif; ?>
             <?php if ($record->get('suspect_pro3')): ?>
+                <?php if (!$record->get('suspect_pro4')){$class='no-border-bottom';}else{$class='';}?>
                 <tr>
-                    <td><?= print_field('prod_code_name3', $fields, $record); ?>
+                    <td class="no-border-left text-left <?= $class ?>"><?= print_field('prod_code_name3', $fields, $record); ?>
                         <br>
                         <?php
                         switch ($record->get('prod_code_name3'))
@@ -904,24 +973,25 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         }
                         ?>
                     </td>
-                    <td><?= print_field('hosp_mod3', $fields, $record); ?></td>
-                    <td><?= print_field('supp_mod3', $fields, $record); ?></td>
-                    <td><?= print_field('group_abo3', $fields, $record); ?></td>
-                    <td><?= print_field('group_rh3', $fields, $record); ?></td>
-                    <td><?= print_field('unitlot3', $fields, $record); ?></td>
-                    <td><?= print_field('expiry_3', $fields, $record); ?></td>
-                    <td><?= print_field('amount3', $fields, $record); ?></td>
-                    <td><?= print_field('amount_unit3', $fields, $record); ?></td>
-                    <td><?= print_field('amount_frac3', $fields, $record); ?></td>
-                    <td><?= print_field('trans_start_date3', $fields, $record); ?>
+                    <td class="<?= $class ?>"><?= print_field('hosp_mod3', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('supp_mod3', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('group_abo3', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('group_rh3', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('unitlot3', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('expiry_3', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('amount3', $fields, $record); ?>
+                        <br><?= print_field('amount_unit3', $fields, $record); ?>
+                    </td>
+                    <td class="<?= $class ?>"><?= print_field('amount_frac3', $fields, $record); ?></td>
+                    <td class="<?= $class ?>"><?= print_field('trans_start_date3', $fields, $record); ?>
                         &nbsp;<?= print_field('trans_start_time3', $fields, $record); ?></td>
-                    <td><?= print_field('trans_end_date3', $fields, $record); ?>
+                    <td class="no-border-right <?= $class ?>"><?= print_field('trans_end_date3', $fields, $record); ?>
                         &nbsp;<?= print_field('trans_end_time3', $fields, $record); ?></td>
                 </tr>
             <?php endif; ?>
             <?php if ($record->get('suspect_pro4')): ?>
                 <tr>
-                    <td><?= print_field('prod_code_name4', $fields, $record); ?>
+                    <td class="no-border-left text-left no-border-bottom"><?= print_field('prod_code_name4', $fields, $record); ?>
                         <br>
                         <?php
                         switch ($record->get('prod_code_name4'))
@@ -956,18 +1026,19 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         }
                         ?>
                     </td>
-                    <td><?= print_field('hosp_mod4', $fields, $record); ?></td>
-                    <td><?= print_field('supp_mod4', $fields, $record); ?></td>
-                    <td><?= print_field('group_abo4', $fields, $record); ?></td>
-                    <td><?= print_field('group_rh4', $fields, $record); ?></td>
-                    <td><?= print_field('unitlot4', $fields, $record); ?></td>
-                    <td><?= print_field('expiry_date4', $fields, $record); ?></td>
-                    <td><?= print_field('amount4', $fields, $record); ?></td>
-                    <td><?= print_field('amount_unit4', $fields, $record); ?></td>
-                    <td><?= print_field('amount_frac4', $fields, $record); ?></td>
-                    <td><?= print_field('trans_start_date4', $fields, $record); ?>
+                    <td class="no-border-bottom"><?= print_field('hosp_mod4', $fields, $record); ?></td>
+                    <td class="no-border-bottom"><?= print_field('supp_mod4', $fields, $record); ?></td>
+                    <td class="no-border-bottom"><?= print_field('group_abo4', $fields, $record); ?></td>
+                    <td class="no-border-bottom"><?= print_field('group_rh4', $fields, $record); ?></td>
+                    <td class="no-border-bottom"><?= print_field('unitlot4', $fields, $record); ?></td>
+                    <td class="no-border-bottom"><?= print_field('expiry_date4', $fields, $record); ?></td>
+                    <td class="no-border-bottom"><?= print_field('amount4', $fields, $record); ?>
+                        <br><?= print_field('amount_unit4', $fields, $record); ?>
+                    </td>
+                    <td class="no-border-bottom"><?= print_field('amount_frac4', $fields, $record); ?></td>
+                    <td class="no-border-bottom"><?= print_field('trans_start_date4', $fields, $record); ?>
                         &nbsp;<?= print_field('trans_start_time4', $fields, $record); ?></td>
-                    <td><?= print_field('trans_end_date4', $fields, $record); ?>
+                    <td class="no-border-right no-border-bottom"><?= print_field('trans_end_date4', $fields, $record); ?>
                         &nbsp;<?= print_field('trans_end_time4', $fields, $record); ?></td>
                 </tr>
             <?php endif; ?>
@@ -1058,7 +1129,8 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         <table class="table only">
             <tbody>
             <tr>
-                <td width="25%">Type of Reaction:</td>
+                <td width="25%" style="font-weight: bold;">Type of Reaction:
+                </td>
                 <td width="25%"><?= print_field('trans_react', $fields, $record); ?></td>
                 <td colspan="2"></td>
             </tr>
@@ -1163,18 +1235,24 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         <table class="table bordered only">
             <tbody>
             <tr>
-                <td width="25%">Relationship of Adverse Event to Transfusion:</td>
+                <td width="25%" class="no-border-left" style="font-weight: bold;">
+                    Relationship of Adverse Event to Transfusion:
+                </td>
                 <td width="25%"><?= print_field('relation_adverse', $fields, $record); ?></td>
-                <td width="25%">Severity of Adverse Event:</td>
-                <td width="25%"><?= print_field('severity_adverse', $fields, $record); ?></td>
+                <td width="25%" class="no-border-right" style="font-weight: bold;">
+                    Severity of Adverse Event:
+                </td>
+                <td width="25%" class="no-border-right"><?= print_field('severity_adverse', $fields, $record); ?></td>
             </tr>
             <tr>
-                <td>Outcome of Adverse Event:</td>
-                <td><?= print_field('outcome_adverse', $fields, $record); ?></td>
+                <td class="no-border-left" style="font-weight: bold;">Outcome of
+                    Adverse Event:
+                </td>
+                <td<?php if ($record->get('outcome_adverse') != '3'): ?> colspan="3" class="no-border-right" <?php endif; ?>><?= print_field('outcome_adverse', $fields, $record); ?></td>
                 <!--            If Death -->
                 <?php if ($record->get('outcome_adverse') == '3'): ?>
                     <td>Relationship of transfusion to recipient's death</td>
-                    <td><?= print_field('relation_death', $fields, $record); ?></td>
+                    <td class="no-border-right"><?= print_field('relation_death', $fields, $record); ?></td>
                 <?php endif; ?>
             </tr>
             </tbody>
@@ -1205,8 +1283,10 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <?php if ($record->get('action_taken___4') == '1'): ?>
                 <tr>
                     <td>Supplier/Manufacturer Notified:</td>
-                    <td width="30%">Supplier Contacted on <?= print_field('date_contacted', $fields, $record); ?></td>
-                    <td colspan="2">Contact Name: <?= print_field('person_contacted', $fields, $record); ?></td>
+                    <td width="30%">Supplier Contacted
+                        on <?= print_field('date_contacted', $fields, $record); ?></td>
+                    <td colspan="2">Contact
+                        Name: <?= print_field('person_contacted', $fields, $record); ?></td>
                 </tr>
             <?php endif; ?>
             <?php if ($record->get('action_taken___0') == '1'): ?>
@@ -1222,11 +1302,15 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 <?php
                 $wid = $record->get('invest_status') == '99' ? '25' : '50';
                 ?>
-                <td width="<?= $wid ?>%">Status of Investigation:</td>
-                <td width="<?= $wid ?>%"><?= print_field('invest_status', $fields, $record); ?></td>
+                <td class="no-border-top no-border-left no-border-bottom" width="<?= $wid ?>%">
+                    Status of Investigation:
+                </td>
+                <td class="no-border-bottom no-border-top <?= $wid == '25' ? '' : 'no-border-right'; ?>" width="<?= $wid ?>%"><?= print_field('invest_status', $fields, $record); ?></td>
                 <?php if ($wid == '25'): ?>
-                    <td width="25%">Reason:</td>
-                    <td width="25%"><?= print_field('cannot_reason', $fields, $record); ?></td>
+                    <td class="no-border-bottom no-border-top" width="25%">
+                        Reason:
+                    </td>
+                    <td class="no-border-bottom no-border-top" width="25%"><?= print_field('cannot_reason', $fields, $record); ?></td>
                 <?php endif; ?>
             </tr>
             </tbody>
@@ -1244,14 +1328,14 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <tr>
                 <td colspan="4" class="text-left" style="border-bottom: 1px solid #903; height: 100px;"><?= print_field('final_comments', $fields, $record); ?></td>
             </tr>
-            <tr style="border-bottom: 1px solid #903; height: 30px;">
+            <tr class="text-left" style="border-bottom: 1px solid #903; height: 30px; font-size: 12px">
                 <td width="40%">Reporting Physician or Designate:</td>
                 <td width="20%"><?= $record->get('report_lastname') != '99' ? print_field('report_lastname', $fields, $record) : print_field('other_name', $fields, $record); ?></td>
-                <td width="20%">Signature:</td>
-                <td width="40%"></td>
+                <td colspan="2" width="40%">Signature:</td>
+
             </tr>
-            <tr>
-                <td width="40%" class="text-left">Phone Number:</td>
+            <tr class="text-left" style="height: 30px; font-size: 12px">
+                <td width="20%" class="text-left">Phone Number:</td>
                 <td width="30%"><?= $record->get('report_lastname') == '4' ? print_field('report_phone', $fields, $record) : ''; ?></td>
                 <td width="20%" class="text-left">Date & Time:</td>
                 <td width="30%"><?= print_field('curr_date', $fields, $record); ?></td>
@@ -1276,9 +1360,12 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 <td width="30%">Signature:</td>
             </tr>
             <tr class="text-left" style="height: 30px;">
-                <td width="40%">Phone: <?= print_field('medtel', $fields, $record); ?></td>
-                <td width="10%">Ext: <?= print_field('med_ext', $fields, $record); ?></td>
-                <td width="50%" colspan="2">Date: <?= print_field('datemed', $fields, $record); ?></td>
+                <td width="40%">
+                    Phone: <?= print_field('medtel', $fields, $record); ?></td>
+                <td width="10%">
+                    Ext: <?= print_field('med_ext', $fields, $record); ?></td>
+                <td width="50%" colspan="2">
+                    Date: <?= print_field('datemed', $fields, $record); ?></td>
             </tr>
             </tbody>
         </table>

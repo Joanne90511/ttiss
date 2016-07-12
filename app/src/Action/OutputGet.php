@@ -42,7 +42,7 @@ class OutputGet {
         {
 
             $response->getBody()->write($contents);
-            $response->getBody()->write("<a href='/output/{$case_id}'><h1>PDF</h1></a>");
+            $response->getBody()->write("<a href='/form/output/{$case_id}'><h1>PDF</h1></a>");
 
             return $response;
         } else
