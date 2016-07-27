@@ -1134,24 +1134,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 <td width="25%"><?= print_field('trans_react', $fields, $record); ?></td>
                 <td colspan="2"></td>
             </tr>
-            <?php if ($record->get('trans_react') == '3')
-            { ?>
-                <tr>
-                    <td colspan="2"></td>
-                    <td>Incompatible Transfusion</td>
-                    <td><?= print_field('unint_intent', $fields, $record); ?></td>
-                </tr>
-                <tr>
-                    <td colspan="2"></td>
-                    <td>Incompatible transfusion System</td>
-                    <td><?= print_field('incomp_transsys', $fields, $record); ?></td>
-                </tr>
-                <tr>
-                    <td colspan="2"></td>
-                    <td>Incompatible transfusion - description</td>
-                    <td><?= print_field('abo_sys_spec', $fields, $record); ?></td>
-                </tr>
-            <?php } elseif (in_array($record->get('trans_react'), ['5', '6']))
+            <?php if (in_array($record->get('trans_react'), ['5', '6']))
             { ?>
                 <tr>
                     <td colspan="2"></td>
@@ -1209,11 +1192,6 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     <td colspan="2"></td>
                     <td>Other results of Investigation - description</td>
                     <td><?= print_field('other_res_spec', $fields, $record); ?></td>
-                </tr>
-            <?php } else
-            { ?>
-                <tr>
-                    <td colspan="4"> No More Information</td>
                 </tr>
             <?php } ?>
             <?php if (in_array($record->get('trans_react'), ['8', '9', '10'])): ?>
