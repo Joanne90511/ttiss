@@ -12,7 +12,7 @@ This is a simple skeleton project for Slim 3 that includes Twig, Flash messages 
 2. `$ php -S 0.0.0.0:8888 -t public public/index.php`
 3. Browse to http://localhost:8888
 
-## Key directories
+## Key Structure
 
 * `app`: Application code
 * `app/src`: All class files within the `App` namespace
