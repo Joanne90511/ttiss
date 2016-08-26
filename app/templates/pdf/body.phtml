@@ -391,24 +391,11 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             </tr>
             </thead>
             <tbody>
+            <?php if ($record->get('other_signs') || $record->get('clinical_signs')): ?>
             <tr>
                 <td valign="top" width="50%">
-                    <table class="table">
-                        <tr>
-                            <td width="45%">
-                                Changes in Vital Signs:
-                            </td>
-                            <td class="text-left">
-                                <?php if ($record->get('clinical_signs')): ?>
-                                    Yes
-                                <?php else: ?>
-                                    No
-                                <?php endif; ?>
-                            </td>
-                        </tr>
-                    </table>
-                    <table class="table">
-                        <?php if ($record->get('clinical_signs')): ?>
+                    <?php if ($record->get('clinical_signs')): ?>
+                        <table class="table">
                             <thead>
                             <tr>
                                 <th class="no-border-left">Clinical Symptom</th>
@@ -462,17 +449,8 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                                 </tr>
                             <?php endif; ?>
                             </tbody>
-                        <?php else: ?>
-                            <tbody>
-                            <tr>
-                                <td>
-                                
-                                </td>
-                            </tr>
-                            </tbody>
-                        <?php endif; ?>
-                    </table>
-                
+                        </table>
+                    <?php endif; ?>
                 
                 </td>
                 <td valign="top" width="50%" class="no-border">
@@ -546,6 +524,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     <?php endif; ?>
                 </td>
             </tr>
+            <?php endif; ?>
             </tbody>
         </table>
         <table class="table only">
