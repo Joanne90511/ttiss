@@ -74,6 +74,31 @@ class Record {
         //Otherwise false
         return false;
     }
+    
+    /**
+     *
+     * @param $values array|string
+     *
+     * @return bool
+     */
+    public function hasValue($values)
+    {
+        if(is_string($values))
+        {
+            return $this->get($values) ? true : false;
+        }
+        if(is_array($values))
+        {
+            foreach ($values as $value)
+            {
+                if($this->get($value))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
 
     /**
      * Encodes the data into a JSON string

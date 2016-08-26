@@ -527,41 +527,45 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <?php endif; ?>
             </tbody>
         </table>
-        <table class="table only">
-            <thead>
-            <tr>
-                <th class="text-left no-border-left no-border-right" colspan="5" style="padding-left: 10px;">
-                    Clinical Information for TRALI
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="no-border">Abnormal Chest
-                    X-ray: <?php if ($record->get('xray_info')): ?>Yes <?php else: ?> No <?php endif; ?></td>
-                <?php if ($record->get('xray_info')): ?>
-                    <?php if ($record->get('bilat_infilt___1') == '1' && $record->get('bilat_infilt___2') == '1'): ?>
-                        <td class="no-border">Bilateral Infiltrates <br>Other
+        <? if ($record->get('xray_info') || $record->get('circul_overload')): ?>
+            <table class="table only">
+                <thead>
+                <tr>
+                    <th class="text-left no-border-left no-border-right" colspan="5" style="padding-left: 10px;">
+                        Clinical Information for TRALI
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <? if ($record->get('xray_info')): ?>
+                    <tr>
+                        <td class="no-border">Abnormal Chest
+                            X-ray
                         </td>
-                    <?php elseif ($record->get('bilat_infilt___1') == '1'): ?>
-                        <td class="no-border">Bilateral Infiltrates</td>
-                    <?php elseif ($record->get('bilat_infilt___2') == '1'): ?>
-                        <td class="no-border">Other</td>
-                    <?php endif; ?>
-                    <td class="no-border">Other:</td>
-                    <td class="no-border"><?= print_field("xray_other", $fields, $record); ?></td>
-                <?php endif; ?>
-            </tr>
-            <tr>
-                <td class="no-border">Evidence of Circulatory
-                    Overload: <?php if ($record->get('circul_overload')): ?>Yes <?php else: ?> No <?php endif; ?></td>
-                <?php if ($record->get('circul_overload')): ?>
-                    <td class="no-border">Explain:</td>
-                    <td colspan="2" class="no-border"><?= print_field("corcul_overload_spec", $fields, $record); ?></td>
-                <?php endif; ?>
-            </tr>
-            </tbody>
-        </table>
+                        <?php if ($record->get('bilat_infilt___1') == '1' && $record->get('bilat_infilt___2') == '1'): ?>
+                            <td class="no-border">Bilateral Infiltrates <br>Other
+                            </td>
+                        <?php elseif ($record->get('bilat_infilt___1') == '1'): ?>
+                            <td class="no-border">Bilateral Infiltrates</td>
+                        <?php elseif ($record->get('bilat_infilt___2') == '1'): ?>
+                            <td class="no-border">Other</td>
+                        <?php endif; ?>
+                        <td class="no-border">Describe:</td>
+                        <td class="no-border"><?= print_field("xray_other", $fields, $record); ?></td>
+                    </tr>
+                <? endif ?>
+                <? if ($record->get('circul_overload')): ?>
+                    <tr>
+                        <td class="no-border">Evidence of Circulatory
+                            Overload
+                        </td>
+                        <td class="no-border">Explain:</td>
+                        <td colspan="2" class="no-border"><?= print_field("corcul_overload_spec", $fields, $record); ?></td>
+                    </tr>
+                <? endif ?>
+                </tbody>
+            </table>
+        <? endif ?>
         <table class="table bordered only">
             <thead>
             <tr class="lightred">
@@ -569,15 +573,6 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     4b. Abnormal Tests/Laboratory Results
                 </th>
             </tr>
-            <tr>
-                <th class="no-border-left">Name of Laboratory Tests:</th>
-                <th>Date Specimen Taken:</th>
-                <th class="no-border-right">
-                    Results
-                </th>
-            </tr>
-            </thead>
-            <tbody>
             <?php
             $field_labels = [
                 1  => 'name_abnorm_test___1',
@@ -597,7 +592,19 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 15 => 'name_abnorm_test___15',
                 16 => 'name_abnorm_test___16',
             ];
-            
+            ?>
+            <? if ($record->hasValue($field_labels)): ?>
+                <tr>
+                    <th class="no-border-left">Name of Laboratory Tests:</th>
+                    <th>Date Specimen Taken:</th>
+                    <th class="no-border-right">
+                        Results
+                    </th>
+                </tr>
+            <? endif ?>
+            </thead>
+            <tbody>
+            <?php
             foreach ($field_labels as $index => $label):
                 if ($record->get($label) == '1'):
                     ?>
@@ -697,96 +704,98 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <?php endforeach; ?>
             </tbody>
         </table>
-        <table class="table bordered">
-            <?php if ($record->get('blood_culpro') != '1' && $record->get('blood_culrec') != '1')
-            {
-                $class = 'no-border-bottom';
-            } else
-            {
-                $class = '';
-            }; ?>
-            <thead>
-            <tr>
-                <th class="no-border-left <?= $class; ?>">Blood Culture
-                    Results:
-                </th>
-                <th class="<?= $class; ?>">Date/Time Specimen Taken</th>
-                <th class="<?= $class; ?>">
-                    # Pos
-                </th>
-                <th class="<?= $class; ?>"># Neg</th>
-                <th class="<?= $class; ?>">
-                    Organisms Identified
-                </th>
-                <th class="no-border-right <?= $class; ?>">
-                    Unit/Lot No.
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php if ($record->get('blood_culrec') == '1'): ?>
-                <?php if ($record->get('blood_culpro') == '1')
-                {
-                    $class = '';
-                } else
+        <? if ($record->hasValue(['blood_culrec', 'blood_culpro'])): ?>
+            <table class="table bordered">
+                <?php if ($record->get('blood_culpro') != '1' && $record->get('blood_culrec') != '1')
                 {
                     $class = 'no-border-bottom';
+                } else
+                {
+                    $class = '';
                 }; ?>
-                <tr class="text-center">
-                    <td class="no-border-left <?= $class; ?>">
-                        Recipient
-                    </td>
-                    <td class="<?= $class; ?>">
-                        <?= print_field('reci_date', $fields, $record); ?>
-                        &nbsp; <?= print_field('reci_time', $fields, $record); ?>
-                    </td>
-                    <td class="text-center <?= $class; ?>">
-                        <?= print_field('reci_pos_num', $fields, $record); ?>
-                    </td>
-                    <td class="text-center <?= $class; ?>">
-                        <?= print_field('reci_neg_num', $fields, $record); ?>
-                    </td>
-                    <td class="<?= $class; ?>">
-                        <?= $record->get('reci_spec') != '20' ? print_field('reci_spec', $fields, $record) : print_field('other_recip_spec', $fields, $record); ?>
-                    </td>
-                    <td class="no-border-right <?= $class; ?>">
-                        N/A
-                    </td>
+                <thead>
+                <tr>
+                    <th class="no-border-left <?= $class; ?>">Blood Culture
+                        Results:
+                    </th>
+                    <th class="<?= $class; ?>">Date/Time Specimen Taken</th>
+                    <th class="<?= $class; ?>">
+                        # Pos
+                    </th>
+                    <th class="<?= $class; ?>"># Neg</th>
+                    <th class="<?= $class; ?>">
+                        Organisms Identified
+                    </th>
+                    <th class="no-border-right <?= $class; ?>">
+                        Unit/Lot No.
+                    </th>
                 </tr>
-            <?php endif; ?>
-            <?php if ($record->get('blood_culpro') == '1'): ?>
-                <tr class="text-center">
-                    <td class="no-border-left no-border-bottom">
-                        Product
-                    </td>
-                    <td class="no-border-bottom">
-                        <?= print_field('prod_date', $fields, $record); ?>
-                        &nbsp; <?= print_field('prod_time', $fields, $record); ?>
-                    </td>
-                    <td class="text-center no-border-bottom">
-                        <?= print_field('prod_pos_num', $fields, $record); ?>
-                    </td>
-                    <td class="text-center no-border-bottom">
-                        <?= print_field('prod_neg_num', $fields, $record); ?>
-                    </td>
-                    <td class="no-border-bottom">
-                        <?= print_field('prod_spec', $fields, $record); ?>
-                    </td>
-                    <td class="no-border-right no-border-bottom">
-                        <?= print_field('prod_unitlot', $fields, $record); ?>
-                    </td>
-                </tr>
-            <?php endif; ?>
-            <?php if ($record->get('blood_culpro') != '1' && $record->get('blood_culrec') != 1): ?>
-                <tr class="no-border-right">
-                    <td style="border: 0;" class="no-border-bottom" colspan="6">
+                </thead>
+                <tbody>
+                <?php if ($record->get('blood_culrec') == '1'): ?>
+                    <?php if ($record->get('blood_culpro') == '1')
+                    {
+                        $class = '';
+                    } else
+                    {
+                        $class = 'no-border-bottom';
+                    }; ?>
+                    <tr class="text-center">
+                        <td class="no-border-left <?= $class; ?>">
+                            Recipient
+                        </td>
+                        <td class="<?= $class; ?>">
+                            <?= print_field('reci_date', $fields, $record); ?>
+                            &nbsp; <?= print_field('reci_time', $fields, $record); ?>
+                        </td>
+                        <td class="text-center <?= $class; ?>">
+                            <?= print_field('reci_pos_num', $fields, $record); ?>
+                        </td>
+                        <td class="text-center <?= $class; ?>">
+                            <?= print_field('reci_neg_num', $fields, $record); ?>
+                        </td>
+                        <td class="<?= $class; ?>">
+                            <?= $record->get('reci_spec') != '20' ? print_field('reci_spec', $fields, $record) : print_field('other_recip_spec', $fields, $record); ?>
+                        </td>
+                        <td class="no-border-right <?= $class; ?>">
+                            N/A
+                        </td>
+                    </tr>
+                <?php endif; ?>
+                <?php if ($record->get('blood_culpro') == '1'): ?>
+                    <tr class="text-center">
+                        <td class="no-border-left no-border-bottom">
+                            Product
+                        </td>
+                        <td class="no-border-bottom">
+                            <?= print_field('prod_date', $fields, $record); ?>
+                            &nbsp; <?= print_field('prod_time', $fields, $record); ?>
+                        </td>
+                        <td class="text-center no-border-bottom">
+                            <?= print_field('prod_pos_num', $fields, $record); ?>
+                        </td>
+                        <td class="text-center no-border-bottom">
+                            <?= print_field('prod_neg_num', $fields, $record); ?>
+                        </td>
+                        <td class="no-border-bottom">
+                            <?= print_field('prod_spec', $fields, $record); ?>
+                        </td>
+                        <td class="no-border-right no-border-bottom">
+                            <?= print_field('prod_unitlot', $fields, $record); ?>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+                <?php if ($record->get('blood_culpro') != '1' && $record->get('blood_culrec') != 1): ?>
+                    <tr class="no-border-right">
+                        <td style="border: 0;" class="no-border-bottom" colspan="6">
                     
-                    </td>
-                </tr>
-            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endif; ?>
             
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        <? endif ?>
     </div>
 </div>
 <!-- 5. -->
