@@ -490,7 +490,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                                         switch ($label)
                                         {
                                             case 'other_no_sign2_834___5':
-                                                echo "<td>" . print_field("hypo_sat", $fields, $record) . "</td>";
+                                                echo "<td>0<small>2</small> sat: " . print_field("hypo_sat", $fields, $record) . "</td>";
                                                 break;
                                             case 'other_no_sign2_834___7':
                                                 echo "<td>" . print_field("pain_spec", $fields, $record) . "</td>";
@@ -506,7 +506,6 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                                     
                                 }
                                 ?>
-                                </tr>
                                 
                                 <?php
                                 
