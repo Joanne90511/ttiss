@@ -17,7 +17,7 @@ This is a simple skeleton project for Slim 3 that includes Twig, Flash messages 
 * `app`: Application code
 * `app/src`: All class files within the `App` namespace
 * `app/templates`: Twig template files
-* `cache/twig`: Twig's Autocreated cache files
+* `cache/twig`: Twig's Autocreated cache filesasdadwada
 * `log`: Log files
 * `public`: Webserver root
 * `vendor`: Composer dependencies
