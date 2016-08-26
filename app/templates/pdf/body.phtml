@@ -3,7 +3,7 @@
 /** @var $fields array */
 function print_field($name, $fields, \App\REDCap\Record $record)
 {
-
+    
     if (strpos($name, '___') > -1)
     {
         return array_values($fields[$name])[0];
@@ -30,7 +30,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             font-size: 12px;
             font-family: Tahoma;
         }
-
+        
         .text-right {
             text-align: right;
         }
@@ -99,46 +99,46 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         .panel {
             page-break-inside: avoid;
         }
-
+        
         tr.lightred td {
             background: #ff9ba1;
             border: 1px solid #990033;
             font-weight: bold;
         }
-
+        
         tr.lightred th {
             background-color: #ff9ba1;
         }
-
+        
         td {
             padding: 0;
-
+            
         }
-
+        
         table table td, table.only td {
             padding-left: 8px;
         }
-
+        
         th {
             padding: 0;
         }
-
+        
         td.no-border-bottom, th.no-border-bottom {
             border-bottom: 0 !important;
         }
-
+        
         td.no-border-top, th.no-border-top {
             border-top: 0 !important;
         }
-
+        
         td.no-border-left, th.no-border-left {
             border-left: 0 !important;
         }
-
+        
         td.no-border-right, th.no-border-right {
             border-right: 0 !important;
         }
-
+    
     
     </style>
 </head>
@@ -230,7 +230,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                                 <td class="no-border"></td>
                             <?php endif; ?>
                         </tr>
-
+                        
                         </tbody>
                     </table>
                 </td>
@@ -262,7 +262,8 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                                 &nbsp;<?= print_field('time_reported', $fields, $record); ?></td>
                         </tr>
                         <tr class="lightred">
-                            <td class="no-border no-border-left" colspan="2">3a. Incident
+                            <td class="no-border no-border-left" colspan="2">3a.
+                                Incident
                                 Report
                             </td>
                         </tr>
@@ -342,7 +343,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                                     echo "<td colspan='2'>" . print_field($label, $fields, $record) . "</td>";
                                     echo "</tr>";
                                 }
-
+                                
                             }
                         }
                         ?>
@@ -357,7 +358,8 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                             <td width="50%" class="no-border"><?= print_field('anes_trans', $fields, $record); ?></td>
                         </tr>
                         <tr class="lightred">
-                            <td width="50%" colspan="2" class="no-border-bottom">3c.
+                            <td width="50%" colspan="2" class="no-border-bottom">
+                                3c.
                                 Possible Transfusion Related
                                 Blood Borne
                                 Infection
@@ -464,14 +466,14 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                             <tbody>
                             <tr>
                                 <td>
-
+                                
                                 </td>
                             </tr>
                             </tbody>
                         <?php endif; ?>
                     </table>
-
-
+                
+                
                 </td>
                 <td valign="top" width="50%" class="no-border">
                     <?php if ($record->get('other_signs')): ?>
@@ -523,13 +525,13 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                                         }
                                         echo "</tr>";
                                     }
-
+                                    
                                 }
                                 ?>
                                 </tr>
-
+                                
                                 <?php
-
+                                
                             } else
                             {
                                 ?>
@@ -599,15 +601,15 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <tbody>
             <?php
             $field_labels = [
-                1 => 'name_abnorm_test___1',
-                2 => 'name_abnorm_test___2',
-                3 => 'name_abnorm_test___3',
-                4 => 'name_abnorm_test___4',
-                5 => 'name_abnorm_test___5',
-                6 => 'name_abnorm_test___6',
-                7 => 'name_abnorm_test___7',
-                8 => 'name_abnorm_test___8',
-                9 => 'name_abnorm_test___9',
+                1  => 'name_abnorm_test___1',
+                2  => 'name_abnorm_test___2',
+                3  => 'name_abnorm_test___3',
+                4  => 'name_abnorm_test___4',
+                5  => 'name_abnorm_test___5',
+                6  => 'name_abnorm_test___6',
+                7  => 'name_abnorm_test___7',
+                8  => 'name_abnorm_test___8',
+                9  => 'name_abnorm_test___9',
                 10 => 'name_abnorm_test___10',
                 11 => 'name_abnorm_test___11',
                 12 => 'name_abnorm_test___12',
@@ -616,7 +618,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 15 => 'name_abnorm_test___15',
                 16 => 'name_abnorm_test___16',
             ];
-
+            
             foreach ($field_labels as $index => $label):
                 if ($record->get($label) == '1'):
                     ?>
@@ -726,7 +728,9 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             }; ?>
             <thead>
             <tr>
-                <th class="no-border-left <?= $class; ?>">Blood Culture Results:</th>
+                <th class="no-border-left <?= $class; ?>">Blood Culture
+                    Results:
+                </th>
                 <th class="<?= $class; ?>">Date/Time Specimen Taken</th>
                 <th class="<?= $class; ?>">
                     # Pos
@@ -797,7 +801,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <?php if ($record->get('blood_culpro') != '1' && $record->get('blood_culrec') != 1): ?>
                 <tr class="no-border-right">
                     <td style="border: 0;" class="no-border-bottom" colspan="6">
-
+                    
                     </td>
                 </tr>
             <?php endif; ?>
@@ -829,9 +833,15 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             </tr>
             </thead>
             <tbody class="text-center">
-            <?php if (!$record->get('suspect_pro2')){$class='no-border-bottom';}else{$class='';}?>
+            <?php if (!$record->get('suspect_pro2') && !$record->get('comments'))
+            {
+                $class = 'no-border-bottom';
+            } else
+            {
+                $class = '';
+            } ?>
             <tr>
-                <td class="no-border-left text-left <?= $class ?>" ><?= print_field('prod_code_name1', $fields, $record); ?>
+                <td class="no-border-left text-left <?= $class ?>"><?= print_field('prod_code_name1', $fields, $record); ?>
                     <br>
                     <?php
                     switch ($record->get('prod_code_name1'))
@@ -882,7 +892,13 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     &nbsp;<?= print_field('trans_end_time1', $fields, $record); ?></td>
             </tr>
             <?php if ($record->get('suspect_pro2')): ?>
-                <?php if (!$record->get('suspect_pro3')){$class='no-border-bottom';}else{$class='';}?>
+                <?php if (!$record->get('suspect_pro3') && !$record->get('comments'))
+                {
+                    $class = 'no-border-bottom';
+                } else
+                {
+                    $class = '';
+                } ?>
                 <tr>
                     <td class="no-border-left text-left <?= $class ?>"><?= print_field('prod_code_name2', $fields, $record); ?>
                         <br>
@@ -936,7 +952,13 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 </tr>
             <?php endif; ?>
             <?php if ($record->get('suspect_pro3')): ?>
-                <?php if (!$record->get('suspect_pro4')){$class='no-border-bottom';}else{$class='';}?>
+                <?php if (!$record->get('suspect_pro4') && !$record->get('comments'))
+                {
+                    $class = 'no-border-bottom';
+                } else
+                {
+                    $class = '';
+                } ?>
                 <tr>
                     <td class="no-border-left text-left <?= $class ?>"><?= print_field('prod_code_name3', $fields, $record); ?>
                         <br>
@@ -990,8 +1012,15 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 </tr>
             <?php endif; ?>
             <?php if ($record->get('suspect_pro4')): ?>
+                <?php if (!$record->get('comments'))
+                {
+                    $class = 'no-border-bottom';
+                } else
+                {
+                    $class = '';
+                } ?>
                 <tr>
-                    <td class="no-border-left text-left no-border-bottom"><?= print_field('prod_code_name4', $fields, $record); ?>
+                    <td class="no-border-left text-left <?= $class; ?>"><?= print_field('prod_code_name4', $fields, $record); ?>
                         <br>
                         <?php
                         switch ($record->get('prod_code_name4'))
@@ -1026,22 +1055,30 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         }
                         ?>
                     </td>
-                    <td class="no-border-bottom"><?= print_field('hosp_mod4', $fields, $record); ?></td>
-                    <td class="no-border-bottom"><?= print_field('supp_mod4', $fields, $record); ?></td>
-                    <td class="no-border-bottom"><?= print_field('group_abo4', $fields, $record); ?></td>
-                    <td class="no-border-bottom"><?= print_field('group_rh4', $fields, $record); ?></td>
-                    <td class="no-border-bottom"><?= print_field('unitlot4', $fields, $record); ?></td>
-                    <td class="no-border-bottom"><?= print_field('expiry_date4', $fields, $record); ?></td>
-                    <td class="no-border-bottom"><?= print_field('amount4', $fields, $record); ?>
+                    <td class="<?= $class; ?>"><?= print_field('hosp_mod4', $fields, $record); ?></td>
+                    <td class="<?= $class; ?>"><?= print_field('supp_mod4', $fields, $record); ?></td>
+                    <td class="<?= $class; ?>"><?= print_field('group_abo4', $fields, $record); ?></td>
+                    <td class="<?= $class; ?>"><?= print_field('group_rh4', $fields, $record); ?></td>
+                    <td class="<?= $class; ?>"><?= print_field('unitlot4', $fields, $record); ?></td>
+                    <td class="<?= $class; ?>"><?= print_field('expiry_date4', $fields, $record); ?></td>
+                    <td class="<?= $class; ?>"><?= print_field('amount4', $fields, $record); ?>
                         <br><?= print_field('amount_unit4', $fields, $record); ?>
                     </td>
-                    <td class="no-border-bottom"><?= print_field('amount_frac4', $fields, $record); ?></td>
-                    <td class="no-border-bottom"><?= print_field('trans_start_date4', $fields, $record); ?>
+                    <td class="<?= $class; ?>"><?= print_field('amount_frac4', $fields, $record); ?></td>
+                    <td class="<?= $class; ?>"><?= print_field('trans_start_date4', $fields, $record); ?>
                         &nbsp;<?= print_field('trans_start_time4', $fields, $record); ?></td>
-                    <td class="no-border-right no-border-bottom"><?= print_field('trans_end_date4', $fields, $record); ?>
+                    <td class="no-border-right <?= $class; ?>"><?= print_field('trans_end_date4', $fields, $record); ?>
                         &nbsp;<?= print_field('trans_end_time4', $fields, $record); ?></td>
                 </tr>
             <?php endif; ?>
+            <? if ($record->get('comments')): ?>
+                <tr>
+                    <td class="no-border-left no-border-bottom">Comments</td>
+                    
+                    <td class="no-border-right no-border-bottom" colspan="10"><?= print_field('comments', $fields, $record); ?></td>
+                
+                </tr>
+            <? endif ?>
             </tbody>
         </table>
     </div>
@@ -1078,14 +1115,16 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 ];
                 foreach ($field_labels as $index => $label)
                 {
-
+                    
                     if ($record->get($label) == '1')
                     {
                         switch ($label)
                         {
                             //TODO Fix up positioning
                             case 'no_measures___7';
-                                echo "<td>Mechanical Ventilation: Diruretics: Effective: " . print_field('diure_effect', $fields, $record) . '</td>';
+                                echo "<td>Diruretics:";
+                                echo $record->get('diure_effect') ? 'Effective' : '';
+                                echo '</td>';
                                 break;
                             case 'no_measures___11';
                                 echo "<td> Duration: " . print_field('mech_vent_dur', $fields, $record) . '</td>';
@@ -1093,13 +1132,13 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                             case 'no_measures___16';
                                 echo "<td>" . print_field('other_mesu_spec', $fields, $record) . "</td>";
                                 break;
-
+                            
                             default:
                                 echo "<td>" . print_field($label, $fields, $record) . "</td>";
                         }
-
+                        
                     }
-
+                    
                     
                 }
                 ?>
@@ -1310,7 +1349,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 <td width="40%">Reporting Physician or Designate:</td>
                 <td width="20%"><?= $record->get('report_lastname') != '99' ? print_field('report_lastname', $fields, $record) : print_field('other_name', $fields, $record); ?></td>
                 <td colspan="2" width="40%">Signature:</td>
-
+            
             </tr>
             <tr class="text-left" style="height: 30px; font-size: 12px">
                 <td width="20%" class="text-left">Phone Number:</td>
