@@ -106,6 +106,12 @@ $.getJSON("/form/record/" + case_id, function (data) {
         ko.applyBindings(vm);
         $(".loader h6").text("Complete");
         $(".loader").fadeOut("slow");
+        $('#facilityid_name_facility').tooltip();
+        if(vm.data.facilityid_name_facility() == '')
+        {
+            $('#facilityid_name_facility').focus();
+        }
+
     });
 });
 
