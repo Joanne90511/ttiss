@@ -352,7 +352,13 @@ ko.bindingHandlers.redcapDatePicker = {
             if (ko.isObservable(value)) {
                 if (event.date != null && !(event.date instanceof Date)) {
                     // value(event.date.toDate());
-                    value(event.date.format('YYYY-MM-DD'));
+                    if(!event.date)
+                    {
+                        value('');
+                    }else{
+                        value(event.date.format('YYYY-MM-DD'));
+                    }
+
                 } else {
                     value(event.date);
                 }
