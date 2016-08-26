@@ -328,7 +328,7 @@
                     </div>
                 </div>
                 <div data-bind="visible: data.abnorm_test1() == '1'" class="row">
-                    <table class="table table-bordered">
+                    <table id="abnormal_test_table_no_margin" class="table table-bordered">
                         <thead>
                         <tr>
                             <th rowspan="2">Name of Test</th>
@@ -495,6 +495,23 @@
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 3"></td>
                         </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th rowspan="2">Name of Test</th>
+                            <th rowspan="2">Date Specimen Taken</th>
+                            <th colspan="4">Results</th>
+                        </tr>
+                        <tr>
+                            <th>Positive</th>
+                            <th>Negative</th>
+                            <th>Elevated</th>
+                            <th>Decreased</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td>
                                 <div class="checkbox">
