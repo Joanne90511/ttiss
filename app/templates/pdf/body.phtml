@@ -526,7 +526,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             <?php endif; ?>
             </tbody>
         </table>
-        <? if ($record->get('xray_info') || $record->get('circul_overload')): ?>
+        <?php if ($record->get('xray_info') || $record->get('circul_overload')): ?>
             <table class="table only">
                 <thead>
                 <tr>
@@ -536,7 +536,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 </tr>
                 </thead>
                 <tbody>
-                <? if ($record->get('xray_info')): ?>
+                <?php if ($record->get('xray_info')): ?>
                     <tr>
                         <td class="no-border">Abnormal Chest
                             X-ray
@@ -552,8 +552,8 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         <td class="no-border">Describe:</td>
                         <td class="no-border"><?= print_field("xray_other", $fields, $record); ?></td>
                     </tr>
-                <? endif ?>
-                <? if ($record->get('circul_overload')): ?>
+                <?php endif ?>
+                <?php if ($record->get('circul_overload')): ?>
                     <tr>
                         <td class="no-border">Evidence of Circulatory
                             Overload
@@ -561,10 +561,10 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         <td class="no-border">Explain:</td>
                         <td colspan="2" class="no-border"><?= print_field("corcul_overload_spec", $fields, $record); ?></td>
                     </tr>
-                <? endif ?>
+                <?php endif ?>
                 </tbody>
             </table>
-        <? endif ?>
+        <?php endif ?>
         <table class="table bordered only">
             <thead>
             <tr class="lightred">
@@ -592,7 +592,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 16 => 'name_abnorm_test___16',
             ];
             ?>
-            <? if ($record->hasValue($field_labels)): ?>
+            <?php if ($record->hasValue($field_labels)): ?>
                 <tr>
                     <th class="no-border-left">Name of Laboratory Tests:</th>
                     <th>Date Specimen Taken:</th>
@@ -600,7 +600,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         Results
                     </th>
                 </tr>
-            <? endif ?>
+            <?php endif ?>
             </thead>
             <tbody>
             <?php
@@ -701,17 +701,17 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     </tr>
                 <?php endif; ?>
             <?php endforeach; ?>
-            <? if ($record->hasValue('abnorm_comment')): ?>
+            <?php if ($record->hasValue('abnorm_comment')): ?>
                 <tr>
                     <td class="no-border-left">Comments</td>
                     <td class="no-border-right" colspan="2">
                         <?= print_field('abnorm_comment', $fields, $record); ?>
                     </td>
                 </tr>
-            <? endif ?>
+            <?php endif ?>
             </tbody>
         </table>
-        <? if ($record->hasValue(['blood_culrec', 'blood_culpro'])): ?>
+        <?php if ($record->hasValue(['blood_culrec', 'blood_culpro'])): ?>
             <table class="table bordered">
                 <?php if ($record->get('blood_culpro') != '1' && $record->get('blood_culrec') != '1')
                 {
@@ -802,7 +802,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             
                 </tbody>
             </table>
-        <? endif ?>
+        <?php endif ?>
     </div>
 </div>
 <!-- 5. -->
@@ -1066,14 +1066,14 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         &nbsp;<?= print_field('trans_end_time4', $fields, $record); ?></td>
                 </tr>
             <?php endif; ?>
-            <? if ($record->get('comments')): ?>
+            <?php if ($record->get('comments')): ?>
                 <tr>
                     <td class="no-border-left no-border-bottom">Comments</td>
                     
                     <td class="no-border-right no-border-bottom" colspan="10"><?= print_field('comments', $fields, $record); ?></td>
                 
                 </tr>
-            <? endif ?>
+            <?php endif ?>
             </tbody>
         </table>
     </div>
@@ -1264,7 +1264,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             </tr>
             </tbody>
         </table>
-        <? if ($record->hasValue(['action_taken___1','action_taken___2','action_taken___3','action_taken___4'])): ?>
+        <?php if ($record->hasValue(['action_taken___1','action_taken___2','action_taken___3','action_taken___4'])): ?>
             <table class="table">
                 <tbody>
                 <tr>
@@ -1326,7 +1326,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 </tr>
                 </tbody>
             </table>
-        <? endif ?>
+        <?php endif ?>
         <table class="table bordered only">
             <tbody>
             <tr>
