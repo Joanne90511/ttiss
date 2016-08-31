@@ -93,7 +93,9 @@ $.getJSON("/form/record/" + case_id, function (data) {
         $.each(data, function (i, val) {
             fields[i] = ko.observableArray();
             $.each(val, function (i2, val2) {
-                fields[i].push(new Option(val2, i2));
+                //Added toString as some values are coming in as numbers and this creates an issue when
+                //We check if the values match as KO uses === which checks type
+                fields[i].push(new Option(val2, i2.toString()));
             });
         });
         vm.fields = fields;
