@@ -701,6 +701,14 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     </tr>
                 <?php endif; ?>
             <?php endforeach; ?>
+            <? if ($record->hasValue('abnorm_comment')): ?>
+                <tr>
+                    <td class="no-border-left">Comments</td>
+                    <td class="no-border-right" colspan="2">
+                        <?= print_field('abnorm_comment', $fields, $record); ?>
+                    </td>
+                </tr>
+            <? endif ?>
             </tbody>
         </table>
         <? if ($record->hasValue(['blood_culrec', 'blood_culpro'])): ?>
