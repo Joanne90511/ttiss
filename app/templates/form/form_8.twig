@@ -25,11 +25,9 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="curr_date">Date:</label>
-                                <input type="text" class="form-control" data-bind="redcapDatePicker: data.curr_date" id="curr_date">
-                            </div>
+                        <div class="form-group">
+                            <label for="report_phone">Number of Other Reporting Person</label>
+                            <input type="text" class="form-control" data-bind="textInput: data.report_phone" id="report_phone">
                         </div>
                     </div>
                 </div>
@@ -42,11 +40,12 @@
                         </div>
                     </div>
                 </div>#}
-                <div data-bind="visible: data.report_lastname() == '4'" class="row">
+                <div class="row">
+
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="report_phone">Number of Other Reporting Person</label>
-                            <input type="text" class="form-control" data-bind="textInput: data.report_phone" id="report_phone">
+                            <label for="curr_date">Date:</label>
+                            <input type="text" class="form-control" data-bind="redcapDatePicker: data.curr_date" id="curr_date">
                         </div>
                     </div>
                 </div>

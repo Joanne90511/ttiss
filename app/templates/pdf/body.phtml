@@ -1367,7 +1367,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             </tr>
             <tr class="text-left" style="height: 30px; font-size: 12px">
                 <td width="20%" class="text-left">Phone Number:</td>
-                <td width="30%"><?= $record->get('report_lastname') == '4' ? print_field('report_phone', $fields, $record) : ''; ?></td>
+                <td width="30%"><?= print_field('report_phone', $fields, $record); ?></td>
                 <td width="20%" class="text-left">Date & Time:</td>
                 <td width="30%"><?= print_field('curr_date', $fields, $record); ?></td>
             </tr>
