@@ -1207,19 +1207,14 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     <td>Hypotensive reaction - ACE inhibitors</td>
                     <td><?= print_field('ace_inhibit', $fields, $record); ?></td>
                 </tr>
-            <?php } elseif ($record->get('trans_react') == '21')
+            <?php } elseif (in_array($record->get('trans_react'), ['88', '99', '22']))
             { ?>
                 <tr>
-                    <td colspan="2"></td>
-                    <td>Other Results</td>
-                    <td><?= print_field('other_choices', $fields, $record); ?></td>
-                </tr>
-                <tr>
-                    <td colspan="2"></td>
-                    <td>Other results of Investigation - description</td>
-                    <td><?= print_field('other_res_spec', $fields, $record); ?></td>
+                    <td style="font-weight: bold;">Description:</td>
+                    <td colspan="3"><?= print_field('other_res_spec', $fields, $record); ?></td>
                 </tr>
             <?php } ?>
+            
             <?php if (in_array($record->get('trans_react'), ['8', '9', '10'])): ?>
                 <tr>
                     <td colspan="2"></td>
