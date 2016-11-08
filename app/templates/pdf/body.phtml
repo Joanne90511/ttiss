@@ -1166,7 +1166,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         <table class="table only">
             <tbody>
             <tr>
-                <td width="25%" style="font-weight: bold;">Type of Reaction:
+                <td width="25%" style="font-weight: bold; height: 30px;">Type of Reaction:
                 </td>
                 <td width="25%"><?= print_field('trans_react', $fields, $record); ?></td>
                 <td colspan="2"></td>
@@ -1277,32 +1277,31 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                             <!--            END if-->
                             <?php if ($record->get('action_taken___1') == '1'): ?>
                                 <tr>
-                                    <td colspan="3" class="no-border-left no-border-top no-border-right" width="30%">
-                                        Hospital Procedure Involved:
+                                    <td colspan="3" class="no-border-left no-border-top no-border-right" >
+                                        Hospital Procedure Involved
                                     </td>
                                 </tr>
                             <?php endif; ?>
                             <?php if ($record->get('action_taken___2') == '1'): ?>
                                 <tr>
-                                    <td colspan="3" class="no-border-left no-border-right <?= !$record->hasValue(['action_taken___1']) ? 'no-border-top' : ''; ?>" width="30%">
-                                        Equipment/Supplies Involved:
+                                    <td colspan="3" class="no-border-left no-border-right <?= !$record->hasValue(['action_taken___1']) ? 'no-border-top' : ''; ?>">
+                                        Equipment/Supplies Involved
                                     </td>
                                 </tr>
                             <?php endif; ?>
                             <?php if ($record->get('action_taken___3') == '1'): ?>
                                 <tr>
-                                    <td colspan="3" class="no-border-left no-border-right <?= !$record->hasValue(['action_taken___1','action_taken___2']) ? 'no-border-top' : ''; ?>" width="30%">
-                                        Medical Follow up Performed:
+                                    <td colspan="3" class="no-border-left no-border-right <?= !$record->hasValue(['action_taken___1','action_taken___2']) ? 'no-border-top' : ''; ?>">
+                                        Medical Follow up Performed
                                     </td>
                                 </tr>
                             <?php endif; ?>
                             <?php if ($record->get('action_taken___4') == '1'): ?>
                                 <tr>
-                                    <td class="no-border-left <?= !$record->hasValue(['action_taken___1','action_taken___2','action_taken___3']) ? 'no-border-top' : ''; ?>">Supplier/Manufacturer Notified:</td>
-                                    <td class="<?= !$record->hasValue(['action_taken___1','action_taken___2','action_taken___3']) ? 'no-border-top' : ''; ?>" width="30%">
-                                        Supplier Contacted
-                                        on <?= print_field('date_contacted', $fields, $record); ?></td>
-                                    <td class="no-border-right <?= !$record->hasValue(['action_taken___1','action_taken___2','action_taken___3']) ? 'no-border-top' : ''; ?>" colspan="2">Contact
+                                    <td class="no-border-left <?= !$record->hasValue(['action_taken___1','action_taken___2','action_taken___3']) ? 'no-border-top' : ''; ?>">Supplier/Manufacturer Notified</td>
+                                    <td class="<?= !$record->hasValue(['action_taken___1','action_taken___2','action_taken___3']) ? 'no-border-top' : ''; ?>">
+                                        Date: <?= print_field('date_contacted', $fields, $record); ?></td>
+                                    <td class="no-border-right <?= !$record->hasValue(['action_taken___1','action_taken___2','action_taken___3']) ? 'no-border-top' : ''; ?>">
                                         Name: <?= print_field('person_contacted', $fields, $record); ?></td>
                                 </tr>
                             <?php endif; ?>
@@ -1314,17 +1313,9 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                             </tbody>
                         </table>
                     </td>
-                    <td>
-                        <table class="table bordered only">
-                            <tbody>
-                            <tr>
-                                <td style="font-weight: bold;" class="no-border-top no-border-bottom no-border-right">Comments:</td>
-                            </tr>
-                            <tr>
-                                <td class="no-border-top no-border-right"><?= print_field('proc_desc', $fields, $record); ?></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <td valign="top">
+                        <h4 style="margin-top:4px; margin-bottom: 4px;">Describe Action Taken:</h4>
+                        <?= print_field('proc_desc', $fields, $record); ?></td>
                     </td>
                 </tr>
                 </tbody>
