@@ -30,12 +30,9 @@ class Utilities {
                 $temp = explode("|", $field->select_choices_or_calculations);
                 foreach ($temp as $op)
                 {
-                    var_dump($op);
-                    $temp2 = explode(",", $op);
-//                    var_dump(explode(",", $op, 1));
+                    $temp2 = explode(",", $op, 2);
 
                     $fields[$field->field_name . "___" . trim($temp2[0])] = [trim($temp2[0]) => trim($temp2[1])];
-                    var_dump($temp2);
                 }
             }
         }
