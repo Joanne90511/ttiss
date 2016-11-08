@@ -169,9 +169,27 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label>Relationship of adverse event to transfusion</label>
-                        <div data-bind="foreach: fields.relation_adverse, redcapRequired: data.relation_adverse">
+                        <div data-bind="redcapRequired: data.relation_adverse">
                             <label class="radio-inline">
-                                <input type="radio" id="relation_adverse" data-bind="value:value,checked:$root.data.relation_adverse"><span data-bind="text:label"></span>
+                                <input type="radio" id="relation_adverse" data-bind="value:'4',checked:data.relation_adverse"> Definite
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" id="relation_adverse" data-bind="value:'3',checked:data.relation_adverse"> Probable
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" id="relation_adverse" data-bind="value:'2',checked:data.relation_adverse"> Possible
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" id="relation_adverse" data-bind="value:'1',checked:data.relation_adverse"> Doubtful
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" id="relation_adverse" data-bind="value:'0',checked:data.relation_adverse"> Ruled Out
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" id="relation_adverse" data-bind="value:'5',checked:data.relation_adverse"> Not Determined
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" id="relation_adverse" data-bind="value:'99',checked:data.relation_adverse"> Not Applicable
                             </label>
                         </div>
                         <small data-bind='redcapReset: data.relation_adverse' class="text-muted clickable">Reset</small>
