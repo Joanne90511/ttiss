@@ -138,6 +138,9 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         td.no-border-right, th.no-border-right {
             border-right: 0 !important;
         }
+        .sec89 {
+            font-size: 12px;
+        }
     
     
     </style>
@@ -252,7 +255,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     <table class="table">
                         <tbody>
                         <tr>
-                            <td class="no-border">Date and time occurred:</td>
+                            <td class="no-border">Signature:</td>
                             <td class="no-border"><?= print_field('date_occurred', $fields, $record); ?>
                                 &nbsp;<?= print_field('time_occurred', $fields, $record); ?></td>
                         </tr>
@@ -1354,22 +1357,19 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         8. COMMENTS
     </div>
     <div class="body">
-        <table class="table only">
+        <table class="table only sec89">
             <tbody>
             <tr>
                 <td colspan="4" class="text-left" style="border-bottom: 1px solid #903; height: 100px;"><?= print_field('final_comments', $fields, $record); ?></td>
             </tr>
-            <tr class="text-left" style="border-bottom: 1px solid #903; height: 30px; font-size: 12px">
-                <td width="40%">Reporting Physician or Designate:</td>
-                <td width="20%"><?= $record->get('report_lastname') != '99' ? print_field('report_lastname', $fields, $record) : print_field('other_name', $fields, $record); ?></td>
-                <td colspan="2" width="40%">Signature:</td>
+            <tr class="text-left" style="border-bottom: 1px solid #903; height: 30px;">
+                <td width="60%">Reporting Physician or Designate: <?= $record->get('report_lastname') != '99' ? print_field('report_lastname', $fields, $record) : print_field('other_name', $fields, $record); ?></td>
+                <td width="40%">Signature:</td>
             
             </tr>
-            <tr class="text-left" style="height: 30px; font-size: 12px">
-                <td width="20%" class="text-left">Phone Number:</td>
-                <td width="30%"><?= print_field('report_phone', $fields, $record); ?></td>
-                <td width="20%" class="text-left">Date & Time:</td>
-                <td width="30%"><?= print_field('curr_date', $fields, $record); ?></td>
+            <tr class="text-left" style="height: 30px;">
+                <td width="60%" class="text-left">Phone Number: <?= print_field('report_phone', $fields, $record); ?></td>
+                <td width="40%" class="text-left">Date & Time:</td>
             </tr>
             </tbody>
         </table>
@@ -1380,7 +1380,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
         9. COMMENTS - COMPLETED BY CANADIAN BLOOD SERVICES (CBS)
     </div>
     <div class="body">
-        <table class="table only">
+        <table class="table only sec89">
             <tbody>
             <tr>
                 <td colspan="4" class="text-left" style="border-bottom: 1px solid #903; height: 100px;"><?= print_field('cbscom', $fields, $record); ?></td>
@@ -1395,7 +1395,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     Phone: <?= print_field('medtel', $fields, $record); ?></td>
                 <td width="10%">
                     Ext: <?= print_field('med_ext', $fields, $record); ?></td>
-                <td width="50%" colspan="2">
+                <td width="50%">
                     Date: <?= print_field('datemed', $fields, $record); ?></td>
             </tr>
             </tbody>
