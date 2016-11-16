@@ -1,4 +1,4 @@
-# Slim 3 Skeleton
+# TTISS
 
 This is a simple skeleton project for Slim 3 that includes Twig, Flash messages and Monolog.
 
