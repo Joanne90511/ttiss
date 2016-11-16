@@ -1,2 +1,9 @@
 # TTISS
-README will go here
+
+## List of elements and where they are to be changed
+
+|Element Name | REDCap or Form|
+|-------------|---------------|
+|Element 1 | Form |
+|Element 2 | Form |
+
