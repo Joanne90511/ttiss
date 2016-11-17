@@ -270,7 +270,6 @@ ko.bindingHandlers.redcapForeach = {
             add += "<td><input type='radio' data-bind='value:" + item.value + "'></td>"
         });
         $(element).append(add);
-        console.log(add);
     }
 };
 
@@ -308,8 +307,6 @@ ko.bindingHandlers.redcapTableCheckbox = {
             var object = valueAccessor();
             var value = ko.unwrap(valueAccessor());
             var check = allBindings.get('val');
-            console.log(check);
-            console.log(value);
             if(value !== '' && value == check)
             {
                 object('');
@@ -332,9 +329,6 @@ ko.bindingHandlers.redcapTableCheckbox = {
         }else{
             $(element).html('');
         }
-        //Check if item is selected
-        //console.log(value);
-        //console.log(allBindings.get('val'));
     }
 };
 
@@ -344,7 +338,7 @@ ko.bindingHandlers.redcapTableCheckbox = {
 ko.bindingHandlers.redcapDatePicker = {
     init: function (element, valueAccessor, allBindingsAccessor) {
         //initialize datepicker with some optional options
-        $(element).datetimepicker({format: 'YYYY-MM-DD', showTodayButton: true});
+        $(element).datetimepicker({format: 'YYYY-MM-DD', showTodayButton: true, showClear: true});
 
         //when a user changes the date, update the view model
         ko.utils.registerEventHandler(element, "dp.change", function (event) {
@@ -367,11 +361,18 @@ ko.bindingHandlers.redcapDatePicker = {
     },
     update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
         var picker = $(element).data("DateTimePicker");
+        var value = valueAccessor();
+
         //when the view model is updated, update the widget
         if (picker) {
-            var koDate = ko.utils.unwrapObservable(valueAccessor());
+            if(value() === '')
+            {
+                picker.clear();
+            }else{
+                var koDate = ko.utils.unwrapObservable(valueAccessor());
 
-            picker.date(moment(koDate));
+                picker.date(moment(koDate));
+            }
         }
     }
 };
