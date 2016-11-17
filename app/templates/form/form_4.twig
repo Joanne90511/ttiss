@@ -29,16 +29,19 @@
                         <div data-bind="visible: data.clinical_signs() == '1'" class="row">
                             <div class="col-sm-12">
                                 <div class="checkbox">
-                                    <label for="no_sign___1"><input type="checkbox" id="no_sign___1" data-bind="redcapChecked: data.no_sign___1"><span data-bind="html:fields.no_sign___1()[0].label"></span></label>
+                                    <label for="no_sign___1">
+                                        <input type="checkbox" id="no_sign___1" data-bind="redcapChecked: data.no_sign___1">
+                                        <span data-bind="html:fields.no_sign___1()[0].label"></span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="row" data-bind="visible: data.no_sign___1() == '1'">
+                        <div class="row" data-bind="visible: data.no_sign___1() == '1' && data.clinical_signs() == '1'">
                             <div class="form-group-sm col-sm-6">
-                                <input type="text" class="form-control" placeholder="Before" data-bind="textInput:data.temp_before">
+                                <input type="text" class="form-control" placeholder="Before" data-bind="textInput:data.temp_before" id="temp_before">
                             </div>
                             <div class="form-group-sm col-sm-6">
-                                <input type="text" class="form-control" placeholder="After" data-bind="textInput:data.temp_after">
+                                <input type="text" class="form-control" placeholder="After" data-bind="textInput:data.temp_after" id="temp_after">
                             </div>
                         </div>
                         <div data-bind="visible: data.clinical_signs() == '1'" class="row">
@@ -48,12 +51,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div data-bind="visible: data.no_sign___2() === '1'" class="row">
+                        <div data-bind="visible: data.no_sign___2() === '1' && data.clinical_signs() == '1'" class="row">
                             <div class="form-group-sm col-sm-6">
-                                <input type="text" placeholder="Before" class="form-control" data-bind="textInput:data.pulse_before">
+                                <input type="text" placeholder="Before" class="form-control" data-bind="textInput:data.pulse_before" id="pulse_before">
                             </div>
                             <div class=" form-group-sm col-sm-6">
-                                <input type="text" placeholder="After" class="form-control" data-bind="textInput:data.pulse_after">
+                                <input type="text" placeholder="After" class="form-control" data-bind="textInput:data.pulse_after" id="pulse_after">
                             </div>
                         </div>
                         <div data-bind="visible: data.clinical_signs() == '1'" class="row">
@@ -63,12 +66,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row" data-bind="visible: data.no_sign___3() === '1'">
+                        <div class="row" data-bind="visible: data.no_sign___3() === '1' && data.clinical_signs() == '1'">
                             <div class="form-group-sm col-sm-6">
-                                <input type="text" class="form-control" placeholder="Before" data-bind="textInput:data.resp_before">
+                                <input type="text" class="form-control" placeholder="Before" data-bind="textInput:data.resp_before" id="resp_before">
                             </div>
                             <div class="form-group-sm col-sm-6">
-                                <input type="text" class="form-control" placeholder="After" data-bind="textInput:data.resp_after">
+                                <input type="text" class="form-control" placeholder="After" data-bind="textInput:data.resp_after" id="resp_after">
                             </div>
                         </div>
                         <div data-bind="visible: data.clinical_signs() == '1'" class="row">
@@ -78,12 +81,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row" data-bind="visible: data.no_sign___4() === '1'">
+                        <div class="row" data-bind="visible: data.no_sign___4() === '1' && data.clinical_signs() == '1'">
                             <div class="form-group-sm col-sm-6">
-                                <input type="text" class="form-control" placeholder="Before" data-bind="textInput:data.blood_pres_before">
+                                <input type="text" class="form-control" placeholder="Before" data-bind="textInput:data.blood_pres_before" id="blood_pres_before">
                             </div>
                             <div class="form-group-sm col-sm-6">
-                                <input type="text" class="form-control" placeholder="After" data-bind="textInput:data.blood_pres_after">
+                                <input type="text" class="form-control" placeholder="After" data-bind="textInput:data.blood_pres_after" id="blood_pres_after">
                             </div>
                         </div>
                     </div>
@@ -149,7 +152,7 @@
                                 <div class="col-sm-2">0<sub>2</sub>&nbsp;sat</div>
                                 <div class="col-sm-10">
                                     <div class="form-group-sm">
-                                        <input type="text" class="form-control" data-bind="textInput: data.hypo_sat">
+                                        <input type="text" class="form-control" data-bind="textInput: data.hypo_sat" id="hypo_sat">
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +178,7 @@
                             <div class="row" data-bind="visible: data.other_no_sign2_834___7() == '1'">
                                 <div class="col-sm-12">
                                     <div class="form-group-sm">
-                                        <input type="text" placeholder="Please Specify" class="form-control" data-bind="textInput: data.pain_spec">
+                                        <input id="pain_spec" type="text" placeholder="Please Specify" class="form-control" data-bind="textInput: data.pain_spec">
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +239,7 @@
                             <div data-bind="visible: data.other_no_sign2_834___13() == '1'" class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Please Specify" data-bind="textInput: data.symp_other_spec"></textarea>
+                                        <textarea class="form-control" placeholder="Please Specify" data-bind="textInput: data.symp_other_spec" id="symp_other_spec"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -349,7 +352,7 @@
                             <div class="col-sm-12">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" data-bind="redcapChecked: data.bilat_infilt___1" class="">Bilateral
+                                        <input type="checkbox" data-bind="redcapChecked: data.bilat_infilt___1" id="bilat_infilt___1" class="">Bilateral
                                         Infiltrates
                                     </label>
                                 </div>
@@ -359,7 +362,7 @@
                             <div class="col-sm-12">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" data-bind="redcapChecked: data.bilat_infilt___2" class="">Other
+                                        <input type="checkbox" data-bind="redcapChecked: data.bilat_infilt___2" id="bilat_infilt___2" class="">Other
                                     </label>
                                 </div>
                             </div>
@@ -368,7 +371,7 @@
                     <div data-bind="visible: data.xray_info() == '1'" class="col-sm-4">
                         <div class="form-group-sm">
                             <label>Describe</label>
-                            <input type="text" data-bind="textInput: data.xray_other" class="form-control">
+                            <input type="text" data-bind="textInput: data.xray_other" id="xray_other" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -386,8 +389,7 @@
                     </div>
                     <div class="col-sm-8">
                         <div data-bind='visible: data.circul_overload() == "1"' class="form-group-sm">
-                            <textarea data-bind='textInput: data.corcul_overload_spec' class="form-control" placeholder="Explain"></textarea>
-                            <!--                        <label for="">Explain</label><input type="text" data-bind='textInput: data.circul_overload_spec' class="form-control">-->
+                            <textarea data-bind='textInput: data.corcul_overload_spec' id="corcul_overload_spec" class="form-control" placeholder="Explain"></textarea>
                         </div>
                     </div>
                 </div>
@@ -438,7 +440,7 @@
                                     <input id="date_anti_" data-bind="redcapDatePicker:data.date_anti_" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_antibody_, val: 1"></td>
+                            <td id="result_antibody_" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_antibody_, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_antibody_, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_antibody_, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_antibody_, val: 3"></td>
@@ -454,10 +456,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_bilirubin" type="text" class="form-control">
+                                    <input id="date_bilirubin" data-bind="redcapDatePicker:data.date_bilirubin" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bilirubin, val: 1"></td>
+                            <td id="result_bilirubin" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bilirubin, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bilirubin, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bilirubin, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bilirubin, val: 3"></td>
@@ -473,10 +475,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_bnp" type="text" class="form-control">
+                                    <input id="date_bnp" data-bind="redcapDatePicker:data.date_bnp" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bnp, val: 1"></td>
+                            <td id="result_bnp" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bnp, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bnp, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bnp, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bnp, val: 3"></td>
@@ -492,10 +494,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_bun" type="text" class="form-control">
+                                    <input id="date_bun" data-bind="redcapDatePicker:data.date_bun" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bun, val: 1"></td>
+                            <td id="result_bun" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bun, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bun, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bun, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_bun, val: 3"></td>
@@ -511,10 +513,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_cbc" type="text" class="form-control">
+                                    <input id="date_cbc" data-bind="redcapDatePicker:data.date_cbc" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_cbc, val: 1"></td>
+                            <td id="result_cbc" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_cbc, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_cbc, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_cbc, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_cbc, val: 3"></td>
@@ -530,10 +532,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_dat" type="text" class="form-control">
+                                    <input id="date_dat" data-bind="redcapDatePicker:data.date_dat" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_dat, val: 1"></td>
+                            <td id="result_dat" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_dat, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_dat, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_dat, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_dat, val: 3"></td>
@@ -549,10 +551,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_eluate" type="text" class="form-control">
+                                    <input id="date_eluate" data-bind="redcapDatePicker:data.date_eluate" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_eluate, val: 1"></td>
+                            <td id="result_eluate" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_eluate, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_eluate, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_eluate, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_eluate, val: 3"></td>
@@ -568,10 +570,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_inr" type="text" class="form-control">
+                                    <input id="date_inr" data-bind="redcapDatePicker:data.date_inr" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 1"></td>
+                            <td id="result_inr" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_inr, val: 3"></td>
@@ -604,10 +606,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_iga" type="text" class="form-control">
+                                    <input id="date_iga" data-bind="redcapDatePicker:data.date_iga" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_iga, val: 1"></td>
+                            <td id="result_iga" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_iga, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_iga, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_iga, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_iga, val: 3"></td>
@@ -623,10 +625,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_hapto" type="text" class="form-control">
+                                    <input id="date_hapto" data-bind="redcapDatePicker:data.date_hapto" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hapto, val: 1"></td>
+                            <td id="result_hapto" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hapto, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hapto, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hapto, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hapto, val: 3"></td>
@@ -642,10 +644,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_hemo" type="text" class="form-control">
+                                    <input id="date_hemo" data-bind="redcapDatePicker:data.date_hemo" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hemo, val: 1"></td>
+                            <td id="result_hemo" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hemo, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hemo, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hemo, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_hemo, val: 3"></td>
@@ -661,10 +663,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_ldh" type="text" class="form-control">
+                                    <input id="date_ldh" data-bind="redcapDatePicker:data.date_ldh" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_ldh, val: 1"></td>
+                            <td id="result_ldh" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_ldh, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_ldh, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_ldh, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_ldh, val: 3"></td>
@@ -680,13 +682,13 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.smear_date" type="text" class="form-control">
+                                    <input id="smear_date" data-bind="redcapDatePicker:data.smear_date" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_sphere, val: 1"></td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_sphere, val: 0"></td>
+                            <td id="result_sphere" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_sphere, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_sphere, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_sphere, val: 3"></td>
+                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_sphere, val: 4"></td>
                         </tr>
                         <tr>
                             <td>
@@ -699,10 +701,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_troponin" type="text" class="form-control">
+                                    <input id="date_troponin" data-bind="redcapDatePicker:data.date_troponin" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_troponin, val: 1"></td>
+                            <td id="result_troponin" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_troponin, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_troponin, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_troponin, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_troponin, val: 3"></td>
@@ -718,10 +720,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_wbc" type="text" class="form-control">
+                                    <input id="date_wbc" data-bind="redcapDatePicker:data.date_wbc" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_wbc, val: 1"></td>
+                            <td id="result_wbc" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_wbc, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_wbc, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_wbc, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_wbc, val: 3"></td>
@@ -740,10 +742,10 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input id="date_anti_" data-bind="redcapDatePicker:data.date_other" type="text" class="form-control">
+                                    <input id="date_other" data-bind="redcapDatePicker:data.date_other" type="text" class="form-control">
                                 </div>
                             </td>
-                            <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_other, val: 1"></td>
+                            <td id="result_other" class="text-center clickable" data-bind="redcapTableCheckbox: data.result_other, val: 1"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_other, val: 0"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_other, val: 2"></td>
                             <td class="text-center clickable" data-bind="redcapTableCheckbox: data.result_other, val: 3"></td>

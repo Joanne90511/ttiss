@@ -61,7 +61,7 @@
                                 <small data-bind='redcapReset: data.incomp' class="text-muted clickable">Reset</small>
                             </div>
                         </div>
-                        <div data-bind="visible: data.incomp() == '1'" class="row">
+                        <div data-bind="visible: data.incomp() == '1' && (data.trans_react() == '5' || data.trans_react() == '6' || data.trans_react() == '7')" class="row">
                             <div class="col-sm-12">
                                 <label>Incompatible Transfusion</label>
                                 <div data-bind="foreach: fields.unint_intent">
@@ -72,7 +72,7 @@
                                 <small data-bind='redcapReset: data.unint_intent' class="text-muted clickable">Reset</small>
                             </div>
                         </div>
-                        <div data-bind="visible: data.incomp() == '1'" class="row">
+                        <div data-bind="visible: data.incomp() == '1' && (data.trans_react() == '5' || data.trans_react() == '6' || data.trans_react() == '7')" class="row">
                             <div class="col-sm-12">
                                 <label>Incompatible Transfusion</label>
                                 <div data-bind="foreach: fields.incomp_transsys">
@@ -83,7 +83,7 @@
                                 <small data-bind='redcapReset: data.incomp_transsys' class="text-muted clickable">Reset</small>
                             </div>
                         </div>
-                        <div data-bind="visible: data.incomp() == '1'" class="row">
+                        <div data-bind="visible: data.incomp() == '1' && (data.trans_react() == '5' || data.trans_react() == '6' || data.trans_react() == '7')" class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="abo_sys_spec">Incompatible transfusion - description</label>
