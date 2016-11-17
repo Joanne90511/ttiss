@@ -52,7 +52,7 @@ class OutputGet {
             /** @var \Slim\Http\Response $response */
             //    $response = $this->renderer->render($response, 'pdf.phtml',array());
             $this->pdf->WriteHTML($contents);
-            $this->pdf->Output('record.pdf', 'D');
+            $this->pdf->Output('record '.$case_id.'.pdf', 'D');
         }
 
     }
