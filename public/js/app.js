@@ -16,7 +16,9 @@ function AppViewModel() {
     self.saveStatus = ko.observable();
 
     self.save = function (callback) {
-        self.saveStatusMessage('Saving...')
+        self.saveStatusMessage('Saving...');
+        self.clearHiddenFields();
+        //Need to clear hidden elements
         $.ajax({
             type: "POST",
             url: "/form/record",
@@ -48,6 +50,15 @@ function AppViewModel() {
             console.log(data);
             console.log(status);
         });
+    };
+
+    self.clearHiddenFields = function() {
+        for(var field in self.data)
+        {
+            if(ko.isObservable(self.data[field]) && $('#' + field).is(':visible') == false){
+                self.data[field](''); //Clears the fields that are not visible. I.E. entered by accident
+            }
+        }
     };
 
     self.output = function () {
