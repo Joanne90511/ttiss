@@ -1134,15 +1134,20 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         switch ($label)
                         {
                             //TODO Fix up positioning
-                            case 'no_measures___7';
+                            case 'no_measures___7':
                                 echo "<td>Diruretics:";
                                 echo $record->get('diure_effect') ? 'Effective' : '';
                                 echo '</td>';
                                 break;
-                            case 'no_measures___11';
-                                echo "<td> Duration: " . print_field('mech_vent_dur', $fields, $record) . '</td>';
+                            case 'no_measures___11':
+                                echo "<td>Mechanical Ventilation ";
+                                if ($record->get('mech_vent_dur'))
+                                {
+                                    echo "<small>Duration: " . print_field('mech_vent_dur', $fields, $record) . '</small></td>';
+                                }
+                                echo '</td>';
                                 break;
-                            case 'no_measures___16';
+                            case 'no_measures___16':
                                 echo "<td>" . print_field('other_mesu_spec', $fields, $record) . "</td>";
                                 break;
                             
