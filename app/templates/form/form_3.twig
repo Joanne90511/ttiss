@@ -184,7 +184,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <label>Transfused Under Anesthesia</label>
-                            <div data-bind="foreach: fields.anes_trans">
+                            <div id="anes_trans" data-bind="foreach: fields.anes_trans">
                                 <label class="radio-inline">
                                     <input type="radio" data-bind="value:value,checked:$root.data.anes_trans"><span data-bind="text:label"></span>
                                 </label>
