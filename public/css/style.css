@@ -258,7 +258,7 @@ body {
     margin-right: 10px;
 }
 
-#place_occurred_font {
+#place_occurred_font, #access_location {
     font-size: 15px;
 }
 .clickable {

@@ -90,7 +90,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <label>Place occurred</label>
-                            <div id="place_occurred_font" data-bind="foreach: fields.access_location, redcapRequired: data.access_location">
+                            <div id="access_location" data-bind="foreach: fields.access_location, redcapRequired: data.access_location">
                                 <label class="radio-inline">
                                     <input type="radio" data-bind="value:value,checked:$root.data.access_location"><span data-bind="text:label"></span>
                                 </label>
