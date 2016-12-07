@@ -1126,11 +1126,16 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                     'no_measures___15',
                     'no_measures___16',
                 ];
+                $count = 0;
                 foreach ($field_labels as $index => $label)
                 {
                     
                     if ($record->get($label) == '1')
                     {
+                        if($count++ % 3 === 0)
+                        {
+                            echo '</tr><tr>';
+                        }
                         switch ($label)
                         {
                             //TODO Fix up positioning
@@ -1154,6 +1159,8 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                             default:
                                 echo "<td>" . print_field($label, $fields, $record) . "</td>";
                         }
+                        
+                        
                         
                     }
                     
@@ -1259,6 +1266,34 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                         <td><?= print_field('donor_infec_type_spec', $fields, $record); ?></td>
                     </tr>
                 <?php endif; ?>
+            <?php endif; ?>
+            <?php if (in_array($record->get('trans_react'), ['5', '6', '7'])): ?>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Was this the Result of an Incompatible Transfusion?</td>
+                    <td><?= print_field( 'incomp', $fields, $record ); ?></td>
+                </tr>
+	            <?php if ( $record->get( 'incomp' ) == '1' ): ?>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>
+                            Incompatible Transfusion
+                        </td>
+                        <td><?= $fields['unint_intent'][$record->get('unint_intent')]; ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>
+                            Incompatible Transfusion
+                        </td>
+                        <td><?= print_field( 'incomp_transsys', $fields, $record ); ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>Description</td>
+                        <td><?= print_field( 'abo_sys_spec', $fields, $record ); ?></td>
+                    </tr>
+	            <?php endif; ?>
             <?php endif; ?>
             </tbody>
         </table>
