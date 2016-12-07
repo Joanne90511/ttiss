@@ -1316,10 +1316,19 @@ function print_field($name, $fields, \App\REDCap\Record $record)
                 <td<?php if ($record->get('outcome_adverse') != '3'): ?> colspan="3" class="no-border-right" <?php endif; ?>><?= print_field('outcome_adverse', $fields, $record); ?></td>
                 <!--            If Death -->
                 <?php if ($record->get('outcome_adverse') == '3'): ?>
-                    <td>Relationship of transfusion to recipient's death</td>
+                    <td style="font-weight: bold;">Relationship of transfusion to recipient's death</td>
                     <td class="no-border-right"><?= print_field('relation_death', $fields, $record); ?></td>
                 <?php endif; ?>
             </tr>
+            <?php if ($record->get('outcome_adverse') == '3'): ?>
+            <tr>
+                <td class="no-border-left no-border-right" style="font-weight: bold;">Circumstances of Death
+                </td>
+                <td colspan="3">
+                    <?= print_field('describe_death', $fields, $record); ?>
+                </td>
+            </tr>
+            <?php endif; ?>
             </tbody>
         </table>
         <?php if ($record->hasValue(['action_taken___1','action_taken___2','action_taken___3','action_taken___4'])): ?>
@@ -1415,7 +1424,7 @@ function print_field($name, $fields, \App\REDCap\Record $record)
             </tr>
             <tr class="text-left" style="height: 30px;">
                 <td width="60%" class="text-left">Phone Number: <?= print_field('report_phone', $fields, $record); ?></td>
-                <td width="40%" class="text-left">Date & Time:</td>
+                <td width="40%" class="text-left">Date: <?= print_field('curr_date', $fields, $record); ?></td>
             </tr>
             </tbody>
         </table>
