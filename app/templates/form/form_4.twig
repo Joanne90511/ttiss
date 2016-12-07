@@ -175,13 +175,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" data-bind="visible: data.other_no_sign2_834___7() == '1'">
-                                <div class="col-sm-12">
-                                    <div class="form-group-sm">
-                                        <input id="pain_spec" type="text" placeholder="Please Specify" class="form-control" data-bind="textInput: data.pain_spec">
-                                    </div>
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-sm-8">
                                     <div class="checkbox">
@@ -240,6 +233,62 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <textarea class="form-control" placeholder="Please Specify" data-bind="textInput: data.symp_other_spec" id="symp_other_spec"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row div-horz" data-bind="visible: data.other_no_sign2_834___7() == '1'">
+                    <div class="col-sm-12">
+                        <h4>
+                            Other Pain - Specify
+                        </h4>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <label class='nocaps' for="otherpain___1"><input type="checkbox" id="otherpain___1" data-bind="redcapChecked: data.otherpain___1"><span data-bind="html:fields.otherpain___1()[0].label"></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <label class='nocaps' for="otherpain___2"><input type="checkbox" id="otherpain___2" data-bind="redcapChecked: data.otherpain___2"><span data-bind="html:fields.otherpain___2()[0].label"></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <label class='nocaps' for="otherpain___3"><input type="checkbox" id="otherpain___3" data-bind="redcapChecked: data.otherpain___3"><span data-bind="html:fields.otherpain___3()[0].label"></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <label class='nocaps' for="otherpain___4"><input type="checkbox" id="otherpain___4" data-bind="redcapChecked: data.otherpain___4"><span data-bind="html:fields.otherpain___4()[0].label"></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <label class='nocaps' for="otherpain___5"><input type="checkbox" id="otherpain___5" data-bind="redcapChecked: data.otherpain___5"><span data-bind="html:fields.otherpain___5()[0].label"></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <label class='nocaps' for="otherpain___6"><input type="checkbox" id="otherpain___6" data-bind="redcapChecked: data.otherpain___6"><span data-bind="html:fields.otherpain___6()[0].label"></span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="row" data-bind="visible: data.other_no_sign2_834___7() == '1'">
+                                    <div class="col-sm-12">
+                                        <div class="form-group-sm">
+                                            <label for="pain_spec">Describe</label>
+                                            <textarea id="pain_spec" type="text" placeholder="Describe" class="form-control" data-bind="textInput: data.pain_spec">
+                                            </textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
