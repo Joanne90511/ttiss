@@ -7,6 +7,7 @@ use App\REDCap\API as API;
 use Psr\Log\LoggerInterface;
 use Slim\Http\Request as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use Mpdf\Mpdf as Mpdf;
 
 class OutputGet {
 
@@ -14,7 +15,7 @@ class OutputGet {
     private $api;
     private $pdf;
 
-    public function __construct(LoggerInterface $logger, API $api, \mPDF $pdf)
+    public function __construct(LoggerInterface $logger, API $api, \Mpdf\Mpdf $pdf)
     {
         $this->logger = $logger;
         $this->api    = $api;

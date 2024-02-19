@@ -63,6 +63,7 @@ class API {
     {
         $data            = $this->default;
         $data['content'] = 'record';
+	$data['format']  = 'json';
         $data['fields']  = array("case_id", 'ctaerfcanadian_transfusion_reaction_adverse_event_complete');
 
         return $this->call($data);

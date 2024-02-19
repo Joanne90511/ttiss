@@ -60,7 +60,9 @@ $container['db'] = function ($c)
 
 $container['pdf'] = function ($c)
 {
-    return new mPDF('', '', 0, '', 15, 15, 32, 16, 9, 9);
+	return new \Mpdf\Mpdf(['mode' => 'utf-8', 'margin_left' => 15, 'margin_right' => 15, 'margin_top' => 32, 'margin_bottom' => 16, 'margin_header' => 9, 'margin_footer' => 9]);
+
+//'', '', 0, '', 15, 15, 32, 16, 9, 9);
 };
 
 // -----------------------------------------------------------------------------

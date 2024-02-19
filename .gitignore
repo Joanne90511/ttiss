@@ -3,3 +3,5 @@ vendor
 composer.lock
 log/*
 cache/*
+settings.php
+app/settings.php

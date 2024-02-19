@@ -30,7 +30,15 @@ final class IndexGet extends BaseAction {
 
         usort($options, function ($a, $b)
         {
-            return $a->case_id < $b->case_id;
+	    $aparts = explode("-", $a->case_id);
+	    $bparts = explode("-", $b->case_id);
+	    
+            if($aparts[0] == $bparts[0]) {
+	       return $aparts[1] < $bparts[1];
+	    }
+	    else {
+               return $a->case_id < $b->case_id; 
+            }
         });
 
         $this->data['options'] = $options;
